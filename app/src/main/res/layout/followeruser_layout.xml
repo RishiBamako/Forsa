@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="data"
+            type="com.bartering.forsa.retrofit.service_model.FollowerData_ServiceModel.DataBean" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/size_20"
+        android:orientation="vertical"
+        tools:context=".activities.SignInActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.bartering.forsa.utils.CircleImageView
+                android:layout_width="@dimen/imagesize_small"
+                android:layout_height="@dimen/imagesize_small"
+                app:loadImageCircle="@{data.image}"></com.bartering.forsa.utils.CircleImageView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+               >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_15"
+                    android:layout_weight="1"
+                    android:text="@{data.user_name}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/smallsizeallaround"
+                    android:textStyle="bold"></TextView>
+
+                <LinearLayout
+                    android:layout_width="@dimen/button_small_width"
+                    android:layout_height="wrap_content"
+                    android:gravity="right">
+
+                    <TextView
+                        android:layout_width="@dimen/button_small_width"
+                        android:layout_height="@dimen/button_small_height"
+                        android:layout_gravity="right"
+                        android:background="@drawable/button_background_black"
+                        android:gravity="center"
+                        android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event2)}"
+                        android:text="@string/follow"
+                        android:visibility="gone"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/smallsizeallaround"
+                        android:textStyle="bold"
+                        app:followOrUnfollow="@{data}"></TextView>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

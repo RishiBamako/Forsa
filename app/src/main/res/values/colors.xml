@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2DB66E</color>
+    <color name="colorPrimaryDark">#2D744E</color>
+    <color name="colorAccent">#2DB66E</color>
+    <color name="recordsnf_textcolor">#2DB66E</color>
+    <color name="redbuttoncolor">#ce2424</color>
+    <color name="blackbuttoncolor">#484646</color>
+    <color name="reddark">#C52D2D</color>
+    <color name="button_color_green">#47CA69</color>
+
+    <color name="deactive">#7E838D</color>
+    <color name="activesc">#2DB66E</color>
+    <color name="white">#FFFFFF</color>
+    <color name="active">#552DB66E</color>
+    <color name="hintcolor">#484646</color>
+    <color name="themered">#ff6e2d</color>
+    <color name="start_color">#FAFAFB</color>
+    <color name="center_color">#C6C8CF</color>
+    <color name="end_color">#FCFCFC</color>
+    <color name="gray_small">#C2C6C4</color>
+    <color name="theme_background">#e8edf3</color>
+    <color name="star_nonactive">#9aa3af</color>
+    <color name="starcolor">#EBA10D</color>
+    <color name="drawerheaderbackgroundcolor">#F0F1F3</color>
+    <color name="gray">#99000000</color>
+    <color name="darkgray">#22000000</color>
+    <color name="gray_shadow">#EBEBEB</color>
+    <color name="divider_color">#99000000</color>
+    <color name="themecolor">#00A9F6</color>
+    <color name="themecolor_two">#A4E2FE</color>
+    <color name="ripplecolor">#55000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="gray_dark">#11000000</color>
+    <color name="black">#000000</color>
+    <color name="black_message">#2E2C2C</color>
+    <color name="facebook">#34469F</color>
+    <color name="google">#BA372A</color>
+
+    <integer-array name="gplus_colors">
+        <item>@color/gplus_color_1</item>
+        <item>@color/gplus_color_2</item>
+        <item>@color/gplus_color_3</item>
+        <item>@color/gplus_color_4</item>
+    </integer-array>
+
+    <color name="gplus_color_1">#3e802f</color>
+    <color name="gplus_color_2">#f4b400</color>
+    <color name="gplus_color_3">#427fed</color>
+    <color name="gplus_color_4">#b23424</color>
+
+    <color name="spark_primary_color">#FFFFC107</color>
+    <color name="spark_secondary_color">#FFFF5722</color>
+    <color name="spark_image_tint">#00000000</color>
+    <color name="heart_primary_color">#E84E37</color>
+    <color name="heart_secondary_color">#99000000</color>
+    <color name="text_red">#f84545</color>
+
+
+    <color name="ring1">#AA69AA</color>
+    <color name="ring2">#AADEEA</color>
+    <color name="ring3">#C9ff56</color>
+    <color name="ring4">#34ff11</color>
+    <color name="ring5">#95ff09</color>
+    <color name="ring6">#24ff35</color>
+    <color name="ring7">#66ff89</color>
+    <color name="ring8">#09ff45</color>
+    <color name="ring9">#11ff67</color>
+    <color name="ring10">#84ff90</color>
+    <color name="ring11">#71ff31</color>
+    <color name="ring12">#45ff88</color>
+    <color name="ring13">#78ff67</color>
+    <color name="redtheme_color">#FF6E2D</color>
+
+
+    //calender
+
+    <color name="roboto_calendar_background">#FFFFFF</color>
+    <color name="roboto_calendar_selected_day_font">#FFFFFF</color>
+    <color name="roboto_calendar_selected_day_background">#2DB66E</color>
+    <color name="roboto_calendar_current_day_ring">#2DB66E</color>
+    <color name="roboto_calendar_day_of_the_month_font">#4F4F4F</color>
+    <color name="roboto_calendar_circle_1">#EB5757</color>
+    <color name="roboto_calendar_circle_2">#55c6da</color>
+    <color name="roboto_calendar_month_arrow">#55c6da</color>
+
+
+</resources>

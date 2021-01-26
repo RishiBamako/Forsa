@@ -1,0 +1,90 @@
+apply plugin: 'com.android.library'
+
+
+version = "1.2.2"
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.1"
+
+    defaultConfig {
+        resourcePrefix "lightsky"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 122
+        versionName "1.2.2"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+ext {
+    appCompatVersion = '1.2.0'
+    designSupportVersion = '1.0.0'
+    recyclerViewVersion = '1.0.0'
+}
+dependencies {
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation "androidx.appcompat:appcompat:${appCompatVersion}"
+    implementation "com.google.android.material:material:${designSupportVersion}"
+
+}
+
+android {
+    lintOptions {
+        abortOnError false
+    }
+}
+
+
+//------------------------------------------------------------------------------------------
+
+
+
+def siteUrl = 'https://github.com/lightSky/InfiniteIndicator'      // 项目的主页
+
+def gitUrl = 'https://github.com/lightSky/InfiniteIndicator.git'   // Git仓库的url
+
+group = "cn.lightsky.infiniteindicator"      // Maven Group ID for the artifact，一般填你唯一的包名
+
+
+task sourcesJar(type: Jar) {
+
+    from android.sourceSets.main.java.srcDirs
+
+    classifier = 'sources'
+
+}
+
+task javadoc(type: Javadoc) {
+
+    source = android.sourceSets.main.java.srcDirs
+
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+
+    classifier = 'javadoc'
+
+    from javadoc.destinationDir
+
+}
+
+artifacts {
+
+//    archives javadocJar
+
+    archives sourcesJar
+
+}
+
+Properties properties = new Properties()
+
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+

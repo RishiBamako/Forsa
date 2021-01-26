@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View"></import>
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <variable
+            name="chatData"
+            type="com.bartering.forsa.retrofit.service_model.ChatData_ServiceModel.DataBean" />
+
+        <variable
+            name="isFromLoggedInUser"
+            type="Boolean" />
+
+        <variable
+            name="isMessageSeen"
+            type="Boolean" />
+
+        <variable
+            name="position"
+            type="Integer" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/incomingMessageTextViewId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_10"
+            android:layout_marginRight="@dimen/size_40"
+            android:background="@drawable/incoming_message"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/size_40"
+            android:paddingLeft="@dimen/size_25"
+            android:paddingTop="@dimen/size_05"
+            android:paddingRight="@dimen/size_10"
+            android:paddingBottom="@dimen/size_05"
+            android:text="@{chatData.final_message}"
+            android:textColor="@color/white"
+            android:visibility="@{isFromLoggedInUser ? View.GONE : View.VISIBLE}"></TextView>
+
+        <RelativeLayout
+            android:id="@+id/myChatRelaLayoutId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/incomingMessageTextViewId"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/size_40"
+            android:layout_marginTop="@dimen/size_10"
+            android:visibility="@{isFromLoggedInUser ? View.VISIBLE : View.GONE}"
+            android:background="@drawable/outgoing_message"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/size_05"
+            android:gravity="right"
+            android:paddingBottom="@dimen/size_05">
+
+            <TextView
+                android:id="@+id/messageGottedId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/size_40"
+                android:paddingLeft="@dimen/size_10"
+                android:paddingRight="@dimen/size_10"
+                android:text="@{chatData.final_message}"
+                android:textColor="@color/white"
+              ></TextView>
+
+            <LinearLayout
+                android:id="@+id/seenParentLinLayoutId"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/size_30"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/messageGottedId"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/size_15"
+                    android:layout_height="@dimen/size_09"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_30"
+                    android:background="@mipmap/seen"
+                    android:visibility="@{isMessageSeen ? View.VISIBLE : View.GONE}"></ImageView>
+
+                <ImageView
+                    android:layout_width="@dimen/size_15"
+                    android:layout_height="@dimen/size_09"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_30"
+                    android:background="@mipmap/notseen"
+                    android:visibility="@{isMessageSeen ? View.GONE : View.VISIBLE}"></ImageView>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

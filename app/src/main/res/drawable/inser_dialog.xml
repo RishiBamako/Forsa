@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/border_shadow_home_select"
+    android:insetRight="@dimen/size_15"
+    android:insetTop="@dimen/size_25"
+    android:insetBottom="@dimen/size_25"
+    android:insetLeft="@dimen/size_15">
+</inset>

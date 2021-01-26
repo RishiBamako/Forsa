@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <variable
+            name="data"
+            type="com.bartering.forsa.retrofit.service_model.CartData_ServiceModel.DataBean.PrdpecordBean" />
+
+        <variable
+            name="isGuestUser"
+            type="Boolean" />
+
+        <variable
+            name="isInEditMode"
+            type="Boolean" />
+
+        <import type="android.view.View"></import>
+    </data>
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_10"
+        android:background="@drawable/border_shadow_home_select"
+        android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event10)}"
+        app:cardCornerRadius="20dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/parentLinLayoutId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_shadow_home_select"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="1dp"
+            android:paddingTop="1dp"
+            android:paddingRight="1dp"
+            android:paddingBottom="@dimen/size_10">
+
+            <RelativeLayout
+                android:layout_width="@dimen/size_140"
+                android:layout_height="@dimen/size_140"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/size_04"
+                    app:imageWithCustomRadius="@{data.prdimage}">
+                    ></ImageView>
+
+                <LinearLayout
+                    android:layout_width="@dimen/size_25_ori"
+                    android:layout_height="@dimen/size_25_ori"
+                    android:background="@drawable/border_shadow_home_select"
+                    android:layout_marginTop="@dimen/size_07"
+                    android:layout_marginRight="@dimen/size_07"
+                    android:layout_alignParentRight="true"
+                    android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event8)}"
+                    android:visibility="@{isGuestUser ? View.GONE : View.VISIBLE}"
+                    android:gravity="center"
+                    >
+                    <ImageView
+                        android:layout_width="@dimen/size_17"
+                        android:layout_height="@dimen/size_15"
+                        android:layout_marginLeft="1dp"
+                        app:isWishedOrNot="@{data.wishstatus}"></ImageView>
+                </LinearLayout>
+
+
+              <!--  <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="@dimen/size_45"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/size_10"
+                    android:background="@drawable/like_background_transparent"
+                    android:gravity="center"
+                    android:visibility="@{isGuestUser ? View.GONE : View.VISIBLE}"
+                    android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event9)}"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/size_05">
+
+                   &lt;!&ndash; <ImageView
+                        android:layout_width="@dimen/size_15"
+                        android:layout_height="@dimen/size_13"
+                        app:isLikedOrNot="@{data.likeornot}"></ImageView>&ndash;&gt;
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:text="@{data.total_like}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_12"></TextView>
+                </LinearLayout>-->
+
+                <ImageView
+                    android:layout_width="@dimen/size_25_ori"
+                    android:layout_height="@dimen/size_25_ori"
+                    android:background="@mipmap/remove_item"
+                    android:layout_margin="3dp"
+                    android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event4)}"
+                    android:visibility="@{isInEditMode ? View.VISIBLE : View.GONE}"></ImageView>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10"
+                android:text="@{data.title}"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textSize="@dimen/smallsizeallaround"
+                android:textStyle="bold"></TextView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_05"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/size_25"
+                        android:layout_height="@dimen/size_25"
+                        android:background="@drawable/location"
+                        android:backgroundTint="#C0C0C0"></ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_05"
+                        android:textSize="@dimen/size_10"
+                        android:text="5 KM"></TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/size_25"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/size_25"
+                        android:layout_height="@dimen/size_25"
+                        android:background="@drawable/eye"
+                        android:backgroundTint="#C0C0C0"></ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_05"
+                        android:textSize="@dimen/size_10"
+                        android:text="@{data.total_view}"></TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

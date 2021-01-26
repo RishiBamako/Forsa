@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:paddingTop="5sp"
+    android:paddingBottom="5sp"
+    android:paddingLeft="@dimen/size_15"
+    android:paddingRight="@dimen/size_15"
+    android:background="#FFFFFF"
+    android:id="@+id/drawelistitemlalyout">
+
+    <ImageView
+        android:id="@+id/drawerImageViewId"
+        android:layout_width="@dimen/size_30"
+        android:layout_height="@dimen/size_30"
+        android:layout_marginLeft="@dimen/size_10"
+        android:layout_centerVertical="true"
+        ></ImageView>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hello"
+        android:fontFamily="Arial"
+        android:layout_toRightOf="@+id/drawerImageViewId"
+        android:textStyle="bold"
+        android:layout_marginBottom="0dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/size_10"
+        android:textSize="@dimen/drawer_item_size"
+        android:textColor="@color/black"
+         />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/drawerImageViewId"
+        android:background="@color/gray"
+        android:layout_marginTop="@dimen/size_25"
+        ></TextView>
+
+    <ImageView
+        android:layout_width="@dimen/right_arrow_width"
+        android:layout_height="@dimen/right_arrow_height"
+        android:layout_marginLeft="@dimen/size_10"
+        android:background="@mipmap/naviga_arrow"
+        android:rotation="-90"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+
+        android:layout_marginRight="@dimen/size_20"
+        ></ImageView>
+
+</RelativeLayout>

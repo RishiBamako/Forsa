@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toast_layout_root"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/size_70"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_textview_toast"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/size_30"
+        android:minHeight="@dimen/size_40"
+        android:minWidth="200dp"
+        android:gravity="center"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_20"
+            android:layout_marginRight="@dimen/size_10"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="@dimen/size_40"
+                android:layout_height="@dimen/size_15"
+                android:layout_marginRight="@dimen/size_10"
+                android:background="@mipmap/logo"
+                ></ImageView>
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="dsdsdsdsds"
+                android:textColor="#FFF"
+                android:paddingLeft="@dimen/size_10"
+                android:textSize="@dimen/toast_text_size"
+
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/size_20dp"
+        android:layout_marginRight="@dimen/size_20dp"
+        android:background="@drawable/round_textview_toast"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/size_10dp"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.60"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="@dimen/size_40dp"
+                android:layout_height="@dimen/size_40dp"
+                android:src="@drawable/logo" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".40"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="sdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdsfdsfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfdsfsdfdsfdsfdsfsdfsdfsdfdsfsdfsdfsdfsdfsdf"
+                android:textColor="#FFF"
+                android:textSize="@dimen/toast_text_size"
+
+                />
+
+        </LinearLayout>
+    </LinearLayout>-->
+</RelativeLayout>

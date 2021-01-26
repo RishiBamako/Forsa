@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="languageDataList"
+            type="java.util.List" />
+
+       <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <variable
+            name="countriesDataList"
+            type="java.util.List" />
+    </data>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_main"
+        android:orientation="vertical"
+        tools:context=".activities.SignInActivity">
+
+        <LinearLayout
+            android:layout_width="@dimen/size_50"
+            android:layout_height="@dimen/size_40"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_marginTop="@dimen/size_20"
+            android:onClick="backPressed"
+            >
+            <ImageView
+                android:layout_width="@dimen/backarrow_width"
+                android:layout_height="@dimen/backarrow_height"
+                android:background="@mipmap/right_arrow"
+                ></ImageView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/size_20"
+            android:layout_marginRight="@dimen/size_20"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/size_30">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10"
+                android:gravity="center"
+                android:text="@string/chooseyourlanguage"
+                android:textColor="@color/black"
+                android:textSize="@dimen/biggest_header"
+                android:textStyle="bold"></TextView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_25"
+                android:orientation="vertical">
+
+                <com.bartering.forsa.searchable_spinner.SearchableSpinner
+                    android:id="@+id/languageSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edittext_height"
+                    android:background="@drawable/border_shadow_select"
+                    android:paddingLeft="@dimen/size_10"
+                    app:bindSpinnerAdapter="@{languageDataList}"></com.bartering.forsa.searchable_spinner.SearchableSpinner>
+
+                <ImageView
+                    android:layout_width="@dimen/spinner_arrow_width"
+                    android:layout_height="@dimen/spinner_arrow_height"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_15"
+                    android:background="@mipmap/spinner_arrow"></ImageView>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_25"
+                android:gravity="center"
+                android:text="@string/chooseyourcountry"
+                android:textColor="@color/black"
+                android:textSize="@dimen/biggest_header"
+                android:textStyle="bold"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_70"
+                android:layout_marginTop="@dimen/size_25"
+                android:background="@drawable/border_shadow_select"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:background="@mipmap/target"></ImageView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/size_15">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/currentlocation"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_15"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/enablelocationservice"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_15"></TextView>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_10"
+                android:layout_marginTop="@dimen/size_20"
+                android:layout_marginRight="@dimen/size_10"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="@dimen/size_100"
+                    android:layout_height="1dp"
+                    android:background="@color/gray"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:layout_marginRight="@dimen/size_10"
+                    android:text="OR"
+                    android:textColor="@color/gray"></TextView>
+
+                <TextView
+                    android:layout_width="@dimen/size_100"
+                    android:layout_height="1dp"
+                    android:background="@color/gray"></TextView>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_20"
+                android:background="@drawable/border_shadow_select"
+                android:orientation="vertical">
+
+                <com.bartering.forsa.searchable_spinner.SearchableSpinner
+                    android:id="@+id/countrySpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edittext_height"
+                    android:paddingLeft="@dimen/size_10"
+                    android:background="@android:color/transparent"
+                    app:bindSpinnerAdapter="@{countriesDataList}"></com.bartering.forsa.searchable_spinner.SearchableSpinner>
+
+                <ImageView
+                    android:layout_width="@dimen/spinner_arrow_width"
+                    android:layout_height="@dimen/spinner_arrow_height"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_15"
+                    android:background="@mipmap/spinner_arrow"></ImageView>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/size_30"
+                android:background="@drawable/button_background"
+                android:gravity="center"
+                android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event1)}"
+                android:text="@string/next"
+                android:textColor="@color/white"
+                android:textSize="@dimen/buttontextsize"></TextView>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

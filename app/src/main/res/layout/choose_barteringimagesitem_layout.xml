@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"></import>
+
+        <variable
+            name="data"
+            type="com.bartering.forsa.retrofit.service_model.BarteringProducts_ServiceModel.DataBean" />
+
+        <variable
+            name="isShowCameraView"
+            type="Boolean" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/size_15"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".activities.SignInActivity">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event2)}"
+            android:orientation="vertical"
+            android:visibility="@{isShowCameraView ? View.VISIBLE : View.GONE}">
+
+            <LinearLayout
+                android:layout_width="@dimen/list_image_size"
+                android:layout_height="@dimen/list_image_size"
+                android:background="@drawable/dotted_background"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/size_40"
+                    android:layout_height="@dimen/size_35"
+                    android:background="@mipmap/camera_bm"
+                    android:backgroundTint="@color/gray"></ImageView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="@dimen/size_100"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10"
+                android:text="@string/addanother"
+                android:gravity="center"
+                android:textSize="@dimen/smallsizeallaround"
+                android:textColor="@color/black"></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event3)}"
+            android:orientation="vertical"
+            android:visibility="@{isShowCameraView ? View.GONE : View.VISIBLE}">
+
+            <ImageView
+                android:layout_width="@dimen/list_image_size"
+                android:layout_height="@dimen/list_image_size"
+                app:loadImage="@{data.prd_img}"></ImageView>
+
+            <TextView
+                android:layout_width="@dimen/size_100"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10"
+                android:text="@{data.title}"
+                android:textSize="@dimen/smallsizeallaround"
+                android:gravity="center"
+                android:textColor="@color/black"></TextView>
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

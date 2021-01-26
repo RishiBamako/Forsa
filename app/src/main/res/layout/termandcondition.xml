@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.bartering.forsa.retrofit.service_model.Privacy_Policy_Terms_DataModel.DataBean" />
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/inser_dialog"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/size_15"
+        android:paddingTop="@dimen/size_25"
+        android:paddingRight="@dimen/size_15"
+        android:paddingBottom="@dimen/size_25">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/applyTextViewId"
+            android:layout_marginBottom="@dimen/size_10"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/closeDialogLinLayoutId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:background="@drawable/close_backgroid"
+                android:gravity="center"
+                android:layout_margin="@dimen/size_10"
+                android:onClick="@{(view)->clickListener.onClick(0,null,@string/event6)}">
+
+                <ImageView
+                    android:layout_width="@dimen/size_15"
+                    android:layout_height="@dimen/size_15"
+                    android:background="@mipmap/cancel"></ImageView>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_15">
+
+                <TextView
+                    android:id="@+id/filterByTextViewId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@{data.title}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/bigheadersizeallaround"
+                    android:textStyle="bold"></TextView>
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/size_30"
+                android:background="@color/gray_small"></TextView>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="@dimen/smallsizeallaround"
+                    android:layout_marginTop="@dimen/size_20"
+                    android:textColor="@color/black"
+                    android:text="@{data.description}"></TextView>
+
+            </ScrollView>
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/button_background"
+            android:gravity="center"
+            android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event7)}"
+            android:text="@string/ok"
+            android:layout_marginBottom="@dimen/size_25"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_marginRight="@dimen/size_10"
+            android:textColor="@color/white"
+            android:textSize="@dimen/button_pri_politextsize"></TextView>
+
+
+    </RelativeLayout>
+</layout>

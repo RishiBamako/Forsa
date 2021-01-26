@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto">
+    <data>
+    </data>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        >
+        <com.bartering.forsa.utils.ProgressWheel
+            android:id="@+id/power_spinner"
+            android:layout_width="@dimen/loader_width"
+            android:layout_height="@dimen/loader_height"
+            ProgressWheel:pwBarColor="@color/colorAccent"
+            ProgressWheel:pwBarLength="@dimen/size_90"
+            ProgressWheel:pwBarWidth="7dp"
+            ProgressWheel:pwRimColor="@color/gray"
+            ProgressWheel:pwRimWidth="8dp"
+            android:visibility="visible"
+            android:layout_centerInParent="true"
+            ProgressWheel:pwTextColor="#222"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            ProgressWheel:pwTextSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="F"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/size_25"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            ></TextView>
+    </RelativeLayout>
+</layout>
+

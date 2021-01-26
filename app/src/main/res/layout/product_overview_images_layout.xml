@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"></import>
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+       <variable
+            name="isThisFromEdit"
+            type="Boolean" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="data"
+            type="com.bartering.forsa.activities.camera_section.MediaData_HolderModel" />
+
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="@dimen/size_120"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/size_15"
+        android:gravity="center"
+        android:background="@drawable/border_shadow_theme_active"
+        android:orientation="vertical"
+        tools:context=".activities.SignInActivity">
+
+        <LinearLayout
+            android:id="@+id/captureImageLinLayoutId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event4)}"
+            android:orientation="vertical"
+            android:padding="3dp"
+
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_85"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="27dp"
+                    android:background="@mipmap/camera_bm"
+                    android:backgroundTint="@color/gray"></ImageView>
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10"
+                android:text="@string/addanother"
+                android:textColor="@color/black"
+                android:visibility="gone"></TextView>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/imageViewLinLayoutId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event3)}"
+            android:orientation="vertical"
+            android:padding="@dimen/size_05"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    app:radiusBitmap_ImageVideo="@{data}"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size_85"></ImageView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size_10"
+                    android:text="i Phone XL"
+                    android:textColor="@color/black"
+                    android:visibility="gone"></TextView>
+            </LinearLayout>
+            <ImageView
+                android:layout_width="@dimen/size_25"
+                android:layout_height="@dimen/size_25"
+                android:background="@mipmap/remove_red"
+                android:layout_alignParentRight="true"
+                android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event7)}"
+                android:visibility="@{isThisFromEdit ? View.VISIBLE : View.GONE}"
+                android:layout_margin="@dimen/size_05"
+                ></ImageView>
+        </RelativeLayout>
+
+        <com.bartering.forsa.utils.ProgressWheel
+            android:id="@+id/power_spinner"
+            android:layout_width="@dimen/loader_width"
+            android:layout_height="@dimen/loader_height"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/size_20"
+            android:visibility="gone"
+            ProgressWheel:pwBarColor="@color/black"
+            ProgressWheel:pwBarLength="60dp"
+            ProgressWheel:pwBarWidth="5dp"
+            ProgressWheel:pwRimColor="@color/colorAccent"
+            ProgressWheel:pwRimWidth="5dp"
+            ProgressWheel:pwTextColor="#222"
+            ProgressWheel:pwTextSize="14sp" />
+
+    </RelativeLayout>
+</layout>

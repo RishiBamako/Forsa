@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aap="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="products_Image"
+            type="String" />
+
+        <variable
+            name="selectedProduct"
+            type="com.bartering.forsa.retrofit.service_model.BarteringProducts_ServiceModel.DataBean" />
+
+        <variable
+            name="sortByRecyclerView"
+            type="com.bartering.forsa.recyclerViewAdapter.SortBy_RecyclerViewAdapter" />
+
+        <variable
+            name="categoryRecyclerView"
+            type="com.bartering.forsa.recyclerViewAdapter.SortBy_RecyclerViewAdapter" />
+
+
+        <variable
+            name="isNoRecord"
+            type="Boolean" />
+
+        <import type="android.view.View" />
+
+
+    </data>
+
+    <LinearLayout xmlns:app="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/border_shadow_bottomslide"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/size_25"
+        android:paddingRight="@dimen/size_25"
+        android:paddingBottom="@dimen/size_20">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_20">
+
+            <LinearLayout
+                android:id="@+id/closeDialogLinLayoutId"
+                android:layout_width="@dimen/size_35"
+                android:layout_height="@dimen/size_35"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/close_backgroid"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/size_15"
+                    android:layout_height="@dimen/size_15"
+                    android:background="@mipmap/cancel"></ImageView>
+            </LinearLayout>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_40"
+                android:layout_marginRight="@dimen/size_40"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/bartering_image"
+                        android:layout_height="@dimen/bartering_image"
+                        app:imageWithCustomRadius="@{products_Image}"></ImageView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/size_30"
+                        android:layout_height="@dimen/size_20"
+                        android:background="@mipmap/transfer"></ImageView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <LinearLayout
+                        android:layout_width="84dp"
+                        android:layout_height="84dp"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="@dimen/bartering_image"
+                            android:layout_height="@dimen/bartering_image"
+                            app:imageWithCustomRadius_bartering="@{selectedProduct.prd_img}"></ImageView>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_20"
+            android:gravity="center"
+            android:text="@string/chooseyourooffer"
+            android:textColor="@color/black"
+            android:textSize="@dimen/smallvaluesizeallaround"
+            android:textStyle="bold"></TextView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_130"
+            android:layout_marginTop="@dimen/size_20"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/size_10"
+                android:gravity="center"
+                android:text="@string/norecordfound"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/size_notfound"
+                android:textStyle="bold"
+                android:visibility="@{isNoRecord ? View.VISIBLE : View.GONE}"></TextView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/barteringProductRecyclerViewId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                aap:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"></androidx.recyclerview.widget.RecyclerView>
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"></import>
+
+        <variable
+            name="paramOptimizer"
+            type="com.bartering.forsa.mutableViewModel.ParamOptimizer_ViewModel" />
+
+        <variable
+            name="clickListrener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <variable
+            name="genderDataList"
+            type="java.util.List" />
+
+        <variable
+            name="dateOfBirth"
+            type="String" />
+
+        <variable
+            name="confirmPasswordShouldHide"
+            type="Boolean" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/button_color_green"
+        tools:context=".BottomMenuFragment">
+
+        <!--recyclerview section-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/size_140"
+            android:background="@drawable/border_shadow_home_recycler">
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/actionbar_height">
+
+                <LinearLayout
+                    android:id="@+id/backLLId"
+                    android:layout_width="@dimen/size_80"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/right_arrow_width_normal"
+                        android:layout_height="@dimen/right_arrow_height_normal"
+                        android:layout_centerVertical="true"
+                        android:background="@mipmap/right_arrow"
+                        android:backgroundTint="@color/white"></ImageView>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_25"
+                    android:text="@string/profile_title"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/actionbartextsize"
+                    android:textStyle="bold"></TextView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_122"
+                android:layout_marginTop="@dimen/size_10"
+                android:minHeight="@dimen/size_100">
+
+                <com.bartering.forsa.utils.CircleImageView
+                    android:id="@+id/profileImageViewId"
+                    android:layout_width="@dimen/circle_image_size"
+                    android:layout_height="@dimen/circle_image_size"
+                    android:layout_centerHorizontal="true"
+                    android:src="@mipmap/user"></com.bartering.forsa.utils.CircleImageView>
+
+                <LinearLayout
+                    android:layout_width="@dimen/capture_image_goal"
+                    android:layout_height="@dimen/capture_image_goal"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/round_linlayout_editprofile"
+                    android:gravity="center"
+                    android:onClick="@{(view) -> clickListrener.onClick(0,null,@string/event2)}">
+
+                    <ImageView
+                        android:layout_width="@dimen/size_18"
+                        android:layout_height="@dimen/size_16"
+                        android:background="@mipmap/camera_bm"
+                        android:backgroundTint="@color/white"></ImageView>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/size_30"
+                    android:paddingTop="5dp"
+                    android:paddingRight="@dimen/size_30"
+                    android:paddingBottom="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/size_25"
+                            android:fontFamily="arial"
+                            android:text="@string/name"
+                            android:textColor="@color/hintcolor"
+                            android:textSize="@dimen/size_13"
+                            android:textStyle="bold"></TextView>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edittext_height"
+                            android:layout_marginTop="@dimen/size_05"
+                            android:background="@drawable/border_shadow_"
+                            android:inputType="textEmailAddress"
+                            android:paddingLeft="@dimen/size_10"
+                            android:singleLine="true"
+                            android:text="@={paramOptimizer.fullName}"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            android:textStyle="bold"></EditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/size_25"
+                            android:fontFamily="arial"
+                            android:text="@string/emailaddress"
+                            android:textColor="@color/hintcolor"
+                            android:textSize="@dimen/size_13"
+                            android:textStyle="bold"></TextView>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edittext_height"
+                            android:layout_marginTop="@dimen/size_05"
+                            android:background="@drawable/border_shadow_"
+                            android:inputType="textEmailAddress"
+                            android:paddingLeft="@dimen/size_10"
+                            android:singleLine="true"
+                            android:text="@={paramOptimizer.email}"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            android:textStyle="bold"></EditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:orientation="vertical" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/size_25"
+                            android:fontFamily="arial"
+                            android:text="@string/gender"
+                            android:textColor="@color/hintcolor"
+                            android:textSize="@dimen/size_13"
+                            android:textStyle="bold"></TextView>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/size_05"
+                            android:background="@drawable/border_shadow_"
+                            android:orientation="vertical">
+
+                            <com.bartering.forsa.searchable_spinner.SearchableSpinner
+                                android:id="@+id/genderSpinnerId"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edittext_height"
+                                android:background="@android:color/transparent"
+                                android:paddingLeft="@dimen/size_10"
+                                app:bindSpinnerAdapter="@{genderDataList}"></com.bartering.forsa.searchable_spinner.SearchableSpinner>
+
+                            <ImageView
+                                android:layout_width="@dimen/size_13"
+                                android:layout_height="@dimen/size_08"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/size_15"
+                                android:background="@mipmap/spinner_arrow"></ImageView>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/size_25"
+                            android:fontFamily="arial"
+                            android:text="@string/dateofbirth"
+                            android:textColor="@color/hintcolor"
+                            android:textSize="@dimen/size_13"
+                            android:textStyle="bold"></TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edittext_height"
+                            android:layout_marginTop="@dimen/size_05"
+                            android:background="@drawable/border_shadow_"
+                            android:gravity="center_vertical"
+                            android:onClick="@{(view) -> clickListrener.onClick(0,null,@string/event3)}"
+                            android:paddingLeft="@dimen/size_10"
+                            android:singleLine="true"
+                            android:text="@{dateOfBirth}"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            android:textStyle="bold"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+                        <!--    android:visibility="@{confirmPasswordShouldHide ? View.GONE : View.VISIBLE}"-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/size_25"
+                            android:fontFamily="arial"
+                            android:text="@string/confirm_password"
+                            android:textColor="@color/hintcolor"
+                            android:textSize="@dimen/size_13"
+                            android:textStyle="bold"></TextView>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edittext_height"
+                            android:layout_marginTop="@dimen/size_05"
+                            android:background="@drawable/border_shadow_"
+                            android:inputType="textPassword"
+                            android:paddingLeft="@dimen/size_10"
+                            android:singleLine="true"
+                            android:text="@={paramOptimizer.confirmPassword}"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            android:textStyle="bold">
+
+                        </EditText>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_marginTop="@dimen/size_25"
+                        android:layout_marginBottom="@dimen/size_10"
+                        android:background="@drawable/button_background"
+                        android:gravity="center"
+                        android:onClick="@{(view) -> clickListrener.onClick(0,null,@string/event1)}"
+                        android:text="@string/next"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/buttontextsize"
+                        android:textStyle="bold"></TextView>
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

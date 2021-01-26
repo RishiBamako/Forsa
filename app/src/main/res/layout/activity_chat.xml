@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="selectedProductImage"
+            type="String" />
+
+        <variable
+            name="myProductImage"
+            type="String" />
+
+        <variable
+            name="endUserImage"
+            type="String" />
+
+        <variable
+            name="endUserproductName"
+            type="String" />
+
+        <variable
+            name="myImage"
+            type="String" />
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <import type="android.view.View"></import>
+
+        <variable
+            name="isRecordsNotFound"
+            type="Boolean" />
+
+        <variable
+            name="chatAdapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/button_color_green"
+        tools:context=".BottomMenuFragment">
+
+
+        <!--recyclerview section-->
+        <LinearLayout
+            android:layout_below="@+id/headerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottomLinLayoutId"
+            android:background="@drawable/border_shadow_home_recycler_non_radious">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/size_20"
+                android:layout_marginTop="@dimen/size_20"
+                android:layout_marginRight="@dimen/size_20"
+                android:adapter="@{chatAdapter}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"></androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/headerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/actionbar_height"
+                android:layout_marginTop="@dimen/size_10"
+                >
+
+                <LinearLayout
+                    android:id="@+id/backLLId"
+                    android:layout_width="@dimen/size_80"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/right_arrow_width_normal"
+                        android:layout_height="@dimen/right_arrow_height_normal"
+                        android:layout_centerVertical="true"
+                        android:background="@mipmap/right_arrow"
+                        android:backgroundTint="@color/white"></ImageView>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="Noora Al Zaid"
+                    android:gravity="center"
+                    android:maxLines="3"
+                    android:layout_toRightOf="@id/backLLId"
+                    android:layout_toLeftOf="@id/menuLinLayoutId"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/actionbarnamesize"
+                    android:textStyle="bold"></TextView>
+                <LinearLayout
+                    android:id="@+id/menuLinLayoutId"
+                    android:layout_width="@dimen/size_80"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/right_arrow_width_normal"
+                        android:layout_height="27dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/menu"
+                        android:backgroundTint="@color/white"></ImageView>
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/topProductView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_70"
+                android:background="#dbdbdb"
+                android:layout_below="@+id/headerView"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/size_10">
+
+                <LinearLayout
+                    android:layout_width="@dimen/size_150"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@+id/centralHeaderTextViewId"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="@dimen/size_60"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="@dimen/size_50"
+                            android:layout_height="@dimen/size_50"
+                            app:imageWithCustomRadius_bartering="@{myProductImage}"></ImageView>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="@dimen/size_30"
+                        android:layout_height="@dimen/size_20"
+                        android:background="@mipmap/transfer"></ImageView>
+
+                    <LinearLayout
+                        android:layout_width="@dimen/size_60"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="@dimen/size_50"
+                            android:layout_height="@dimen/size_50"
+                            app:imageWithCustomRadius_bartering="@{selectedProductImage}"></ImageView>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/centralHeaderTextViewId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/size_10"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/size_15"
+                    android:paddingRight="@dimen/size_15"
+                    android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event2)}"
+                    android:paddingTop="@dimen/size_10"
+                    android:paddingBottom="@dimen/size_10"
+                    android:layout_marginLeft="@dimen/size_30"
+                    android:layout_marginRight="@dimen/size_10"
+                    android:background="@drawable/oval_hintcolor_theme_red"
+                    android:text="@string/agree"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"></TextView>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/recordsnotfound"
+            android:textColor="@color/recordsnf_textcolor"
+            android:textSize="@dimen/recordnf_textsize"
+            android:visibility="@{isRecordsNotFound ? View.VISIBLE : View.GONE}"></TextView>
+
+        <LinearLayout
+            android:id="@+id/bottomLinLayoutId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#929498"
+            android:orientation="vertical"
+            android:padding="@dimen/size_12">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_60"
+                android:background="@drawable/border_shadow_home_roundselect"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:hint="@string/typeurmessage"
+                    android:paddingLeft="@dimen/size_20"
+                    android:textColor="@color/hintcolor"
+                    android:textColorHint="@color/hintcolor"
+                    android:fontFamily="arial"
+                    android:background="@android:color/transparent"
+                    ></EditText>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_20"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="28.8dp"
+                        android:layout_height="28.8dp"
+                        android:layout_marginRight="@dimen/size_30"
+                        android:background="@mipmap/attach"></ImageView>
+
+                    <ImageView
+                        android:layout_width="@dimen/size_35"
+                        android:layout_height="@dimen/size_30"
+                        android:background="@mipmap/camera_bm"
+                        android:backgroundTint="@color/gray"></ImageView>
+
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

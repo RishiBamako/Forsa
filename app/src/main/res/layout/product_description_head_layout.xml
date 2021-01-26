@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <variable
+            name="data"
+            type="com.bartering.forsa.retrofit.service_model.SubscriptionPackages_ServiceModel.DataBean" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <import type="android.view.View"></import>
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_50"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/size_10"
+            android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event3)}"
+            android:weightSum="2">
+
+            <RadioButton
+                android:id="@+id/planNameCheckboxId"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.80"
+                android:checked="@{data.showorSelected}"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/size_10"
+                android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event3)}"
+                android:text="@{data.name}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/smallheadersizeallaround"
+                android:textStyle="bold"></RadioButton>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.20"
+                android:gravity="right|center_vertical"
+                android:paddingRight="@dimen/size_10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/size_10"
+                    android:text="@{@string/kwd+' '+data.price}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/smallheadersizeallaround"></TextView>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_10"
+            android:background="@drawable/border_shadow_select"
+            android:orientation="vertical"
+            android:padding="@dimen/size_05"
+            android:visibility="@{data.showorSelected ? View.VISIBLE : View.GONE}">
+
+            <TextView
+                android:id="@+id/uploadPhotoUpTextViewId"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_40"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/size_10"
+                android:text="@{@string/firstline_one+' '+data.photo+' '+@string/firstline_two}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/smallsizeallaround"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/canUploadVideoTextViewId"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_40"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/size_10"
+                android:text="@{@string/secondline_one+' '+data.video+' '+@string/secondline_two}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/smallsizeallaround"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/canUploadAdsTextViewId"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_40"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/size_10"
+                android:text="@{@string/thirdline_one+' '+data.total_ads+' '+@string/thirdline_two}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/smallsizeallaround"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/visibilityTextViewId"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_40"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/size_10"
+                android:text="@{@string/forthline_one+' '+data.validation+' '+@string/forthline_two}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/smallsizeallaround"
+                android:textStyle="bold"></TextView>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:layout_marginTop="@dimen/size_10"
+            android:background="@color/gray_small"></TextView>
+    </LinearLayout>
+</layout>

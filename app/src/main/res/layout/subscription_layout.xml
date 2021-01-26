@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.bartering.forsa.retrofit.service_model.SubscriptionPackage_ServiceModel.DataBean" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_shadow_select"
+        android:layout_marginBottom="@dimen/size_20"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/planNameCheckboxId"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_50"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/size_10"
+            android:text="@{data.name}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_17"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:background="@color/gray_small"></TextView>
+
+        <TextView
+            android:id="@+id/uploadPhotoUpTextViewId"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_40"
+            android:layout_marginTop="@dimen/size_20"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/size_10"
+            android:text="@{@string/firstline_one+' '+data.photo+' '+@string/firstline_two}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_15"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/canUploadVideoTextViewId"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_40"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/size_10"
+            android:text="@{@string/secondline_one+' '+data.video+' '+@string/secondline_two}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_15"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/canUploadAdsTextViewId"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_40"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/size_10"
+            android:text="@{@string/thirdline_one+' '+data.total_ads+' '+@string/thirdline_two}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_15"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/visibilityTextViewId"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_40"
+            android:layout_marginBottom="@dimen/size_20"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/size_10"
+            android:text="@{@string/forthline_one+' '+data.visiblity_time+' '+@string/forthline_two}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_15"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:background="@color/gray_small"></TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_50"
+            android:layout_marginTop="@dimen/size_10"
+            android:layout_marginBottom="@dimen/size_15"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/size_10">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Expiry Date   :   "></TextView>
+
+            <TextView
+                android:id="@+id/descriptionNameCheckboxId"
+                android:layout_width="@dimen/size_100"
+                android:layout_height="@dimen/size_50"
+                android:background="@drawable/button_background_red"
+                android:gravity="center"
+                android:text="@{data.active_deactive}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_16"
+                android:textStyle="bold"></TextView>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

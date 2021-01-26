@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="sortByRecyclerView"
+            type="com.bartering.forsa.recyclerViewAdapter.SortBy_RecyclerViewAdapter" />
+
+        <variable
+            name="categoryRecyclerView"
+            type="com.bartering.forsa.recyclerViewAdapter.SortBy_RecyclerViewAdapter" />
+
+        <variable
+            name="suggestionSpinnerAdapter"
+            type="android.widget.ArrayAdapter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/border_shadow_dialog"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/size_25"
+        android:paddingRight="@dimen/size_25"
+        android:paddingBottom="@dimen/size_20">
+
+        <LinearLayout
+            android:id="@+id/closeDialogLinLayoutId"
+            android:layout_width="@dimen/size_40"
+            android:layout_height="@dimen/size_40"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/size_20"
+            android:background="@drawable/close_backgroid"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/size_15"
+                android:layout_height="@dimen/size_15"
+                android:background="@mipmap/cancel"></ImageView>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/filterByTextViewId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/somethingwentwrongdi"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_18"
+                android:textStyle="bold"></TextView>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_20"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/size_25"
+                android:fontFamily="arial"
+                android:text="@string/howcanweimprove"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_16"></TextView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:id="@+id/suggestionSpinnerId"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edittext_height"
+                    android:adapter="@{suggestionSpinnerAdapter}"
+                    android:background="@drawable/border_shadow_"
+                    android:paddingLeft="@dimen/size_10"></Spinner>
+
+                <ImageView
+                    android:layout_width="@dimen/size_13"
+                    android:layout_height="@dimen/size_08"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_15"
+                    android:background="@mipmap/spinner_arrow"></ImageView>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_20"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_25"
+                    android:fontFamily="arial"
+                    android:text="@string/details"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_16"></TextView>
+
+                <EditText
+                    android:id="@+id/detailsEditTextId"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/message_edittext_height"
+                    android:layout_marginTop="@dimen/size_10"
+                    android:background="@drawable/border_shadow_"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="@dimen/size_10"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textStyle="bold"></EditText>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/submitTextViewId"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/size_20"
+            android:layout_marginBottom="@dimen/size_25"
+            android:background="@drawable/button_background"
+            android:gravity="center"
+            android:text="@string/submit"
+            android:textColor="@color/white"
+            android:textSize="@dimen/buttontextsize"></TextView>
+
+    </LinearLayout>
+</layout>

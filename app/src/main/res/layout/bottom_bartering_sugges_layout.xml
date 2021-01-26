@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="selectedProductImage"
+            type="String" />
+
+        <variable
+            name="myProductImage"
+            type="String" />
+
+        <variable
+            name="endUserImage"
+            type="String" />
+
+        <variable
+            name="myImage"
+            type="String" />
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <variable
+            name="categoryRecyclerView"
+            type="com.bartering.forsa.recyclerViewAdapter.SortBy_RecyclerViewAdapter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/border_shadow_bottomslide"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/size_25"
+        android:paddingRight="@dimen/size_25"
+        android:paddingBottom="@dimen/size_20">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_20">
+
+            <LinearLayout
+                android:layout_width="@dimen/size_45"
+                android:layout_height="@dimen/size_45"
+                android:layout_centerVertical="true"
+                android:background="@drawable/oval_gray_background"
+                android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event3)}"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/right_arrow_width"
+                    android:layout_height="@dimen/right_arrow_height"
+                    android:background="@mipmap/naviga_arrow"
+                    android:rotation="90"></ImageView>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/filterByTextViewId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/size_20"
+            android:layout_toRightOf="@+id/closeDialogLinLayoutId"
+            android:gravity="center"
+            android:text="@string/yourbarteringsugggestion"
+            android:textColor="@color/black"
+            android:textSize="@dimen/smallvaluesizeallaround"
+            android:textStyle="bold"
+
+            ></TextView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_25"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_30"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/size_80"
+                        android:layout_height="@dimen/size_80"
+                        app:imageWithCustomRadius_bartering="@{myProductImage}"></ImageView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/size_40"
+                        android:layout_height="@dimen/size_30"
+                        android:background="@mipmap/transfer"></ImageView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/size_80"
+                        android:layout_height="@dimen/size_80"
+                        app:imageWithCustomRadius_bartering="@{selectedProductImage}"></ImageView>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/size_70"
+                android:layout_height="@dimen/size_70"
+                android:background="@drawable/round_linlayout"
+                android:padding="@dimen/size_05">
+
+                <com.bartering.forsa.utils.CircleImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:loadImageCircle="@{myImage}"></com.bartering.forsa.utils.CircleImageView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/size_70"
+                android:layout_height="@dimen/size_70"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/round_linlayout"
+                android:padding="@dimen/size_05">
+
+                <com.bartering.forsa.utils.CircleImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:loadImageCircle="@{endUserImage}"></com.bartering.forsa.utils.CircleImageView>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/applyTextViewId"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/size_20"
+            android:background="@drawable/button_background"
+            android:gravity="center"
+            android:text="@string/bartering"
+            android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event4)}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/smallvaluesizeallaround"
+            android:textStyle="bold"></TextView>
+
+    </LinearLayout>
+</layout>

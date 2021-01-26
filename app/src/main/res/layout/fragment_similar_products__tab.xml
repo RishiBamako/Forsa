@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.view.View"></import>
+
+        <variable
+            name="isNoRecord"
+            type="Boolean" />
+
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".Fragment.SimilarProducts_TabFragment">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/productsRecyclerViewId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                ></androidx.recyclerview.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/viewAllProductsTVId"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/size_40"
+                android:text="@string/viewallproducts"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/size_10"
+                android:textSize="@dimen/size_14"
+                android:textStyle="bold"
+                android:fontFamily="arial"
+                android:textColor="@color/black"
+                >
+            </TextView>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/size_10"
+            android:gravity="center"
+            android:text="@string/norecordfound"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/size_notfound"
+            android:textStyle="bold"
+            android:visibility="@{isNoRecord ? View.VISIBLE : View.GONE}"></TextView>
+
+    </LinearLayout>
+</layout>

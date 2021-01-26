@@ -1,0 +1,817 @@
+<resources>
+    <string name="app_name">Forsa</string>
+
+    <string name="apply">Apply</string>
+    <string name="paymentmodel">paymentmodel</string>
+    <string name="close">close</string>
+    <string name="submitcart">submitcart</string>
+    <string name="app_record">Record Video</string>
+    <string name="record">Record</string>
+    <string name="membersince">Member since </string>
+
+    <string name="welcomeback">Welcome</string>
+    <string name="linkresetsendto">A link to reset your password has been sent to</string>
+    <string name="dontreceiveaemailyet">Did\'t receive reset link?</string>
+    <string name="resendemail">Resend Email</string>
+    <string name="countrynotselected">Country Not Selected</string>
+    <string name="country">Country</string>
+    <string name="languagenotselected">Language Not Selected</string>
+    <string name="signintocontinue">Sign in to continue</string>
+    <string name="recoverpasssword">Recover Password</string>
+    <string name="signupnow">Sign up now!</string>
+    <string name="signupfacebook">Sign up with Facebook</string>
+    <string name="signupgoogle">Sign up with Google</string>
+    <string name="header_login">Sign in now!</string>
+    <string name="header_signup">Sign up now!</string>
+    <string name="emailaddress">Email address</string>
+    <string name="signupwithphone">Sign up with Phone</string>
+    <string name="signupwithemail">Sign up with Email</string>
+    <string name="signinwithphone">Sign in with Phone</string>
+    <string name="signinwithfacebook">Sign in with Facebook</string>
+    <string name="signupwithfacebook">Sign up with Facebook</string>
+    <string name="signupwithgoogle">Sign up with Google</string>
+    <string name="emailidunerline">naura@gmail.com</string>
+    <string name="signinwithgoogle">Sign in with Google</string>
+    <string name="signinwithemail">Sign in with Email</string>
+    <string name="donthaveaccount">Don\'t have an account ? </string>
+    <string name="guestlogin">Guest Login</string>
+    <string name="guest">Guest</string>
+
+    <string name="home_bm">Home</string>
+    <string name="category_bm">Category</string>
+    <string name="upload_bm">Upload</string>
+    <string name="boost_bm">Boost</string>
+    <string name="profile_bm">Profile</string>
+
+    <string name="iagreeto">I agree to</string>
+    <string name="keepmealwayssignedin">Keep it always Signed In</string>
+    <string name="terms"><b> <u>terms </u></b></string>
+    <string name="and">and</string>
+    <string name="conditionandpolicy">conditions &amp; policy</string>
+
+    <string name="productdetails">Product Details</string>
+    <string name="productname">Product Name</string>
+    <string name="signuptocontinue">Sign up to continue</string>
+    <string name="verificationcode">Verification Code</string>
+    <string name="name">Name</string>
+    <string name="phonenumber">Phone number</string>
+    <string name="gender">Gender</string>
+    <string name="dateofbirth">Date of birth</string>
+    <string name="iagreetotermand">I agree to terms and conditions &amp; policy </string>
+    <string name="alreadyhaveaccount">Already have an account?</string>
+    <string name="ifyoudontreceive">If you didn\'t receive the verify code!</string>
+    <string name="resendotp">Resend OTP?</string>
+    <string name="otphasenttoyou">OTP have sent on your mobile number<b>+ 965-555-5153-367</b>. Please verify</string>
+
+    <string name="chooseyourlanguage">Choose your language</string>
+
+    <string name="chooseyourcountry">Choose your Country</string>
+    <string name="currentlocation">Current Location</string>
+    <string name="enablelocationservice">Enable Location Service</string>
+    <string name="personalisation">Personalisation</string>
+    <string name="skip">Skip</string>
+
+    <string name="mosttrending">Fast Moving Products</string>
+    <string name="uploadnewitem">Upload New Item</string>
+    <string name="all">All</string>
+    <string name="fashion">Fashion</string>
+    <string name="homedecor">Home Decor</string>
+    <string name="uploadswapenjoy">Upload - Swap - Enjoy!</string>
+    <string name="letsstart">Lets Start</string>
+    <string name="meetnewpeople">Meet New People</string>
+    <string name="swapanycombination">Swap any combination &amp;</string>
+    <string name="mobileNo_one">OTP have sent on your mobile number</string>
+    <string name="mobileNo_two">. Please verify</string>
+
+    <string name="home">Home Decor</string>
+    <string name="category">Home Decor</string>
+    <string name="upload">Upload</string>
+    <string name="boost">Home Decor</string>
+    <string name="profile">Home Decor</string>
+
+
+    <string-array name="nav_drawer_labels">
+
+        <item>@string/nav_item_one</item>
+        <item>@string/nav_item_two</item>
+        <item>@string/nav_item_three</item>
+    </string-array>
+
+
+    <string name="nav_item_one">Privacy Policy</string>
+    <string name="nav_item_two">Terms and Condition</string>
+    <string name="nav_item_three">About Forsa</string>
+
+
+    <string name="billnow">billnow</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="addschedule">Add Schedule</string>
+    <string name="customermanagemtn">Customer Management</string>
+    <string name="locationmanagement">Location Management</string>
+    <string name="personelmanagemtn">Personal Management</string>
+    <string name="inventorylmanagemtn">Inventory Management</string>
+    <string name="appedit">APP Edit</string>
+    <string name="websiteedit">Website Edit</string>
+    <string name="scheduler">Scheduler</string>
+    <string name="doller">$</string>
+    <string name="edit">edit</string>
+    <string name="edibtn">Edit</string>
+    <string name="edititem">Edit Item</string>
+    <string name="edibtn_underline"><u>Edit</u></string>
+    <string name="delete_underline"><u>Delete</u></string>
+    <string name="profile_title">Profile</string>
+
+    <string name="housefaltcannotbenull">House / Flat / Block No cannot be empty</string>
+    <string name="addresscannotbenull">Address cannot be empty</string>
+    <string name="Houseandflatshouldcontain_digit">House/Flate no should contain digits only</string>
+    <string name="landmarkcannotbenull">Landmark cannot be empty</string>
+    <string name="citycannotbenull">City cannot be empty</string>
+    <string name="stateprovincecannotbenull">State, Province or Religion cannot be empty</string>
+    <string name="ziporpostalcannotbenull">Zip or Postal Code cannot be empty</string>
+    <string name="countrycannotbenull">Country cannot be empty</string>
+
+    <string name="staus">Status : .</string>
+    <string name="selectoneservice">Select Atleast One Service</string>
+    <string name="selecttimeslot">Select Time Slot</string>
+    <string name="active">Active</string>
+    <string name="boostad">Boost Ad</string>
+    <string name="disable">In Active </string>
+
+    <string name="reports">Reports</string>
+    <string name="accountandsettings">Account &amp; Setting</string>
+    <string name="marketing">Marketing</string>
+    <string name="possetup">Point of sale</string>
+
+    <string name="createpersionalaccouint">Create Personal Account With Email</string>
+    <string name="password">Password</string>
+    <string name="confirmpassword">Confirm Password</string>
+    <string name="pleaseentercomment">Please enter comment</string>
+    <string name="enteryouremail">Enter Your Email</string>
+    <string name="enterpassword">Enter Password</string>
+    <string name="enterconfirmpassword">Enter Confirm Password</string>
+    <string name="signup"><u>Sign Up</u></string>
+    <string name="recordsnotfound">Records Not Found</string>
+    <string name="signup_two">Sign Up</string>
+    <string name="chooseyourusername">Choose Your Username</string>
+    <string name="url">http//www.fitzlepop.com</string>
+    <string name="username">Username</string>
+    <string name="account">Account</string>
+    <string name="selectbookingdateandtime">Select Booking Date &amp; Time</string>
+    <string name="selectcustomer">Select Customer</string>
+    <string name="next">Next</string>
+    <string name="savepassword">Save Password</string>
+    <string name="savedetails">Save Details</string>
+    <string name="okthanks">OK,Thanks</string>
+    <string name="updatepassword">Update Password</string>
+    <string name="setup">Set Up</string>
+    <string name="or">Or</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="loginwithemail">Login With Email</string>
+    <string name="loginyouremail">Enter Your Email</string>
+    <string name="forget_password">Forgot Password ?</string>
+    <string name="logininusingmobileno">Log in using mobile number</string>
+    <string name="forget_password_title">Forgot Password</string>
+    <string name="login">Login</string>
+    <string name="accept">Accept</string>
+    <string name="notnow">Not Now</string>
+    <string name="friends">Friends</string>
+    <string name="friend">Friend</string>
+    <string name="view">View</string>
+    <string name="viewnow">View Now</string>
+    <string name="requests">Requests</string>
+    <string name="find">Find</string>
+    <string name="befriend">Befriend</string>
+    <string name="requested">Requested</string>
+    <string name="invitefriend">+ INVITE FRIENDS</string>
+    <string name="choosedate">Choose Date</string>
+
+    <string name="notifications">Notifications</string>
+    <string name="selectlanguage">Select Language</string>
+
+    <string name="getintuch">Get In Touch</string>
+    <string name="message">Message</string>
+
+    <string name="firstline_one">- Allow user to upload upto </string>
+    <string name="firstline_two">photos in one ad</string>
+
+    <string name="secondline_one">- Also can upload </string>
+    <string name="secondline_two">video</string>
+
+    <string name="thirdline_one">- Also can upload </string>
+    <string name="thirdline_two">Ads</string>
+
+    <string name="forthline_one">- Visibility of ad</string>
+    <string name="forthline_two">months</string>
+
+
+    <string name="productdescription">Product Description</string>
+    <string name="text">- Drone Dji Pro \n- One year old, Rarely used</string>
+    <string name="sellerdetail">Seller Details</string>
+    <string name="dealoption">Deal Option</string>
+    <string name="trade">Trade</string>
+    <string name="bartering">Bartering</string>
+    <string name="chooseyourooffer">Choose your offer to bartering</string>
+    <string name="startchatting">Start Chatting</string>
+    <string name="adid">Ad Id : </string>
+    <string name="reportad">Report Ad</string>
+    <string name="similarproducts">Similar Products</string>
+    <string name="wishlistitems">Wishlist Items</string>
+    <string name="switchcamera">Switch</string>
+    <string name="viewallproducts"><u>View All Products</u></string>
+    <string name="reviews">Reviews</string>
+    <string name="startbartering">Start Bartering</string>
+    <string name="price_dot_text">Price :</string>
+
+
+    <string name="myads_menu">My Ads</string>
+    <string name="kwd">KWD</string>
+    <string name="editprofile">Edit Profile</string>
+    <string name="changepassword">Change Password</string>
+    <string name="currentpasswordcannotbeempty">Current Password must require</string>
+    <string name="newpasswordcannotbeempty">New Password must require</string>
+    <string name="confirmpasswordcannotbeempty">Confirm Password must require</string>
+    <string name="totalcart">Total Cart</string>
+    <string name="transaction_detail">Transaction details</string>
+    <string name="trading_detail">Trading detail</string>
+    <string name="bartering_detail">Bartering detail</string>
+    <string name="productcategory">Product Category</string>
+    <string name="productsubcategory">Product Subcategory</string>
+    <string name="invitefriends">Invite Friends</string>
+    <string name="bllockusers">Blocked Users</string>
+    <string name="accounts">Accounts</string>
+    <string name="notificatiomagament">Notification Management</string>
+    <string name="legal">Legal</string>
+    <string name="support">Support</string>
+    <string name="cellulardataon">Cellular Data On</string>
+    <string name="privateaccount">Private Account</string>
+    <string name="price">Enter Price</string>
+    <string name="logout">Logout</string>
+    <string name="signin">Sign In</string>
+    <string name="sendto">Send To</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google</string>
+    <string name="hometitle">Google</string>
+    <string name="service_click">service_click</string>
+    <string name="y">Y</string>
+    <string name="n">N</string>
+    <string name="id">ID : </string>
+    <string name="pricecannotbeempty">Price cannot be empty</string>
+    <string name="category_edit">Electronics/E-books</string>
+    <string name="product_category_mustrequire">Product Category Must Require</string>
+    <string name="product_subcategory_mustrequire">Product Sub Category Must Require</string>
+    <string name="please_select_product_tradetype">Please Select Product Trade Type</string>
+
+    <string name="wishlist">Wishlist</string>
+    <string name="Favoritecategories">Favorite Categories</string>
+    <string name="orderhistory">Order History</string>
+    <string name="mytransaction">My Transactions</string>
+    <string name="myads">My Ads</string>
+    <string name="settings">Settings</string>
+    <string name="helpandsupport">Help &amp; Support</string>
+    <string name="callus">Call Us</string>
+    <string name="chat">Chat</string>
+
+
+    <string name="done">Done</string>
+    <string name="productmainclicked">productmainclicked</string>
+    <string name="appointments">appointments</string>
+
+    <string name="loginasbusniess">LOGIN AS A BUSINESS MAN</string>
+    <string name="loginaspersonal">LOGIN AS A TEAM / MANAGER</string>
+
+    <string name="fullname">Full Name</string>
+    <string name="pleaseenter_fullname">Full Name Cannot Be Empty</string>
+    <string name="email_head">Email</string>
+    <string name="bio">Bio</string>
+    <string name="website">Website</string>
+    <string name="email">loremipsum@gmail.com</string>
+    <string name="emailkeyword">Email</string>
+    <string name="digits">1-541-754-3010</string>
+    <string name="carddetail">Card Detail</string>
+    <string name="addcustomer">Add Customer</string>
+    <string name="selectpaymenttype">Select Payment Type</string>
+    <string name="oursuppoort">Our Customer Support Is Available 24*7</string>
+    <string name="addnow">Add Now</string>
+
+
+    <string name="item_price">Item Price</string>
+    <string name="shipping">Shipping</string>
+    <string name="shippingaddress">Shipping Address</string>
+    <string name="change">Change</string>
+    <string name="paymentmethods">Payment Method</string>
+    <string name="allinapppurchase">All in app purchases are covered by buyer protection</string>
+    <string name="stripe">stripe</string>
+    <string name="current_password">Current Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="submit">Submit</string>
+    <string name="ok">OK</string>
+    <string name="images">Image</string>
+    <string name="confirmpayment">Confirm Payment</string>
+    <string name="businesscustomer">Business Customer</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_received_data">Enter Received Code</string>
+    <string name="personalmessagetojoin">Personal Message To Join App</string>
+    <string name="howtousefilzlpopapp">How to use Fitzlepop</string>
+    <string name="send">SEND</string>
+    <string name="bockeruser">Blocked User</string>
+    <string name="unblock">Unblock</string>
+    <string name="notificationmanagemtn">Notification Management</string>
+
+    <string name="everyone">Everyone</string>
+    <string name="friendss">Friends</string>
+    <string name="off">Off</string>
+
+    <string name="like">Like</string>
+    <string name="comment">Comments</string>
+    <string name="comment_">Comment</string>
+    <string name="friedrequest">Friend Request</string>
+    <string name="acceptedfriendrequest">Accepted Friend Request</string>
+
+    <string name="whatsnew">What\'s New</string>
+    <string name="faqs">Faq\'s</string>
+    <string name="knownissues">Known Issues</string>
+    <string name="contactus">Contact Us</string>
+    <string name="continues">Continue</string>
+    <string name="reportissue">Report Issue</string>
+    <string name="shareyourmemory">Share Your Memory</string>
+    <string name="adddlocation">Add Location</string>
+    <string name="adddate">Add Date</string>
+    <string name="add">Add</string>
+
+    <string name="houseflatblockno">House / Flat / Block No.</string>
+    <string name="landmark">Landmark</string>
+    <string name="stateprovience">State, Province or Region</string>
+    <string name="zipotpostalcode">Zip or Postal Code</string>
+
+    <string name="tagfriend">Tag Friends</string>
+    <string name="age">Age</string>
+    <string name="sharewith">Share With</string>
+    <string name="sharewithdot">Share With...</string>
+    <string name="sharememoryonfuture">Share Memory On Future Date</string>
+    <string name="shareonfeed">Share On Feed</string>
+    <string name="timexone">Time Zone</string>
+    <string name="pacific">Pacific</string>
+    <string name="share">Share</string>
+    <string name="shareprofile">Share profile</string>
+    <string name="reportuser">Report user</string>
+
+    <string name="cancel">Cancel</string>
+    <string name="photo">Photo</string>
+    <string name="nextsmall">Next</string>
+    <string name="library">Library</string>
+    <string name="video">Video</string>
+    <string name="writecomment">Write Comment...</string>
+    <string name="radioclicked">PAYMENT_SETTING_RADIO_CLICK</string>
+    <string name="creditradioclick">creditradioclick</string>
+    <string name="grauityradioclicked">grauityradioclicked</string>
+    <string name="paymentsettingischecked">paymentsettingischecked</string>
+    <string name="showgrauityeditdelete">showgrauityeditdelete</string>
+    <string name="gratuitycancel">gratuitycancel</string>
+    <string name="gratuitysave">gratuitysave</string>
+    <string name="selectamoutbracket">(Select Amount To Show)</string>
+    <string name="gratuityeditshow">gratuityeditshow</string>
+
+
+    <string name="remove">Remove</string>
+    <string name="report">Report</string>
+    <string name="viewdetails">View Details</string>
+    <string name="rateforsa">Rate Forsa</string>
+    <string name="unfollow">Unfollow</string>
+    <string name="makeacakktoprogrammer">MAKE A CALL TO PROGRAMMER</string>
+    <string name="turnonpostnotification">Turn On Post Notification</string>
+    <string name="editpost">Edit Post</string>
+    <string name="searchforfriend">Search For Friends..</string>
+    <string name="addaccount">+ ADD ACCOUNT</string>
+    <string name="addaccountsmall">Add Account</string>
+    <string name="allproducts">All Products</string>
+
+    <string name="memories">Memories</string>
+    <string name="feed">Feed</string>
+    <string name="inbox">Inbox</string>
+    <string name="entercomment">PLEASE ENTER COMMENT</string>
+    <string name="enterreson">PLEASE ENTER REASON</string>
+    <string name="google_maps_key">AIzaSyB2SRwJVP-uUF9EJYmSr4Z9EXhOjsXH_SQ</string>
+    <string name="post">Post</string>
+    <!--Login Screen-->
+
+    <string name="emailmustvalid">Email Must Be Valid</string>
+    <string name="messagecannotbeempty">Message cannot be empty</string>
+    <string name="enteremailforgetresetlink">Enter email for get password reset link</string>
+    <string name="emailcantbeempty">Email Cannot Be Empty</string>
+    <string name="gendercannotbeempty">Gender Cannot Be Empty</string>
+    <string name="dobcannotbeempty">DOB Cannot Be Empty</string>
+    <string name="entermessage">Enter Message</string>
+    <string name="passwordcantbeempty">Password Cannot Be Empty</string>
+    <string name="pleaseaccepttermandcondition">Please accept terms and conditions</string>
+    <string name="verificationcodecannotbeempty">Verification Code Cannot Be Empty</string>
+    <string name="passwordandcanfirmcantbsame">Password And Confirm Password Must Be Same</string>
+    <string name="jsonformatexception">JSON Format Exception</string>
+    <string name="confirmpasswordcantbesame">Confirm Password Cannot Be Empty</string>
+    <string name="unknown_error">Server Error</string>
+    <string name="somethingwentwrong">Something Went Wrong</string>
+    <string name="usernamemustrequire">User Name Must Require</string>
+    <string name="productnamemustrequire">Product Name Must Require</string>
+    <string name="productdescriptionmustrequire">Product Description Must Require</string>
+    <string name="instruction">Instruction</string>
+    <string name="logoutsuccessfully">Logout Successfully</string>
+    <string name="instruction_text">Please add at least one Image to show</string>
+    <string name="uarenotvaliduser">You Are Not Valid User</string>
+    <string name="canceling">Cancel</string>
+    <string name="select_source">Select Source</string>
+    <string name="useraname">User Name : </string>
+    <string name="location">Location : </string>
+    <string name="location_withoutdot">Location</string>
+    <string name="status">Status : </string>
+    <string name="role">Role : </string>
+    <string name="delete_status">delete</string>
+    <string name="deactivate_status">deactivate</string>
+    <string name="sold_status">sold</string>
+    <string name="total_fc">Total</string>
+    <string name="ads_text">ads</string>
+
+    <string name="sold_status_value">Sold</string>
+    <string name="delete_status_value">Delete</string>
+    <string name="deactivate_status_value">Product Deactive by user</string>
+
+    <string name="currentpassword">Current Password Cannot Empty</string>
+    <string name="confirmpasword">Confirm Password Cannot Empty</string>
+    <string name="newpassword">New Password Cannot Empty</string>
+    <string name="hobbies">Hobbies</string>
+    <string name="norecordfound">NO RECORD FOUND</string>
+    <string name="reportedsuccessfully">Reported Successfully</string>
+    <string name="logout_successfully">Logout Successfully</string>
+    <string name="items">Items</string>
+    <string name="please_select_valid_package">Please select a desired package</string>
+    <string name="item">Item</string>
+    <string name="postigannoyinngcontent">Posting Annoying Content</string>
+    <string name="postingspam">Posting Spam</string>
+    <string name="harassmentorbuying">Harassment or bullying</string>
+    <string name="salesorpromotionofdrugs">Sales or promotion of drugs</string>
+    <string name="violanceandthreatofviolace">Violence or threat of violence</string>
+    <string name="nudityorpronography">Nudity or pornography</string>
+    <string name="hatespeechorsymbols">Hate speech or symbols</string>
+    <string name="selfinjury">Self injury</string>
+    <string name="verified">Verified</string>
+    <string name="guestusercannotaccessit">Guest user cannot access it</string>
+    <string name="gotlocationsuccess">Got your location successfully</string>
+    <string name="GPSAlertDialogTitle"></string>
+    <string name="GPSAlertDialogMessage">Enable GPS or Network</string>
+    <string name="action_settings">OK</string>
+    <string name="locationnotfound">Location not found</string>
+    <string name="dobnotfound">DOB not found</string>
+    <string name="notverified">Not Verified</string>
+    <string name="following">Following</string>
+    <string name="follow">Follow</string>
+    <string name="seller">Seller</string>
+    <string name="buyer">Buyer</string>
+    <string name="buynow">Buy Now</string>
+    <string name="follower">Followers</string>
+    <string name="thisprofileispretendingtobesomeoneelse">This profile is pretending to be someone else.</string>
+
+    <string name="relay">Replay</string>
+    <string name="forward">Forward</string>
+    <string name="save">Save</string>
+    <string name="addnew">Add New</string>
+    <string name="addnewaddress">Add New Address</string>
+    <string name="acheduler">Scheduler</string>
+    <string name="starttime">12:25 PM</string>
+    <string name="endtime">12:30 PM</string>
+    <string name="block">Block</string>
+    <string name="value5">5</string>
+    <string name="value10">10</string>
+    <string name="addgift">addgift</string>
+    <string name="back">back</string>
+    <string name="backtopos">Back To POS</string>
+
+    <string name="bronzo_package">Bronze package</string>
+    <string name="silver_package">Silver package</string>
+    <string name="gold_package">Gold package</string>
+    <string name="platinum_package">Platinum package</string>
+    <string name="custom_package">Custom package</string>
+    <string name="transaction_id">Transaction ID</string>
+    <string name="transaction_date">Transaction date</string>
+    <string name="user_details">User details</string>
+    <string name="amount">Amount</string>
+    <string name="date">Date</string>
+    <string name="boosttotop">Boost to Top</string>
+    <string name="ads">ads</string>
+    <string name="reachupto">- Reach up to</string>
+    <string name="timesmorebuyer">times more buyers</string>
+    <string name="visibilityfor">- Visibility for</string>
+    <string name="days">days</string>
+
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="areusure">Are You Sure</string>
+    <string name="addacomment">Add A Comment</string>
+    <string name="clear">CLEAR</string>
+    <string name="clearall">Clear All</string>
+    <string name="typeurmessage">Type your message</string>
+    <string name="closedeal">Close deal</string>
+    <string name="agree">Agree</string>
+    <string name="yousuggestedthisbartering">You suggested this bartering. Discuss
+details of deal in chat.</string>
+    <string name="atleastselectoneservice">At Least Select One Service</string>
+    <string name="selectalteastonepaymentmethod">At Least Select One Payment Method</string>
+    <string name="selectalteastoneproduct">At Least Select One Product</string>
+    <string name="selectalteastoneservice">At Least Select One Service</string>
+    <string name="selectclientfirst">Select Client First</string>
+    <string name="selectcustomerfirst">Select Customer First</string>
+    <string name="selectdateandtimeslot">Select Date And Time Slot</string>
+    <string name="getlocation">GET LOCATION</string>
+    <string name="selectusersforshare">Select at least one user for share feed</string>
+    <string name="enterpromocodefirst">Please enter promo code</string>
+
+
+    /////FACEBOOk
+
+    <string name="facebook_app_id">371975070577463</string>
+    <string name="fb_login_protocol_scheme">fb1127999764254368</string>
+
+    <string name="welcome">Bienvenido</string>
+    <string name="cancel_login">Se canceló la operación</string>
+    <string name="error_login">Ocurrió un error al ingresar</string>
+
+
+    <string name="total">TOTAL</string>
+
+    <string name="selectlocation">Select Location</string>
+    <string name="paymentsetting">Payment Setting</string>
+    <string name="cash">Cash</string>
+    <string name="creditcard">Credit Card</string>
+    <string name="cheque">Cheque</string>
+    <string name="invoice">Invoice</string>
+    <string name="paymentsuccessfull">Payment Successfully</string>
+
+    <string name="creditcardpaymentprocessor">Credit Card Payment Processor (choose1)</string>
+    <string name="strip">Stripe</string>
+    <string name="paypal">Paypal</string>
+    <string name="autherize">Authorize.net</string>
+    <string name="secretkey">Secret Key</string>
+    <string name="publishblekey">Publishable Key</string>
+
+    <string name="taxservices">Tax Services (Yes/No) </string>
+    <string name="taxproducts">Tax Products (Yes/No) </string>
+    <string name="cashdrawersetting">Cash Drawer Setting</string>
+    <string name="startingtillamount">Starting Till Amount ($)</string>
+    <string name="gratuitysetting">Gratuity Settings (Select Amounts To Show)</string>
+    <string name="customamount">Custom Amount</string>
+    <string name="customerdetail">Customer Detail</string>
+    <string name="enteryouramount">Enter Your Amount</string>
+    <string name="allowgratuitycashwithdrawalfromcash">Allow Gratuity Cash Withdrawal from Credit Card Tips?</string>
+    <string name="giftcardsandcoupen">Gift Cards And Coupons</string>
+    <string name="currentcodes">Current Cards</string>
+    <string name="sellgiftcards">Sell Gift Cards ? </string>
+    <string name="select">SELECT</string>
+    <string name="selectgender">Select Gender</string>
+
+    <string name="appointment">Appointments</string>
+    <string name="applytitle">Apply</string>
+    <string name="appointmenotes">Appointment Note</string>
+    <string name="services">Services</string>
+    <string name="personnel">Personnel</string>
+    <string name="product">Products</string>
+    <string name="productreview">Products Review</string>
+    <string name="taptoratethisicon">Tap to rate this item</string>
+    <string name="resting">Resting</string>
+    <string name="calenderclick">calenderclick</string>
+
+    <string name="timeslot">timeslot</string>
+    <string name="booknow">Book Now</string>
+    <string name="bookanappointment">Book An Appointment</string>
+
+    <string name="checkout">Checkout</string>
+    <string name="cashbracket">(Cash)</string>
+    <string name="backclicked">backclicked</string>
+    <string name="editdata">editdata</string>
+
+    <string name="emailmustrequire">Please enter email</string>
+    <string name="mobilenomustrequire">Please enter mobile no</string>
+    <string name="passwordmustrequire">Please enter password</string>
+    <string name="invalidotp">Invalid Otp</string>
+    <string name="welcometext">Welcome</string>
+    <string name="cannotconnectcall">! Sorry Cant\'t Connect Call</string>
+
+    <string name="firstname">First Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="launch"><u>Launch</u></string>
+    <string name="launchclicked">launchclicked</string>
+
+    <string name="availabletimeslot">Available Time Slot</string>
+    <string name="configureavailability">Configure Availability</string>
+    <string name="schedulenew">Schedule New</string>
+    <string name="viewview">Schedule View</string>
+    <string name="notificationfortab">Notifications</string>
+    <string name="clientlist">Client List</string>
+    <string name="picknewweek">Pick New Week</string>
+    <string name="configureavai">Configure Availability</string>
+    <string name="configuredate">configuredate</string>
+
+
+    <string name="starttimetag">starttimetag</string>
+    <string name="endtimetag">endtimetag</string>
+    <string name="selectservice">Select Service</string>
+    <string name="starttimeslot">Start Time</string>
+    <string name="starttimemustbeselected">Start Time Must Selected</string>
+    <string name="endmustbeselected">End Time Must Selected</string>
+    <string name="endingtimeslot">End Time</string>
+    <string name="timeslottitle">Time Slot</string>
+    <string name="bookedappointment">Booked Appointments</string>
+    <string name="schedulenewuser">schedulenewuser</string>
+    <string name="notimeslotavailable">Time Slot Not Available</string>
+    <string name="checkclicked">checkclicked</string>
+    <string name="eyeclicked">eyeclicked</string>
+    <string name="serviceclicked">serviceclicked</string>
+    <string name="slotclickedmain">slotclickedmain</string>
+    <string name="scheduledayclicked">scheduledayclicked</string>
+    <string name="addview">addview</string>
+    <string name="pleasechoosefrom">Please choose from suggested tip percents : </string>
+    <string name="tenpercent">10%</string>
+    <string name="fifteenpercent">15%</string>
+    <string name="twentychoosefrom">20%</string>
+    <string name="choosecustomerreceipt">Choose customer receipt mode</string>
+    <string name="sms">SMS</string>
+    <string name="contact">Contact</string>
+    <string name="checkoutvalue">Checkout</string>
+
+    <string name="clientnamedot">Client Name : </string>
+    <string name="servicedot">Service : </string>
+    <string name="barbardot">Barber : </string>
+    <string name="starttimedot">Start Time : </string>
+    <string name="endtimedot">End Time : </string>
+
+    <string name="todayappointment">Today Appointments</string>
+    <string name="upcomingappointment">Upcoming Appointments</string>
+    <string name="appointmenthistory">Appointments History</string>
+
+    <string name="emailtab">Email</string>
+    <string name="smstab">SMS Text</string>
+    <string name="time">12 AM</string>
+    <string name="selectappointmentfirst">Select Appointment First</string>
+
+    <string name="customerfirstname">Customer First Name</string>
+    <string name="customerlastname">Customer Last Name</string>
+    <string name="instagramusername">Instagram User Name</string>
+    <string name="twitterusername">Twitter User Name</string>
+    <string name="facebookusername">Facebook User Name</string>
+    <string name="address">Address</string>
+    <string name="emailtitle">Email</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="phone">Phone</string>
+    <string name="zipcode">Zip Code</string>
+    <string name="customerstatus">Customer Status</string>
+    <string name="inactive">In Active</string>
+    <string name="activeoption">Active</string>
+    <string name="customerappointments">Customer Appointments</string>
+
+    <string name="customertitledot">Customer : </string>
+    <string name="appointmentiddot">Appointment ID : </string>
+    <string name="datedot">Date : </string>
+    <string name="deletetitle">Delete</string>
+    <string name="deletetext">Are you sure want to delete</string>
+    <string name="datafieldcannotbeempty">Data field cannot be empty</string>
+    <string name="selectcountry">Data field cannot be empty</string>
+    <string name="selectcountry_header">Select Country</string>
+
+    <string name="entername">Enter Name</string>
+    <string name="entermailid">Enter Mail Id</string>
+    <string name="entercardnumber">Enter Card Number</string>
+    <string name="expdate">Expiry Date</string>
+    <string name="cvv">CVV</string>
+    <string name="submitpayment">Submit Payment</string>
+    <string name="pleaseselectimproveid">Please select suggestion</string>
+    <string name="pleaseselect_shippingaddress">Please select shipping address</string>
+    <string name="orderplacedsuccessfully">Order Placed successfully</string>
+    <string name="pleaseenterdesi">Please enter description</string>
+
+    <string name="namedetail">Name : </string>
+    <string name="emaildeatil">Email : </string>
+    <string name="phonedetail">Phone : </string>
+    <string name="instagramdet">Instagram : </string>
+    <string name="twitterdeat">Twitter : </string>
+    <string name="facebookde">Facebook : </string>
+    <string name="addressde">Address : </string>
+
+    <string name="locationtitle">Location</string>
+    <string name="todaysappointment">Today\'s Appointments</string>
+    <string name="addappointment">Add Appointments</string>
+    <string name="viewappointment">View Appointments</string>
+
+    <string name="youhavepaid">You Have Paid Successfully : </string>
+    <string name="youhavethreephototand">You have 3 photos and 1 video allowed</string>
+    <string name="orderid">Order Id : </string>
+    <string name="transactionid">Transaction ID : </string>
+
+    <string name="from">From</string>
+    <string name="todot">- To -</string>
+    <string name="filter">Filter</string>
+    <string name="filters">Filters</string>
+    <string name="yourbarteringsugggestion">Your bartering suggestion</string>
+    <string name="viewall">View All</string>
+    <string name="subscription">Subscription</string>
+    <string name="sortby">Sort by</string>
+    <string name="categories">Categories</string>
+
+    <string name="somethingwentwrongdi">Something went wrong</string>
+    <string name="asawelcomegiftyouhave_part1">As a welcome gift, You have get</string>
+    <string name="asawelcomegiftyouhave_part2">free ads. Listing</string>
+    <string name="deal_success">Your deal has been success</string>
+    <string name="asaguesttext">As a guest user you cannot access it. Please sign up Now </string>
+    <string name="selectmediafromgallery">Select Media From Gallery</string>
+    <string name="howcanweimprove">How can we improve ?</string>
+    <string name="chooseone">Choose one</string>
+    <string name="details">Details</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="youhavenoOffreeads_part1">You have</string>
+    <string name="youhavenoOffreeads_part2">Free Ads.</string>
+
+    ///////CLICK TAG
+    <string name="addcustomerdialog">addcustomerdialog</string>
+    <string name="cartclicked">cartclicked</string>
+    <string name="selectatleastoneservice">Select At Least One Product</string>
+    <string name="cartisempty">Cart Is Empty</string>
+    <string name="savetag">savetag</string>
+    <string name="bookappointmentclick">bookappointmentclick</string>
+    <string name="serviceclick">serviceclick</string>
+    <string name="servicepersonnelclick">servicepersonnelclick</string>
+    <string name="eye">eye</string>
+    <string name="sendtoclick">sendtoclick</string>
+    <string name="paymenttypetag">paymenttypetag</string>
+    <string name="delete">delete</string>
+    <string name="delete_capi">Delete</string>
+    <string name="one">1</string>
+    <string name="tabone">tabone</string>
+    <string name="tax">Tax</string>
+    <string name="totaltopay">Total to pay</string>
+    <string name="addanother">Add Another</string>
+    <string name="orderconfirm">Order Confirm</string>
+    <string name="tabtwo">tabtwo</string>
+    <string name="addnewreminder">addnewreminder</string>
+    <string name="scheduleappointmentclick">scheduleappointmentclick</string>
+    <string name="parentclicked">parentclicked</string>
+    <string name="forgotclicked">forgotclicked</string>
+    <string name="submitpaymenttag">submitpaymenttag</string>
+    <string name="subscriptionplan">Subscription Plan</string>
+    <string name="boostplan">Boost Plans</string>
+    <string name="order_receipt">Order Receipt</string>
+    <string name="order_detail">Order Detail</string>
+    <string name="sorry">Sorry !</string>
+    <string name="fora">For : </string>
+    <string name="selectcategory">Select Category</string>
+    <string name="selectsubcategory">Select Sub Category</string>
+    <string name="youdonthavesubscriptionpaln">You don\'t have subscription plan.
+You need to buy a plan.</string>
+
+    <string name="deacctive">Deactivate</string>
+    <string name="edit_capi">Edit</string>
+    <string name="markassold">Mark as sold</string>
+
+    <string name="yourorderplace">Your order has been placed successfully</string>
+    <string name="viewnowtag">View</string>
+    <string name="bookanappointmenttag">bookanappointmenttag</string>
+
+    <string name="event1">event1</string>
+    <string name="event2">event2</string>
+    <string name="event3">event3</string>
+    <string name="event4">event4</string>
+    <string name="event5">event5</string>
+    <string name="event6">event6</string>
+    <string name="event7">event7</string>
+    <string name="event8">event8</string>
+    <string name="event9">event9</string>
+    <string name="event10">event10</string>
+    <string name="event11">event11</string>
+    <string name="event12">event12</string>
+    <string name="event13">event13</string>
+    <string name="event14">event14</string>
+    <string name="event15">event15</string>
+    <string name="event16">event16</string>
+
+    <string name="sendmailwith">Send Email with</string>
+    <string name="sorrywefindingsomerestriction">Sorry we finding some restriction, Operate manually</string>
+    <string name="media_picker_camera">Camera</string>
+    <string name="media_picker_gallery">Gallery</string>
+    <string name="media_picker_ok">OK</string>
+    <string name="media_picker_cancel">Cancel</string>
+    <string name="media_picker_some_permission_is_denied">Some Permission is Denied</string>
+    <string name="media_picker_you_need_to_grant_access_to">You need to grant access to</string>
+    <string name="media_picker_read_Write_external_storage"><![CDATA[Read & Write External Storage]]></string>
+    <string name="media_picker_select_from">Select From:</string>
+
+    <string name="croperino_saving_image">Saving image</string>
+    <string name="croperino_preparing_card">Preparing card</string>
+    <string name="croperino_no_storage_card">No storage card</string>
+    <string name="croperino_not_enough_space">Not enough space</string>
+
+    <string name="tab_title_video">Video</string>
+    <string name="tab_title_image">Image</string>
+    <string name="share_with">Share With</string>
+
+</resources>

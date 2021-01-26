@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mainData"
+            type="com.bartering.forsa.retrofit.service_model.WishlistData_ServiceModel.DataBean" />
+
+        <variable
+            name="clicklistener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="isGuestUser"
+            type="Boolean" />
+
+        <import type="android.view.View"></import>
+    </data>
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_10"
+        android:background="@drawable/border_shadow_home_select"
+        android:onClick="@{(view) -> clicklistener.onClick(position,mainData,@string/event4)}"
+        app:cardCornerRadius="20dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/parentLinLayoutId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_shadow_home_select"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="1dp"
+            android:paddingTop="1dp"
+            android:paddingRight="1dp"
+            android:paddingBottom="@dimen/size_10">
+
+            <RelativeLayout
+                android:layout_width="@dimen/size_140"
+                android:layout_height="@dimen/size_140"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/size_04"
+                    app:imageWithCustomRadius="@{mainData.prd_img}">
+                    ></ImageView>
+
+                <LinearLayout
+                    android:layout_width="@dimen/size_25_ori"
+                    android:layout_height="@dimen/size_25_ori"
+                    android:background="@drawable/border_shadow_home_select"
+                    android:layout_marginTop="@dimen/size_07"
+                    android:layout_marginRight="@dimen/size_07"
+                    android:layout_alignParentRight="true"
+                    android:onClick="@{(view) -> clicklistener.onClick(position,mainData,@string/event2)}"
+                    android:visibility="@{isGuestUser ? View.GONE : View.VISIBLE}"
+                    android:gravity="center"
+                    >
+                    <ImageView
+                        android:layout_width="@dimen/size_17"
+                        android:layout_height="@dimen/size_15"
+                        android:layout_marginLeft="1dp"
+                        app:isWishedOrNot="@{mainData.wish}"></ImageView>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="@dimen/size_45"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="@dimen/size_10"
+                    android:background="@drawable/like_background_transparent"
+                    android:gravity="center"
+                    android:visibility="@{isGuestUser ? View.GONE : View.VISIBLE}"
+                    android:onClick="@{(view) -> clicklistener.onClick(position,mainData,@string/event3)}"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/size_05">
+
+                    <ImageView
+                        android:layout_width="@dimen/size_15"
+                        android:layout_height="@dimen/size_13"
+                        app:isLikedOrNot="@{mainData.like}"></ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:text="@{mainData.total_like}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_12"></TextView>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10"
+                android:text="@{mainData.title}"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textSize="@dimen/smallsizeallaround"
+                android:textStyle="bold"></TextView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_05"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/size_25"
+                        android:layout_height="@dimen/size_25"
+                        android:background="@drawable/location"
+                        android:backgroundTint="#C0C0C0"></ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_05"
+                        android:textSize="@dimen/size_10"
+                        android:textColor="@color/black"
+                        android:text="5 KM"></TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/size_25"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/size_25"
+                        android:layout_height="@dimen/size_25"
+                        android:background="@drawable/eye"
+                        android:backgroundTint="#C0C0C0"></ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_05"
+                        android:textSize="@dimen/size_10"
+                        android:textColor="@color/black"
+                        android:text="@{mainData.total_view}"></TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

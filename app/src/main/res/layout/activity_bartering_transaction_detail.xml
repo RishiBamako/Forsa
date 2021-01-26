@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="datail"
+            type="com.bartering.forsa.retrofit.service_model.Transaction_ServiceModel.DataBean" />
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/button_color_green"
+        tools:context=".BottomMenuFragment">
+
+        <!--recyclerview section-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/size_80"
+            android:background="@drawable/border_shadow_home_recycler">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/size_30"
+                    android:paddingTop="5dp"
+                    android:paddingRight="@dimen/size_30"
+                    android:paddingBottom="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_20"
+                        android:layout_marginBottom="@dimen/size_20"
+                        android:background="@drawable/border_shadow_select"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/size_08"
+                        tools:context=".activities.SignInActivity">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/size_25"
+
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/productViewId"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/size_30"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/size_80"
+                                        android:layout_height="@dimen/size_80"
+                                        app:imageWithCustomRadius="@{datail.offer_to_prd_media_prdimg}"></ImageView>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/size_40"
+                                        android:layout_height="@dimen/size_30"
+                                        android:background="@mipmap/transfer"></ImageView>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="center">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/size_80"
+                                        android:layout_height="@dimen/size_80"
+                                        app:imageWithCustomRadius="@{datail.prdimg}"></ImageView>
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/size_55"
+                                android:layout_height="@dimen/size_55"
+                                android:layout_marginTop="@dimen/size_10"
+                                android:background="@drawable/round_linlayout"
+                                android:padding="@dimen/size_05">
+
+                                <com.bartering.forsa.utils.CircleImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:profileCircle="@{datail.seller_photo}"></com.bartering.forsa.utils.CircleImageView>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/size_55"
+                                android:layout_height="@dimen/size_55"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginTop="@dimen/size_10"
+                                android:background="@drawable/round_linlayout"
+                                android:padding="@dimen/size_05">
+
+                                <com.bartering.forsa.utils.CircleImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:profileCircle="@{datail.buyer_photo}"></com.bartering.forsa.utils.CircleImageView>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/productViewId"
+                                android:layout_alignParentBottom="true"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:paddingRight="@dimen/size_05"
+                                    android:text="@{datail.offer_to_prd_title}"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/smallsizeallaround"
+                                    android:textStyle="bold"></TextView>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:paddingLeft="@dimen/size_05"
+                                    android:text="@{datail.prd_title}"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/smallsizeallaround"
+                                    android:textStyle="bold"></TextView>
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border_shadow_select"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/size_08"
+                        tools:context=".activities.SignInActivity">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/size_10"
+                            android:paddingTop="@dimen/size_10"
+                            android:paddingBottom="@dimen/size_10">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/bartering_detail"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/bigheadersizeallaround"
+                                android:textStyle="bold"></TextView>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingRight="@dimen/size_10"
+                                android:weightSum="2">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/size_10"
+                                    android:layout_weight="1"
+                                    android:fontFamily="arial"
+                                    android:text="@string/transaction_date"
+                                    android:textSize="@dimen/smallsizeallaround"
+                                    android:textStyle=""></TextView>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/size_10"
+                                    android:layout_weight="1"
+                                    android:fontFamily="arial"
+
+                                    android:gravity="right"
+                                    android:text="@{datail.transactiondate}"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/smallsizeallaround"
+                                    android:textStyle="bold"></TextView>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingRight="@dimen/size_10"
+                                android:weightSum="2">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/size_10"
+                                    android:layout_weight="1"
+                                    android:fontFamily="arial"
+                                    android:text="@string/transaction_id"
+                                    android:textSize="@dimen/smallsizeallaround"
+                                    android:textStyle=""></TextView>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/size_10"
+                                    android:layout_weight="1"
+                                    android:fontFamily="arial"
+
+                                    android:gravity="right"
+                                    android:text="@{datail.trans_id}"
+
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/smallsizeallaround"
+                                    android:textStyle="bold"></TextView>
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_20"
+                        android:background="@drawable/border_shadow_select"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/size_08"
+                        tools:context=".activities.SignInActivity">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/size_10"
+                            android:paddingTop="@dimen/size_10"
+                            android:paddingBottom="@dimen/size_10">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/user_details"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/bigheadersizeallaround"
+                                android:textStyle="bold"></TextView>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/size_10"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingRight="@dimen/size_10"
+                                android:weightSum="2">
+
+                                <com.bartering.forsa.utils.CircleImageView
+                                    android:layout_width="@dimen/size_55"
+                                    android:layout_height="@dimen/size_55"
+                                    app:profileCircle="@{datail.seller_photo}"></com.bartering.forsa.utils.CircleImageView>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:orientation="vertical"
+                                    android:paddingLeft="@dimen/size_10">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="arial"
+                                        android:gravity="right"
+                                        android:text="@{datail.seller_name}"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/smallsizeallaround"
+                                        android:textStyle="bold"></TextView>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/size_05"
+                                        android:fontFamily="arial"
+                                        android:text="@string/seller"
+                                        android:textSize="@dimen/smallsizeallaround"
+                                        android:textStyle=""></TextView>
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/size_15"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:paddingRight="@dimen/size_10"
+                                android:weightSum="2">
+
+                                <com.bartering.forsa.utils.CircleImageView
+                                    android:layout_width="@dimen/size_55"
+                                    android:layout_height="@dimen/size_55"
+                                    app:profileCircle="@{datail.buyer_photo}"></com.bartering.forsa.utils.CircleImageView>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:orientation="vertical"
+                                    android:paddingLeft="@dimen/size_10">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="arial"
+                                        android:gravity="right"
+                                        android:text="@{datail.buyer_name}"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/smallsizeallaround"
+                                        android:textStyle="bold"></TextView>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/size_05"
+                                        android:fontFamily="arial"
+                                        android:text="@string/buyer"
+                                        android:textSize="@dimen/smallsizeallaround"
+                                        android:textStyle=""></TextView>
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/actionbar_height">
+
+                <LinearLayout
+                    android:layout_width="@dimen/size_80"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event1)}">
+
+                    <ImageView
+                        android:layout_width="@dimen/right_arrow_width_normal"
+                        android:layout_height="@dimen/right_arrow_height_normal"
+                        android:layout_centerVertical="true"
+                        android:background="@mipmap/right_arrow"
+                        android:backgroundTint="@color/white"></ImageView>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_25"
+                    android:text="@string/transaction_detail"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/actionbartextsize"
+                    android:textStyle="bold"></TextView>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

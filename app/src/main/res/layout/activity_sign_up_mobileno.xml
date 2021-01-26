@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="sinUpModel"
+            type="com.bartering.forsa.mutableViewModel.ParamOptimizer_ViewModel" />
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_main"
+        android:orientation="vertical"
+        tools:context=".activities.SignInActivity">
+
+        <LinearLayout
+            android:layout_width="@dimen/size_50"
+            android:layout_height="@dimen/size_50"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_marginTop="@dimen/size_20"
+            android:gravity="center"
+            android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event1)}">
+
+            <ImageView
+                android:layout_width="@dimen/backarrow_width"
+                android:layout_height="@dimen/backarrow_height"
+                android:background="@mipmap/right_arrow"></ImageView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/size_20"
+            android:layout_marginRight="@dimen/size_20"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_40"
+                android:gravity="center"
+                android:text="@string/welcometext"
+                android:textColor="@color/black"
+                android:textSize="@dimen/smallsizeallaround"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10"
+                android:gravity="center"
+                android:text="@string/signuptocontinue"
+                android:textColor="@color/black"
+                android:textSize="@dimen/biggest_header"
+                android:textStyle="bold"></TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height"
+                android:layout_marginTop="@dimen/size_20"
+                android:background="@drawable/border_shadow_select"
+                android:hint="@string/phonenumber"
+                android:inputType="phone"
+                android:paddingLeft="@dimen/size_10"
+                android:singleLine="true"
+                android:maxLength="10"
+                android:text="@={sinUpModel.mobileNo}"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/smallsizeallaround"
+                android:textStyle="bold"></EditText>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/keepMeAlwaysCheckBoxId"
+                    android:layout_width="wrap_content"
+                    android:buttonTint="@color/black"
+                    android:scaleX="1.15"
+                    android:scaleY="1.15"
+                    android:layout_height="wrap_content"></CheckBox>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/keepmealwayssignedin"
+                    android:textSize="@dimen/termandcondition"></TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/termAndCoCheckBoxId"
+                    android:layout_width="wrap_content"
+                    android:buttonTint="@color/black"
+                    android:scaleX="1.15"
+                    android:scaleY="1.15"
+                    android:layout_height="wrap_content"></CheckBox>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/iagreeto"
+                    android:textSize="@dimen/termandcondition"></TextView>
+
+                <TextView
+                    android:id="@+id/termsTextViewId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:text="@string/terms"
+                    android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event4)}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/termandcondition"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:text="@string/and"
+                    android:textSize="@dimen/termandcondition"></TextView>
+
+                <TextView
+                    android:id="@+id/conditionAndPolicyTextViewId"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event5)}"
+                    android:text="@string/conditionandpolicy"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/termandcondition"></TextView>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/size_20"
+                android:layout_marginBottom="@dimen/size_20"
+                android:background="@drawable/button_background"
+                android:gravity="center"
+                android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event2)}"
+                android:text="@string/next"
+                android:textColor="@color/white"
+                android:textSize="@dimen/buttontextsize"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_10"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/size_100"
+                    android:layout_height="1dp"
+                    android:background="@color/gray"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:layout_marginRight="@dimen/size_10"
+                    android:text="OR"
+                    android:textColor="@color/gray"></TextView>
+
+                <TextView
+                    android:layout_width="@dimen/size_100"
+                    android:layout_height="1dp"
+                    android:background="@color/gray"></TextView>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height"
+                android:layout_marginTop="@dimen/size_20"
+                android:background="@drawable/border_shadow_select"
+                android:drawableLeft="@mipmap/email_1"
+                android:drawablePadding="@dimen/size_20"
+                android:gravity="center_vertical"
+                android:inputType="textEmailAddress"
+                android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event3)}"
+                android:paddingLeft="@dimen/size_30"
+                android:singleLine="true"
+                android:text="@string/signupwithemail"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/smallsizeallaround"
+                android:textStyle="bold"></TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+
+    >
+    <item
+        android:id="@+id/edit"
+        android:title="@string/edit_capi" />
+
+    <item
+        android:id="@+id/deactivate"
+        android:title="@string/deacctive" />
+    <item
+        android:id="@+id/delete"
+        android:title="@string/delete_capi" />
+    <item
+        android:id="@+id/markAsSold"
+        android:title="@string/markassold" />
+</menu>
+

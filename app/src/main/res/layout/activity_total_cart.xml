@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="isNoRecord"
+            type="Boolean" />
+
+        <variable
+            name="checkoutButtonShouldHide"
+            type="Boolean" />
+
+
+        <import type="android.view.View" />
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <variable
+            name="totalPrice"
+            type="String" />
+
+        <variable
+            name="cartSize"
+            type="String" />
+
+
+        <variable
+            name="buttonName"
+            type="String" />
+
+       <variable
+            name="shouldHideTopInformation"
+            type="Boolean" />
+
+        <variable
+            name="cartProfileSection"
+            type="com.bartering.forsa.retrofit.service_model.CartData_ServiceModel.DataBean.UserprofileBean" />
+
+        <variable
+            name="data"
+            type="com.bartering.forsa.mutableViewModel.ParamOptimizer_ViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/button_color_green"
+        tools:context=".BottomMenuFragment">
+
+        <!--recyclerview section-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/size_65"
+            android:background="@drawable/border_shadow_home_recycler">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/size_30"
+                android:paddingTop="5dp"
+                android:paddingRight="@dimen/size_30"
+                android:paddingBottom="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size_30"
+                    android:visibility="@{shouldHideTopInformation ? View.GONE : View.VISIBLE}"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:id="@+id/profileViewId"
+                            android:layout_width="@dimen/size_80"
+                            android:layout_height="@dimen/size_80"
+                            android:layout_marginRight="@dimen/size_10"
+                            android:layout_toLeftOf="@+id/sellerNameInfoId">
+
+                            <com.bartering.forsa.utils.CircleImageView
+                                android:layout_width="@dimen/size_60"
+                                android:layout_height="@dimen/size_60"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                app:civ_border_color="@color/white"
+                                app:civ_border_width="2dp"
+                                app:loadImageCircle="@{cartProfileSection.userimage}"></com.bartering.forsa.utils.CircleImageView>
+
+                            <TextView
+                                android:layout_width="@dimen/size_17"
+                                android:layout_height="@dimen/size_17"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginTop="@dimen/size_08"
+                                android:layout_marginRight="@dimen/size_10"
+                                android:background="@drawable/seller_round_linlayout"></TextView>
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:id="@+id/sellerNameInfoId"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/size_10"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="arial"
+                                    android:text="@{cartProfileSection.user_name}"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/size_14"
+                                    android:textStyle="bold"></TextView>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="arial"
+                                    android:text="@{cartSize}"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/size_14"></TextView>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="right|center_vertical"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="arial"
+                                    android:text="@{@string/kwd+' '+totalPrice}"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/size_14"
+                                    android:textStyle="bold"></TextView>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="arial"
+                                    android:text="Shipping Extra"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/size_14"></TextView>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/cartRecyclerViewId"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/size_20"
+                    android:layout_marginBottom="@dimen/size_72"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"></androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/actionbar_height">
+
+                <LinearLayout
+                    android:layout_width="@dimen/size_80"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event2)}">
+
+                    <ImageView
+                        android:layout_width="@dimen/right_arrow_width_normal"
+                        android:layout_height="@dimen/right_arrow_height_normal"
+                        android:layout_centerVertical="true"
+                        android:background="@mipmap/right_arrow"
+                        android:backgroundTint="@color/white"></ImageView>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_25"
+                    android:text="@string/totalcart"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/actionbartextsize"
+                    android:textStyle="bold"></TextView>
+
+                <LinearLayout
+                    android:layout_width="@dimen/size_60"
+                    android:layout_height="@dimen/size_30"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_20"
+                    android:background="@drawable/round_radius"
+                    android:gravity="center"
+                    android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event3)}">
+
+                    <TextView
+                        android:id="@+id/editBtnId"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@{buttonName}"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/smallsizeallaround"
+                        android:textStyle="bold"></TextView>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/size_30"
+            android:layout_marginRight="@dimen/size_30"
+            android:layout_marginTop="@dimen/size_20"
+            android:layout_marginBottom="@dimen/size_20"
+            android:background="@drawable/button_background"
+            android:gravity="center"
+            android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event1)}"
+            android:text="@string/checkout"
+            android:textColor="@color/white"
+            android:textSize="@dimen/buttontextsize"
+            android:textStyle="bold"
+            android:visibility="@{checkoutButtonShouldHide ? View.GONE : View.VISIBLE}"></TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/size_10"
+            android:gravity="center"
+            android:text="@string/norecordfound"
+            android:textColor="@color/recordsnf_textcolor"
+            android:textSize="@dimen/size_notfound"
+            android:textStyle="bold"
+            android:visibility="@{isNoRecord ? View.VISIBLE : View.GONE}"></TextView>
+
+    </RelativeLayout>
+</layout>

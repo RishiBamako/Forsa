@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/mainDialogLinLayoutId"
+    android:background="@drawable/seller_popup"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/size_10">
+
+    <TextView
+        android:id="@+id/shareProfileLinLayoutId"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_30"
+        android:gravity="center"
+        android:text="@string/shareprofile"
+        android:textColor="@color/black"
+        android:paddingLeft="@dimen/size_20"
+        android:paddingRight="@dimen/size_20"
+        android:textSize="@dimen/smallheadersizeallaround"></TextView>
+
+    <TextView
+        android:id="@+id/reportUserLinLayoutId"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_30"
+        android:gravity="center"
+        android:text="@string/reportuser"
+        android:paddingLeft="@dimen/size_20"
+        android:paddingRight="@dimen/size_20"
+        android:textColor="@color/black"
+        android:textSize="@dimen/smallheadersizeallaround"></TextView>
+
+</LinearLayout>

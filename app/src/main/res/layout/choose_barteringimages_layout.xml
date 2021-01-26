@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"></import>
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="shouldShowCameraView"
+            type="Boolean" />
+
+
+        <variable
+            name="data"
+            type="com.bartering.forsa.activities.camera_section.MediaData_HolderModel" />
+
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/size_15"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".activities.SignInActivity">
+
+        <LinearLayout
+            android:id="@+id/captureImageLinLayoutId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{shouldShowCameraView ? View.VISIBLE : View.GONE}"
+            android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event4)}"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="@dimen/size_100"
+                android:layout_height="@dimen/size_100"
+                android:layout_marginTop="@dimen/size_15"
+                android:background="@drawable/border_shadow_gray_select"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="@dimen/size_30"
+                    android:layout_height="27dp"
+                    android:background="@mipmap/camera_bm"
+                    android:backgroundTint="@color/gray"></ImageView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="@dimen/size_100"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10"
+                android:text="@string/addanother"
+                android:textColor="@color/black"
+                android:visibility="gone"></TextView>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="@dimen/size_110"
+            android:layout_height="wrap_content"
+            android:visibility="@{shouldShowCameraView ? View.GONE : View.VISIBLE}"
+            >
+
+            <LinearLayout
+                android:id="@+id/imageViewLinLayoutId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_15"
+                android:background="@{data.inFocus ? @drawable/border_shadow_theme : null}"
+                android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event3)}"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_shadow_gray_select"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        app:radiusBitmap_ImageVideo="@{data}"
+                        android:layout_width="@dimen/size_100"
+                        android:layout_height="@dimen/size_100"></ImageView>
+
+                    <TextView
+                        android:layout_width="@dimen/size_100"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:text="i Phone XL"
+                        android:textColor="@color/black"
+                        android:visibility="gone"></TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/size_25"
+                android:layout_height="@dimen/size_25"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/size_05"
+                android:background="@mipmap/remove_red"
+                android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event10)}"
+                android:visibility="@{position==0 ? View.GONE : View.VISIBLE}"></ImageView>
+        </RelativeLayout>
+
+
+        <com.bartering.forsa.utils.ProgressWheel
+            android:id="@+id/power_spinner"
+            android:layout_width="@dimen/loader_width"
+            android:layout_height="@dimen/loader_height"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/size_20"
+            android:visibility="gone"
+            ProgressWheel:pwBarColor="@color/black"
+            ProgressWheel:pwBarLength="60dp"
+            ProgressWheel:pwBarWidth="5dp"
+            ProgressWheel:pwRimColor="@color/colorAccent"
+            ProgressWheel:pwRimWidth="5dp"
+            ProgressWheel:pwTextColor="#222"
+            ProgressWheel:pwTextSize="14sp" />
+
+    </RelativeLayout>
+</layout>

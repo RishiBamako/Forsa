@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="imagePusher"
+            type="android.graphics.Bitmap" />
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <variable
+            name="videoPusher"
+            type="String" />
+
+        <import type="android.view.View"></import>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".BottomMenuFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:id="@+id/videoLinLayoutId"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight=".90"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.bartering.forsa.activities.camera_section.widget.PortraitFrameLayout
+                        android:id="@+id/wrap_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="@{imagePusher!=null || videoPusher!=null ? View.GONE : View.VISIBLE}"></com.bartering.forsa.activities.camera_section.widget.PortraitFrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:paddingBottom="@dimen/size_15">
+
+                        <Chronometer
+                            android:id="@+id/videoChronometerId"
+                            android:layout_width="@dimen/size_120"
+                            android:layout_height="@dimen/size_35"
+                            android:background="@drawable/smallbtn"
+                            android:gravity="center"
+
+                            android:textColor="@color/white"
+                            android:visibility="gone"></Chronometer>
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="@{imagePusher!=null &amp;&amp; videoPusher==null ? View.VISIBLE : View.GONE}"
+                    app:loadImageBitmap="@{imagePusher}"></ImageView>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <VideoView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:visibility="@{imagePusher==null &amp;&amp; videoPusher!=null ? View.VISIBLE : View.GONE}"
+                        app:videoFromPath="@{videoPusher}"></VideoView>
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bottomMainLinLayoutId"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.10"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/videoLinLayoutId"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/captureedImageRectclerviewId"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="@dimen/size_10">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerviewId"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/youhavethreephototand"
+                            android:gravity="center"
+                            android:textSize="@dimen/size_13"
+                            android:layout_marginTop="@dimen/size_20"
+                            ></TextView>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/actionbar_height"
+                android:layout_margin="@dimen/size_10"
+                android:paddingLeft="@dimen/size_10"
+                android:paddingRight="@dimen/size_10">
+
+                <LinearLayout
+                    android:id="@+id/backLLId"
+                    android:layout_width="@dimen/size_40"
+                    android:layout_height="@dimen/size_40"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/cross_background_transparent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/size_10"
+                        android:layout_height="@dimen/size_10"
+                        android:layout_centerVertical="true"
+                        android:background="@mipmap/cancel"
+                        android:backgroundTint="@color/white"></ImageView>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/nxtBtn"
+                    android:layout_width="@dimen/size_80"
+                    android:layout_height="@dimen/size_40"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/smallbtn_theme"
+                    android:gravity="center"
+                    android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event8)}"
+                    android:text="@string/next"
+                    android:textAllCaps="true"
+                    android:textSize="@dimen/smallsizeallaround"
+                    android:textColor="@color/white"></TextView>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!--<Button
+            android:id="@+id/btn_record"
+            android:layout_width="@dimen/size_90"
+            android:layout_height="@dimen/size_40"
+            android:layout_above="@+id/bottomLayoutId"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/size_20"
+            android:background="@drawable/button_background_red"
+            android:text="@string/app_record"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_10" />-->
+
+        <!--<Button
+            android:id="@+id/btn_switch_camera"
+            android:layout_width="@dimen/size_90"
+            android:layout_height="@dimen/size_40"
+            android:layout_above="@+id/bottomLayoutId"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/size_20"
+            android:background="@drawable/button_background_red"
+            android:text="SWITCH"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_10"
+            app:layout_constraintRight_toRightOf="parent" />-->
+
+        <LinearLayout
+            android:id="@+id/btn_flash"
+            android:layout_width="@dimen/size_50"
+            android:layout_height="@dimen/size_50"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/size_80"
+            android:layout_marginRight="@dimen/size_20"
+            android:background="@drawable/flash_background_transparent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:textSize="@dimen/size_10">
+
+            <ImageView
+                android:layout_width="@dimen/size_25"
+                android:layout_height="@dimen/size_25"
+                android:background="@mipmap/flash"
+                android:backgroundTint="@color/white"></ImageView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottomLayoutId"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/size_10"
+            android:layout_marginBottom="@dimen/size_20"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event5)}"
+                android:orientation="vertical"
+                android:padding="@dimen/size_20">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+                    <!-- <Button
+                         android:id="@+id/btn_record"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_alignParentBottom="true"
+                         android:layout_centerInParent="true"
+                         android:text="@string/app_record"
+                         app:layout_constraintBottom_toBottomOf="parent"
+                         app:layout_constraintLeft_toLeftOf="parent"
+                         app:layout_constraintRight_toRightOf="parent" />
+ -->
+                    <!--  <Button
+                          android:id="@+id/btn_switch_camera"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="SWITCH"
+                          app:layout_constraintRight_toRightOf="parent" />
+  -->
+                    <!--<Button
+                        android:id="@+id/btn_flash"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="FLASH"
+                        android:layout_below="@+id/btn_switch_camera"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btn_switch_camera" />
+-->
+                    <Button
+                        android:id="@+id/btn_filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/btn_flash"
+                        android:text="FILTER"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btn_flash" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageFromGalleyImageViewId"
+                    android:layout_width="@dimen/size_40"
+                    android:layout_height="@dimen/size_32"
+                    android:background="@mipmap/gallery"></ImageView>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Button
+                        android:id="@+id/stopVideo_image_capture"
+                        android:layout_width="@dimen/size_80"
+                        android:layout_height="@dimen/size_80"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/stop_video"
+                        android:visibility="gone"></Button>
+
+                    <Button
+                        android:id="@+id/btn_record"
+                        android:layout_width="@dimen/size_80"
+                        android:layout_height="@dimen/size_80"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/capture_video"
+                        android:visibility="gone"></Button>
+
+                    <Button
+                        android:id="@+id/btn_image_capture"
+                        android:layout_width="@dimen/size_80"
+                        android:layout_height="@dimen/size_80"
+                        android:layout_centerInParent="true"
+                        android:background="@mipmap/capture"></Button>
+
+
+                </RelativeLayout>
+
+                <!--       <ImageView
+                           android:layout_width="@dimen/size_50"
+                           android:layout_height="@dimen/size_50"
+                           android:layout_centerInParent="true"
+                           android:background="@mipmap/remove_item"
+                           android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event9)}"
+                           android:visibility="@{imagePusher!=null &amp;&amp; videoPusher==null ? View.VISIBLE : View.GONE}"></ImageView>
+              -->
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/bottomRightViewLinLayouyId"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    >
+
+                    <ImageView
+                        android:id="@+id/doActiveCameraViewId"
+                        android:layout_width="@dimen/size_40"
+                        android:layout_height="@dimen/size_40"
+                        android:layout_marginRight="@dimen/size_15"
+                        android:background="@mipmap/camera_round"
+                        android:visibility="gone"></ImageView>
+
+                    <ImageView
+                        android:id="@+id/doActiveVideoViewId"
+                        android:layout_width="@dimen/size_40"
+                        android:layout_height="@dimen/size_40"
+                        android:layout_marginRight="@dimen/size_15"
+                        android:background="@mipmap/video_icon"
+                        android:visibility="visible"></ImageView>
+
+                    <ImageView
+                        android:id="@+id/btn_switch_camera"
+                        android:layout_width="@dimen/size_40"
+                        android:layout_height="@dimen/size_35"
+                        android:layout_marginLeft="@dimen/size_05"
+                        android:background="@mipmap/photo_camera"></ImageView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

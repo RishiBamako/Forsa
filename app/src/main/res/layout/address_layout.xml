@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="data"
+            type="com.bartering.forsa.retrofit.service_model.AllAddress_ServiceModel.DataBean" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/size_20"
+        android:orientation="vertical"
+        android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event2)}"
+        tools:context=".activities.SignInActivity">
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/size_10"
+            app:addressBinder="@{data}"
+            android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event2)}"
+            android:textSize="@dimen/smallheadersizeallaround"></RadioButton>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_35"
+            android:layout_marginTop="@dimen/size_08"
+            android:orientation="horizontal"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event4)}"
+                android:paddingLeft="@dimen/size_10"
+                android:paddingRight="@dimen/size_10"
+                >
+                <ImageView
+                    android:layout_width="@dimen/size_15"
+                    android:layout_height="@dimen/size_15"
+                    android:background="@mipmap/edit"
+                    ></ImageView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/edibtn_underline"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/smallsizeallaround"
+                    ></TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/size_15"
+                android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event5)}"
+                android:paddingLeft="@dimen/size_10"
+                >
+                <ImageView
+                    android:layout_width="@dimen/size_16"
+                    android:layout_height="@dimen/size_17"
+                    android:background="@mipmap/delete"
+                    ></ImageView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/delete_underline"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/smallsizeallaround"
+                    ></TextView>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/size_10"
+            android:background="@color/gray_small"></TextView>
+
+
+    </LinearLayout>
+</layout>

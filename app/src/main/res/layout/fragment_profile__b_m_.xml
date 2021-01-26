@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"></import>
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <variable
+            name="noOfAds"
+            type="String" />
+
+        <import type="com.bartering.forsa.GlobalDialog"></import>
+
+        <variable
+            name="isGuest"
+            type="Boolean" />
+
+        <variable
+            name="following"
+            type="String" />
+
+        <variable
+            name="followers"
+            type="String" />
+
+        <variable
+            name="profileData"
+            type="com.bartering.forsa.retrofit.service_model.ProfileData_ServiceModel" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/button_color_green"
+        tools:context=".BottomMenuFragment">
+
+        <!--recyclerview section-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/size_110"
+            android:background="@drawable/border_shadow_home_recycler">
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/actionbar_height">
+
+                <LinearLayout
+                    android:id="@+id/backLLId"
+                    android:layout_width="@dimen/size_80"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event2)}"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="@dimen/right_arrow_width_normal"
+                        android:layout_height="@dimen/right_arrow_height_normal"
+                        android:layout_centerVertical="true"
+                        android:background="@mipmap/right_arrow"
+                        android:backgroundTint="@color/white"></ImageView>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_25"
+                    android:onClick="@{(view)->clickListener.onClick(0,null,@string/event1)}"
+                    android:text="@string/logout"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_17"
+                    android:textStyle="bold"></TextView>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:gravity="center"
+                android:minHeight="@dimen/size_100"
+                android:orientation="horizontal">
+
+                <com.bartering.forsa.utils.CircleImageView
+                    android:layout_width="@dimen/circle_image_size"
+                    android:layout_height="@dimen/circle_image_size"
+                    app:loadImageCircle="@{profileData.data.id_photo_url}"></com.bartering.forsa.utils.CircleImageView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_05"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@{isGuest ? @string/welcometext : profileData.data.user_name}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/most_trading_size"
+                    android:textStyle="bold"></TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="@dimen/size_10"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/size_17"
+                        android:layout_height="@dimen/size_18"
+                        android:background="@mipmap/verified" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/size_05"
+                        android:textColor="#EE6A30"
+                        android:textSize="@dimen/size_13"
+                        android:textStyle="bold"
+                        app:isUserVerified="@{profileData}" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_17"
+                    android:layout_marginTop="@dimen/size_10"
+                    android:layout_marginRight="@dimen/size_17"
+                    android:layout_marginBottom="@dimen/size_17"
+                    android:gravity="center"
+                    android:text="@{@string/youhavenoOffreeads_part1+' '+noOfAds+' '+@string/youhavenoOffreeads_part2}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_12"
+                    android:textStyle="bold"
+                    android:visibility="@{isGuest ? View.GONE : View.VISIBLE}" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/profile_sec_header"
+                    android:layout_marginLeft="@dimen/size_40"
+                    android:layout_marginRight="@dimen/size_40"
+                    android:background="@drawable/border_shadow_home_select"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event3)}"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/size_05"
+                            android:text="@{following}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/size_16"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/size_05"
+                            android:text="@string/following"
+                            android:textColor="@color/hintcolor"
+                            android:textSize="@dimen/size_14" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/gray_small"></TextView>
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event4)}"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/size_05"
+                            android:text="@{followers}"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/size_16"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/size_05"
+                            android:text="@string/follower"
+                            android:textColor="@color/hintcolor"
+                            android:textSize="@dimen/size_14" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/size_30"
+                    android:paddingTop="5dp"
+                    android:paddingRight="@dimen/size_30"
+                    android:paddingBottom="5dp">
+
+                    <RelativeLayout
+                        android:id="@+id/editProfileRLId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_20"
+                        android:onClick="@{(view) -> isGuest ?  GlobalDialog.showDialog(context) : clickListener.onClick(0,null,@string/event5)}"
+
+                        >
+
+                        <ImageView
+                            android:id="@+id/editProfile"
+                            android:layout_width="@dimen/size_25"
+                            android:layout_height="@dimen/size_23"
+                            android:layout_centerVertical="true"
+                            android:background="@mipmap/edit_profile"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_20"
+                            android:layout_toRightOf="@id/editProfile"
+                            android:text="@string/editprofile"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/size_14"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="@dimen/right_arrow_width"
+                            android:layout_height="@dimen/right_arrow_height"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_10"
+                            android:background="@mipmap/naviga_arrow"
+                            android:rotation="-90"
+
+                            ></ImageView>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/size_13"
+                        android:background="@color/gray_small">
+                        ></TextView>
+
+                    <RelativeLayout
+                        android:id="@+id/myAdsProfileRLId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_16"
+                        android:layout_marginBottom="@dimen/size_10"
+                        android:onClick="@{(view) -> isGuest ?  GlobalDialog.showDialog(context) : clickListener.onClick(0,null,@string/event14)}"
+
+                        >
+
+                        <ImageView
+                            android:id="@+id/myAdsProfile"
+                            android:layout_width="@dimen/size_25"
+                            android:layout_height="@dimen/size_18"
+                            android:layout_centerVertical="true"
+                            android:background="@mipmap/my_ads"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_20"
+                            android:layout_toRightOf="@id/myAdsProfile"
+                            android:text="@string/myads"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/size_14"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="@dimen/right_arrow_width"
+                            android:layout_height="@dimen/right_arrow_height"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_10"
+                            android:background="@mipmap/naviga_arrow"
+                            android:rotation="-90"
+
+                            ></ImageView>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/size_06"
+                        android:background="@color/gray_small">
+                        ></TextView>
+
+                    <RelativeLayout
+                        android:id="@+id/subsProfileRLId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_15"
+                        android:layout_marginBottom="@dimen/size_10"
+                        android:onClick="@{(view) -> isGuest ?  GlobalDialog.showDialog(context) : clickListener.onClick(0,null,@string/event13)}"
+
+                        >
+
+                        <ImageView
+                            android:id="@+id/subsProfile"
+                            android:layout_width="@dimen/size_25"
+                            android:layout_height="@dimen/size_25"
+                            android:layout_centerVertical="true"
+                            android:background="@mipmap/subs_pro"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_20"
+                            android:layout_toRightOf="@id/subsProfile"
+                            android:text="@string/subscription"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/size_14"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="@dimen/right_arrow_width"
+                            android:layout_height="@dimen/right_arrow_height"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_10"
+                            android:background="@mipmap/naviga_arrow"
+                            android:rotation="-90"
+
+                            ></ImageView>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/size_05"
+                        android:background="@color/gray_small">
+                        ></TextView>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:layout_marginBottom="@dimen/size_10"
+                        android:onClick="@{(view) -> isGuest ? GlobalDialog.showDialog(context) : clickListener.onClick(0,null,@string/event6)}"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp">
+
+                        <ImageView
+                            android:id="@+id/wishlist"
+                            android:layout_width="@dimen/size_23"
+                            android:layout_height="@dimen/size_22"
+                            android:layout_centerVertical="true"
+                            android:background="@mipmap/heart"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_20"
+                            android:layout_toRightOf="@id/wishlist"
+                            android:text="@string/wishlist"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/size_14"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="@dimen/right_arrow_width"
+                            android:layout_height="@dimen/right_arrow_height"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_10"
+                            android:background="@mipmap/naviga_arrow"
+                            android:rotation="-90"
+
+                            ></ImageView>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray_small">
+                        ></TextView>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_12"
+                        android:layout_marginBottom="@dimen/size_10"
+                        android:onClick="@{(view) -> isGuest ? GlobalDialog.showDialog(context) : clickListener.onClick(0,null,@string/event7)}"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp">
+
+                        <ImageView
+                            android:id="@+id/favouritecategories"
+                            android:layout_width="@dimen/size_25"
+                            android:layout_height="@dimen/size_22"
+                            android:layout_centerVertical="true"
+                            android:background="@mipmap/visualization"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_20"
+                            android:layout_toRightOf="@id/favouritecategories"
+                            android:text="@string/personalisation"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/size_14"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="@dimen/right_arrow_width"
+                            android:layout_height="@dimen/right_arrow_height"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_10"
+                            android:background="@mipmap/naviga_arrow"
+                            android:rotation="-90"
+
+                            ></ImageView>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray_small">
+                        ></TextView>
+
+                    <RelativeLayout
+                        android:id="@+id/changePasswordRLId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:layout_marginBottom="@dimen/size_10"
+                        android:onClick="@{(view) -> isGuest ? GlobalDialog.showDialog(context) : clickListener.onClick(0,null,@string/event8)}"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp">
+
+                        <ImageView
+                            android:id="@+id/changepassword"
+                            android:layout_width="@dimen/size_25"
+                            android:layout_height="@dimen/size_22"
+                            android:layout_centerVertical="true"
+                            android:background="@mipmap/key"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_20"
+                            android:layout_toRightOf="@id/changepassword"
+                            android:text="@string/changepassword"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/size_14"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="@dimen/right_arrow_width"
+                            android:layout_height="@dimen/right_arrow_height"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_10"
+                            android:background="@mipmap/naviga_arrow"
+                            android:rotation="-90"
+
+                            ></ImageView>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray_small">
+                        ></TextView>
+
+                    <RelativeLayout
+                        android:id="@+id/myTransactionLinLayoutId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_12"
+                        android:layout_marginBottom="@dimen/size_10"
+                        android:onClick="@{(view) -> isGuest ? GlobalDialog.showDialog(context) : clickListener.onClick(0,null,@string/event9)}"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp">
+
+                        <ImageView
+                            android:id="@+id/orderHistory"
+                            android:layout_width="@dimen/size_25_ori"
+                            android:layout_height="@dimen/size_20"
+                            android:layout_centerVertical="true"
+                            android:background="@mipmap/credit_card"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_20"
+                            android:layout_toRightOf="@id/orderHistory"
+                            android:text="@string/mytransaction"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/size_14"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="@dimen/right_arrow_width"
+                            android:layout_height="@dimen/right_arrow_height"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_10"
+                            android:background="@mipmap/naviga_arrow"
+                            android:rotation="-90"
+
+                            ></ImageView>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray_small">
+                        ></TextView>
+
+                    <RelativeLayout
+                        android:id="@+id/addressLinLayoutId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_12"
+                        android:layout_marginBottom="@dimen/size_10"
+                        android:onClick="@{(view) -> isGuest ? GlobalDialog.showDialog(context) : clickListener.onClick(0,null,@string/event16)}"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp">
+
+                        <ImageView
+                            android:id="@+id/addressHistory"
+                            android:layout_width="@dimen/size_25"
+                            android:layout_height="@dimen/size_25"
+                            android:layout_centerVertical="true"
+                            android:background="@mipmap/address"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_20"
+                            android:layout_toRightOf="@id/addressHistory"
+                            android:text="@string/address"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/size_14"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="@dimen/right_arrow_width"
+                            android:layout_height="@dimen/right_arrow_height"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_10"
+                            android:background="@mipmap/naviga_arrow"
+                            android:rotation="-90"
+
+                            ></ImageView>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray_small">
+                        ></TextView>
+
+                    <RelativeLayout
+                        android:id="@+id/settingsRLId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_08"
+                        android:layout_marginBottom="@dimen/size_10"
+                        android:onClick="@{(view) -> isGuest ? GlobalDialog.showDialog(context) : clickListener.onClick(0,null,@string/event10)}"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp">
+
+                        <ImageView
+                            android:id="@+id/settings"
+                            android:layout_width="@dimen/size_23"
+                            android:layout_height="@dimen/size_23"
+                            android:layout_centerVertical="true"
+                            android:background="@mipmap/settings_1"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_20"
+                            android:layout_toRightOf="@id/settings"
+                            android:text="@string/settings"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/size_14"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="@dimen/right_arrow_width"
+                            android:layout_height="@dimen/right_arrow_height"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_10"
+                            android:background="@mipmap/naviga_arrow"
+                            android:rotation="-90"></ImageView>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray_small">
+                        ></TextView>
+
+                    <RelativeLayout
+                        android:id="@+id/helpAndSupportRLId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:layout_marginBottom="@dimen/size_10"
+                        android:onClick="@{(view) -> isGuest ? GlobalDialog.showDialog(context) : clickListener.onClick(0,null,@string/event15)}"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp">
+
+                        <ImageView
+                            android:id="@+id/helpandorder"
+                            android:layout_width="@dimen/size_25"
+                            android:layout_height="@dimen/size_25"
+                            android:layout_centerVertical="true"
+                            android:background="@mipmap/call_center_agent"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_20"
+                            android:layout_toRightOf="@id/helpandorder"
+                            android:text="@string/helpandsupport"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/size_14"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="@dimen/right_arrow_width"
+                            android:layout_height="@dimen/right_arrow_height"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/size_10"
+                            android:background="@mipmap/naviga_arrow"
+                            android:rotation="-90"
+
+                            ></ImageView>
+                    </RelativeLayout>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

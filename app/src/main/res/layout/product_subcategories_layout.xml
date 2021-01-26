@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="data"
+            type="com.bartering.forsa.retrofit.service_model.SubCategoriesData_ServiceModel.DataBean" />
+
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event1)}"
+        android:orientation="vertical"
+        tools:context=".activities.SignInActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_50"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/categoryNameTextViewId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_15"
+                    android:layout_weight=".85"
+                    android:text="@{data.subcat_name}"
+                    android:layout_toLeftOf="@+id/arrowBtnId"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/smallheadersizeallaround"
+                    android:textStyle="bold"></TextView>
+
+                <ImageView
+                    android:id="@+id/arrowBtnId"
+                    android:layout_width="@dimen/right_arrow_width"
+                    android:layout_height="@dimen/right_arrow_height"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:layout_marginRight="@dimen/size_20"
+                    android:background="@mipmap/naviga_arrow"
+                    android:rotation="-90"></ImageView>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_small"></TextView>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

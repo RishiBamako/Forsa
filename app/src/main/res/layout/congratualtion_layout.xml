@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="sortByRecyclerView"
+            type="com.bartering.forsa.recyclerViewAdapter.SortBy_RecyclerViewAdapter" />
+
+        <variable
+            name="categoryRecyclerView"
+            type="com.bartering.forsa.recyclerViewAdapter.SortBy_RecyclerViewAdapter" />
+
+        <variable
+            name="suggestionSpinnerAdapter"
+            type="android.widget.ArrayAdapter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/congratulation_dialog"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/size_35"
+        android:paddingRight="@dimen/size_35"
+        android:paddingBottom="@dimen/size_20">
+
+        <LinearLayout
+            android:id="@+id/closeDialogLinLayoutId"
+            android:layout_width="@dimen/size_30"
+            android:layout_height="@dimen/size_30"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/size_15"
+            android:background="@drawable/close_backgroid"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/size_10"
+                android:layout_height="@dimen/size_10"
+                android:background="@mipmap/cancel"></ImageView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/size_70"
+                android:layout_height="@dimen/size_70"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/size_20"
+                android:background="@mipmap/check"></ImageView>
+
+            <TextView
+                android:id="@+id/headingDialogTextViewId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/size_25"
+                android:fontFamily="arial"
+                android:gravity="center"
+                android:text="@string/congratulations"
+                android:textColor="@color/black"
+                android:textSize="@dimen/smallvaluesizeallaround"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/textDialogTextViewId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/size_20"
+                android:layout_marginTop="@dimen/size_20"
+                android:layout_marginRight="@dimen/size_20"
+                android:fontFamily="arial"
+                android:gravity="center"
+                android:text="@string/deal_success"
+                android:textColor="@color/black"
+                android:textSize="@dimen/smallsizeallaround"></TextView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_20"
+            android:orientation="vertical">
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/okTextViewId"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/size_10"
+            android:layout_marginBottom="@dimen/size_25"
+            android:background="@drawable/button_background"
+            android:gravity="center"
+            android:text="@string/ok"
+            android:textColor="@color/white"
+            android:textSize="@dimen/smallheadersizeallaround"
+            android:textStyle="bold"></TextView>
+
+    </LinearLayout>
+</layout>

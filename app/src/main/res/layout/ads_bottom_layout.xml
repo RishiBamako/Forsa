@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.bartering.forsa.models.AdsFilter_DataModel" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_35"
+        android:layout_marginBottom="@dimen/size_10"
+        android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event4)}"
+        android:orientation="vertical"
+        tools:context=".activities.SignInActivity">
+
+        <CheckBox
+            android:id="@+id/categoryNameCheckboxId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@{data.isSelected}"
+            android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event4)}"
+            android:text="@{data.filterName}"
+            android:textSize="@dimen/smallheadersizeallaround"
+            android:textStyle="bold"></CheckBox>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,242 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:id="@+id/nav_header_container"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/drawerheaderbackgroundcolor"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/size_200"
+            android:layout_marginLeft="@dimen/size_30"
+            android:layout_marginRight="@dimen/size_20"
+            android:layout_height="@dimen/size_70"
+            android:background="@mipmap/logo"
+            ></ImageView>
+
+
+        <!--<barteringng.forsa.utils.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/user" />
+
+
+        <LinearLayout
+            android:id="@+id/nav_header_containerone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/profile_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/size_20"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/vrlogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="Arial"
+                android:text="Noura Al Zaid"
+                android:textColor="#ff9900"
+
+                android:textSize="22sp" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5.5dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/size_17"
+                    android:layout_height="@dimen/size_20"
+                    android:background="@mipmap/verified" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_05"
+                    android:text="Verified"
+                    android:textColor="#EE6A30"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+
+            &lt;!&ndash;  <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_centerHorizontal="true"
+                  android:layout_toRightOf="@+id/vrlogor"
+                  android:text="@string/vrapp"
+                  android:fontFamily="Arial"
+                  android:textSize="22sp"
+                       android:layout_marginLeft="5dp"
+
+                   android:textColor="#ffffff"
+                  android:layout_marginTop="2dp"
+
+                  />&ndash;&gt;
+        </LinearLayout>
+        <ImageView
+            android:layout_width="@dimen/right_arrow_width"
+            android:layout_height="@dimen/right_arrow_height"
+            android:layout_marginLeft="@dimen/size_40"
+            android:background="@mipmap/naviga_arrow"
+            android:rotation="-90"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/size_20"
+            ></ImageView>-->
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/drawerList"
+        android:layout_width="match_parent"
+        android:layout_height="530sp"
+        android:layout_below="@+id/nav_header_container"
+        android:background="#FFFFFF" />
+
+    <!--<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="> Categories"
+        android:id="@+id/category"
+        android:layout_below="@+id/drawerList"
+
+        android:fontFamily="antiqua.ttf"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginTop="10dp"
+        android:textSize="22sp"/>
+
+-->
+
+
+    <!-- <RelativeLayout android:layout_width="match_parent"
+         android:layout_height="10sp"
+         android:id="@+id/weblinklayout"
+         android:layout_below="@+id/drawerList"
+         android:background="#ffffff"
+         >
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="Weblinks:"
+             android:id="@+id/weblinks"
+             android:visibility="gone"
+             android:layout_alignParentLeft="true"
+             android:layout_alignParentStart="true"
+             android:fontFamily="antiqua.ttf"
+             android:textStyle="bold"
+             android:textColor="#C3C3C3"
+             android:textSize="23sp"
+             android:paddingLeft="20dp"
+             android:layout_marginTop="3dp"/>
+
+
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="3D Photos"
+             android:id="@+id/threedphoto"
+             android:layout_below="@+id/weblinks"
+             android:textColor="#9f9f9f"
+              android:layout_marginLeft="20dp"
+             android:textStyle="bold"
+             android:fontFamily="Arial"
+             android:layout_marginTop="10dp"
+
+             android:textSize="18sp"/>
+
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="3D Videos"
+             android:id="@+id/threedvideo"
+             android:layout_below="@+id/threedphoto"
+              android:textColor="#9f9f9f"
+             android:layout_marginLeft="20dp"
+             android:textStyle="bold"
+             android:fontFamily="Arial"
+             android:layout_marginTop="14dp"
+             android:textSize="18sp"/>
+
+
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="3D VoD"
+             android:id="@+id/threedvod"
+                android:layout_below="@+id/threedvideo"
+             android:layout_marginLeft="20dp"
+             android:textStyle="bold"
+             android:fontFamily="Arial"
+             android:textColor="#9f9f9f"
+             android:layout_marginTop="14dp"
+             android:textSize="18sp"/>
+
+
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="@string/virtualvozor"
+
+             android:id="@+id/virtualvizorcom"
+             android:layout_below="@+id/threedvod"
+             android:layout_alignParentLeft="true"
+             android:layout_alignParentStart="true"
+             android:fontFamily="Arial"
+
+             android:textColor="#ff9933"
+             android:textSize="18sp"
+
+             android:paddingLeft="20dp"
+             android:layout_marginTop="14dp"/>
+
+
+
+
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="@string/virtualvozorshop"
+             android:fontFamily="Arial"
+             android:id="@+id/virtualvizorcomshop"
+             android:layout_below="@+id/virtualvizorcom"
+             android:layout_alignParentLeft="true"
+             android:layout_alignParentStart="true"
+
+
+             android:textColor="#ff9933"
+             android:textSize="18sp"
+
+             android:paddingLeft="20dp"
+             android:layout_marginTop="14dp"/>
+
+
+
+
+     </RelativeLayout-->>
+
+
+</RelativeLayout><!--</ScrollView>-->

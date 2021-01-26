@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+      <variable
+            name="dataBean"
+            type="com.bartering.forsa.retrofit.service_model.Transaction_ServiceModel.DataBean" />
+  <variable
+            name="position"
+            type="Integer" />
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/size_08"
+        android:layout_marginBottom="@dimen/size_20"
+        android:background="@drawable/border_shadow_select"
+        tools:context=".activities.SignInActivity">
+
+        <ImageView
+            android:layout_width="@dimen/list_image_size"
+            android:layout_height="@dimen/list_image_size"
+            app:imageWithCustomRadius="@{dataBean.prdimg}"
+            ></ImageView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/size_10"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{dataBean.prd_title}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/bigheadersizeallaround"
+                android:textStyle="bold"></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{dataBean.transactiondate}"
+                android:textSize="@dimen/smallsizeallaround"
+                android:fontFamily="arial"
+                android:layout_marginTop="@dimen/size_10"
+                android:textStyle=""></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/viewdetails"
+                android:paddingLeft="@dimen/size_08"
+                android:paddingRight="@dimen/size_08"
+                android:paddingTop="@dimen/size_05"
+                android:textStyle="bold"
+                android:textSize="@dimen/smallsizeallaround"
+                android:layout_marginTop="@dimen/size_10"
+                android:onClick="@{(view) -> clickListener.onClick(position,dataBean,@string/event1)}"
+                android:paddingBottom="@dimen/size_05"
+                android:background="@drawable/smallbtn_theme"
+                android:textColor="@color/white"
+                ></TextView>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

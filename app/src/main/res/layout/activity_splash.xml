@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/splash"
+    tools:context=".activities.SplashActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_20"
+        android:gravity="center"
+        android:text="@string/uploadswapenjoy"
+        android:textColor="@color/white"
+        android:textSize="@dimen/size_23"
+        android:textStyle="bold"></TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/swapanycombination"
+        android:textColor="@color/white"
+        android:layout_above="@+id/meetNewPeopleId"
+        android:layout_marginBottom="@dimen/size_05"
+        android:textSize="@dimen/size_18"
+        android:textStyle="bold"></TextView>
+    <TextView
+        android:id="@+id/meetNewPeopleId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/meetnewpeople"
+        android:textColor="@color/white"
+        android:layout_above="@+id/letsStartId"
+        android:textSize="@dimen/size_26"
+        android:layout_marginBottom="@dimen/size_20"
+        android:textStyle="bold"></TextView>
+
+    <LinearLayout
+        android:id="@+id/letsStartId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/size_20"
+        android:layout_centerHorizontal="true"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/letsstart"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_18"
+            android:textStyle="bold"></TextView>
+
+        <ImageView
+            android:layout_width="@dimen/size_30"
+            android:layout_height="@dimen/size_30"
+            android:background="@mipmap/lets_start"
+            android:layout_marginLeft="@dimen/size_12"
+            ></ImageView>
+
+    </LinearLayout>
+</RelativeLayout>

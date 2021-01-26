@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <variable
+            name="isNoRecord"
+            type="Boolean" />
+
+        <import type="android.view.View"></import>
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_main"
+        android:orientation="vertical"
+        tools:context=".activities.SignInActivity">
+
+        <RelativeLayout
+            android:id="@+id/backRelaLayoutId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="@dimen/backarrow_width"
+                android:layout_height="@dimen/backarrow_height"
+                android:layout_marginLeft="@dimen/size_13"
+                android:layout_marginTop="@dimen/size_30"
+                android:background="@mipmap/right_arrow"
+                android:onClick="backPressed"></ImageView>
+
+            <TextView
+
+                android:layout_width="@dimen/size_70"
+                android:layout_height="@dimen/size_35"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/size_30"
+                android:layout_marginRight="@dimen/size_20"
+                android:background="@drawable/smallbtn"
+                android:gravity="center"
+                android:onClick="apply_skip"
+                android:text="@string/skip"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_15"></TextView>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/applyBtnId"
+            android:layout_below="@+id/backRelaLayoutId"
+            android:layout_marginLeft="@dimen/size_20"
+            android:layout_marginRight="@dimen/size_20"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/size_30">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10"
+                android:gravity="center"
+                android:text="@string/personalisation"
+                android:textColor="@color/black"
+                android:textSize="@dimen/most_trading_size"
+                android:textStyle="bold"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/size_20"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/categoryRecyclerViewId"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"></androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/size_20"
+                android:background="@drawable/button_background"
+                android:gravity="center"
+                android:text="@string/next"
+                android:textColor="@color/white"
+                android:textSize="@dimen/buttontextsize"></TextView>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/applyBtnId"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/size_20"
+            android:layout_marginTop="@dimen/size_20"
+            android:background="@drawable/button_background"
+            android:gravity="center"
+            android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event2)}"
+            android:text="@string/apply"
+            android:textColor="@color/white"
+            android:textSize="@dimen/buttontextsize"></TextView>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/size_10"
+            android:gravity="center"
+            android:text="@string/norecordfound"
+            android:textColor="@color/recordsnf_textcolor"
+            android:textSize="@dimen/size_notfound"
+            android:textStyle="bold"
+            android:visibility="@{isNoRecord ? View.VISIBLE : View.GONE}"></TextView>
+
+    </RelativeLayout>
+</layout>

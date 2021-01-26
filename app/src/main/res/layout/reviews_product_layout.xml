@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.bartering.forsa.retrofit.service_model.ProductReviewsList_ServiceModel.DataBean" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="click"
+            type="com.bartering.forsa.ClickListener" />
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/size_20"
+        android:onClick="@{(view) ->click.onClick(position,data,@string/event3)}"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.user_name}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size_15"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:fontFamily="arial"
+                android:text="@{data.ratingdate}"
+                android:textSize="@dimen/smallsizeallaround"></TextView>
+        </RelativeLayout>
+
+        <RatingBar
+            android:id="@+id/starRatingBarId"
+            style="?android:attr/ratingBarStyleIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:rating="@{Integer.parseInt(data.rating)}"
+            android:scaleX=".5"
+            android:scaleY=".5"
+            android:theme="@style/RatingBar"
+            android:transformPivotX="0dp"
+            android:transformPivotY="@dimen/size_20" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:fontFamily="arial"
+            android:lineSpacingExtra="4dp"
+            android:text="@{data.comment}"
+            android:textSize="@dimen/smallsizeallaround"></TextView>
+    </LinearLayout>
+</layout>

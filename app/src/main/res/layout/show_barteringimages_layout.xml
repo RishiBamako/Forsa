@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginRight="@dimen/size_10"
+        android:background="@drawable/border_shadow_home_select"
+        tools:context=".activities.SignInActivity">
+
+          <ImageView
+              android:layout_width="@dimen/size_130"
+              android:layout_height="@dimen/size_90"
+              android:layout_marginLeft="5dp"
+              android:layout_marginRight="@dimen/size_05"
+              android:layout_marginTop="5dp"
+              android:layout_marginBottom="5dp"
+              android:background="@drawable/drone_remove"
+              ></ImageView>
+    </LinearLayout>
+</layout>

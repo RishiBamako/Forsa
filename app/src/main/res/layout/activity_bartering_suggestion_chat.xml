@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"></import>
+
+        <variable
+            name="chatAdapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+
+        <variable
+            name="shouldShowSendMessage"
+            type="Boolean" />
+
+        <variable
+            name="isRecordsNotFound"
+            type="Boolean" />
+
+        <variable
+            name="showDialog"
+            type="Boolean" />
+
+        <variable
+            name="selectedProductImage"
+            type="String" />
+
+        <variable
+            name="loggedInUserName"
+            type="String" />
+
+        <variable
+            name="myProductImage"
+            type="String" />
+
+        <variable
+            name="endUserImage"
+            type="String" />
+
+        <variable
+            name="endUserproductName"
+            type="String" />
+
+        <variable
+            name="myImage"
+            type="String" />
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAccent"
+        tools:context=".BottomMenuFragment">
+
+        <!--recyclerview section-->
+        <LinearLayout
+            android:id="@+id/mainHeaderSection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/size_80"
+            android:background="@drawable/background_main"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_55"
+                android:background="#dbdbdb"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/size_10">
+
+                <LinearLayout
+                    android:layout_width="@dimen/size_150"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@+id/centralHeaderTextViewId"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="@dimen/size_60"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="@dimen/size_40"
+                            android:layout_height="@dimen/size_40"
+                            app:imageWithCustomRadius_bartering="@{myProductImage}"></ImageView>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="@dimen/size_30"
+                        android:layout_height="@dimen/size_20"
+                        android:background="@mipmap/transfer"></ImageView>
+
+                    <LinearLayout
+                        android:layout_width="@dimen/size_60"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="@dimen/size_40"
+                            android:layout_height="@dimen/size_40"
+                            app:imageWithCustomRadius_bartering="@{selectedProductImage}"></ImageView>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/centralHeaderTextViewId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/size_10"
+                    android:text="@{endUserproductName}"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/size_30"
+                    android:layout_marginRight="@dimen/size_10"
+                    android:background="@drawable/oval_hintcolor_theme_red"
+                    android:gravity="center"
+                    android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event2)}"
+                    android:paddingLeft="@dimen/size_20"
+                    android:paddingTop="@dimen/size_10"
+                    android:paddingRight="@dimen/size_20"
+                    android:paddingBottom="@dimen/size_10"
+                    android:text="@string/agree"
+                    android:textSize="@dimen/smallsizeallaround"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"></TextView>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/gray_dark"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border_shadow_home_recycler_non_radious">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/chatRecyclerViewId"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/size_20"
+                    android:layout_marginTop="@dimen/size_20"
+                    android:layout_marginRight="@dimen/size_20"
+                    android:layout_marginBottom="@dimen/size_80"
+                    android:adapter="@{chatAdapter}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"></androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/size_20">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/actionbar_height">
+
+                <LinearLayout
+                    android:layout_width="@dimen/size_80"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event1)}">
+
+                    <ImageView
+                        android:layout_width="@dimen/right_arrow_width_normal"
+                        android:layout_height="@dimen/right_arrow_height_normal"
+                        android:layout_centerVertical="true"
+                        android:background="@mipmap/right_arrow"
+                        android:backgroundTint="@color/white"></ImageView>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_25"
+                    android:text="@{loggedInUserName}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/actionbartextsize"
+                    android:textStyle="bold"></TextView>
+
+                <LinearLayout
+                    android:layout_width="@dimen/size_80"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event3)}">
+
+                    <ImageView
+                        android:layout_width="@dimen/right_arrow_width_normal"
+                        android:layout_height="@dimen/size_25_ori"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/menu"
+                        android:backgroundTint="@color/white"></ImageView>
+                </LinearLayout>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottomLinLayoutId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#9AA3AF"
+            android:orientation="vertical"
+            android:padding="@dimen/size_10">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height"
+                android:background="@drawable/border_shadow_home_roundselect"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/typeMessageEditTextId"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@+id/utilitiesLinLayoutId"
+                    android:background="@android:color/transparent"
+                    android:fontFamily="arial"
+                    android:gravity="center_vertical"
+                    android:hint="@string/typeurmessage"
+                    android:paddingLeft="@dimen/size_20"
+                    android:paddingRight="@dimen/size_05"
+                    android:textColor="@color/hintcolor"
+                    android:textColorHint="@color/hintcolor"
+                    android:textSize="@dimen/smallsizeallaround"></EditText>
+
+                <LinearLayout
+                    android:id="@+id/utilitiesLinLayoutId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="21.8dp"
+                        android:layout_height="25.8dp"
+                        android:layout_marginRight="@dimen/size_10"
+                        android:background="@mipmap/attach"></ImageView>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:paddingRight="@dimen/size_10"
+                        android:layout_marginRight="@dimen/size_05">
+
+                        <ImageView
+                            android:layout_width="@dimen/size_29"
+                            android:layout_height="@dimen/size_29"
+                            android:background="@mipmap/send_btn"
+                            android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event4)}"
+                            android:visibility="@{shouldShowSendMessage ? View.VISIBLE : View.GONE}"></ImageView>
+
+                        <ImageView
+                            android:layout_width="@dimen/size_29"
+                            android:layout_height="@dimen/size_26"
+                            android:background="@mipmap/camera_bm"
+                            android:backgroundTint="@color/gray"
+                            android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event5)}"
+                            android:visibility="@{shouldShowSendMessage ? View.GONE : View.VISIBLE}"></ImageView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bottomLinLayoutId"
+            android:layout_margin="@dimen/size_10"
+            android:background="@drawable/border_shadow_"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="@{showDialog ? View.VISIBLE : View.GONE}">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/size_20"
+                android:gravity="center"
+                android:layout_marginLeft="@dimen/size_10"
+                android:layout_marginRight="@dimen/size_10"
+                android:text="@string/yousuggestedthisbartering"
+                android:textColor="@color/hintcolor"
+                android:textSize="@dimen/smallheadersizeallaround"
+                android:textStyle="bold"></TextView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_30"
+                android:layout_marginTop="@dimen/size_25"
+                android:layout_marginRight="@dimen/size_30"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/size_20"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="@dimen/bartering_image"
+                            android:layout_height="@dimen/bartering_image"
+                            app:imageWithCustomRadius_bartering="@{myProductImage}"></ImageView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="@dimen/size_30"
+                            android:layout_height="@dimen/size_20"
+                            android:background="@mipmap/transfer"></ImageView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="@dimen/bartering_image"
+                            android:layout_height="@dimen/bartering_image"
+                            app:imageWithCustomRadius_bartering="@{selectedProductImage}"></ImageView>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/size_50"
+                    android:layout_height="@dimen/size_50"
+                    android:background="@drawable/round_linlayout"
+                    android:padding="@dimen/size_05">
+
+                    <com.bartering.forsa.utils.CircleImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:profileCircle="@{myImage}"></com.bartering.forsa.utils.CircleImageView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/size_50"
+                    android:layout_height="@dimen/size_50"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/round_linlayout"
+                    android:padding="@dimen/size_05">
+
+                    <com.bartering.forsa.utils.CircleImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:profileCircle="@{endUserImage}"></com.bartering.forsa.utils.CircleImageView>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/recordsnotfound"
+            android:textColor="@color/recordsnf_textcolor"
+            android:textSize="@dimen/size_notfound"
+            android:visibility="@{isRecordsNotFound ? View.VISIBLE : View.GONE}"></TextView>
+
+
+    </RelativeLayout>
+</layout>

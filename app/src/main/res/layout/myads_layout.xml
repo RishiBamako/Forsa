@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.bartering.forsa.retrofit.service_model.MyAds_ServiceModel.DataBean" />
+
+        <variable
+            name="isMenuShow"
+            type="Boolean" />
+
+       <variable
+            name="tradeFor"
+            type="String" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <import type="android.view.View"></import>
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/size_20"
+        android:background="@drawable/border_shadow_select"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/size_20"
+        tools:context=".activities.SignInActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_60"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/size_15"
+            android:paddingRight="@dimen/size_15">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fromToFromTextViewId"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="arial"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/smallsizeallaround"
+                    app:dateManipulation="@{data}"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/menuLinLayoutId"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:visibility="@{isMenuShow ? View.VISIBLE : View.GONE}">
+
+                <ImageView
+                    android:layout_width="@dimen/size_20"
+                    android:layout_height="@dimen/size_20"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/menu"
+                    android:backgroundTint="@color/black"
+                    android:rotation="90"></ImageView>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_small"></TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_20"
+            android:layout_marginBottom="@dimen/size_20"
+            android:background="@drawable/border_shadow_select"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/size_15"
+            tools:context=".activities.SignInActivity">
+
+            <ImageView
+                android:layout_width="@dimen/small_image_size"
+                android:layout_height="@dimen/small_image_size"
+                app:imageWithCustomRadius="@{data.file_name}"></ImageView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/size_10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.title}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/header_normal_size"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size_10"
+                    android:fontFamily="arial"
+                    app:htmlTextManipulator="@{tradeFor}"
+                    android:textSize="@dimen/smallsizeallaround"
+                    android:textColor="@color/black"
+                    android:textStyle=""></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size_10"
+                    android:minWidth="@dimen/size_100"
+                    android:background="@{isMenuShow ? @drawable/smallbtn_theme : @drawable/smallbtn}"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/size_20"
+                    android:paddingTop="@dimen/size_10"
+                    android:paddingRight="@dimen/size_20"
+                    android:paddingBottom="@dimen/size_10"
+                    android:text="@{data.productstatus}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/smallsizeallaround"
+                    android:textStyle="bold"></TextView>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_small"></TextView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_10"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/size_15"
+            android:paddingRight="@dimen/size_15">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/boostTextViewId"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size_05"
+                    android:weightSum="2"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/size_25"
+                            android:layout_height="@dimen/size_25"
+                            android:background="@mipmap/like"
+                            android:backgroundTint="#C0C0C0"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/size_05"
+                            android:textSize="@dimen/smallsizeallaround"
+                            android:text="@{data.total_like}"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/size_25"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/size_25"
+                            android:layout_height="@dimen/size_25"
+                            android:background="@drawable/eye"
+                            android:backgroundTint="#C0C0C0"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/size_05"
+                            android:textSize="@dimen/smallsizeallaround"
+                            android:text="@{data.total_view}"></TextView>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/boostTextViewId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/border_shadow_gray"
+                android:gravity="center"
+                android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event1)}"
+                android:paddingLeft="@dimen/size_20"
+                android:paddingTop="@dimen/size_10"
+                android:paddingRight="@dimen/size_20"
+                android:paddingBottom="@dimen/size_10"
+                android:text="@string/boostad"
+                android:textColor="@color/black"
+                android:textStyle="bold"></TextView>
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

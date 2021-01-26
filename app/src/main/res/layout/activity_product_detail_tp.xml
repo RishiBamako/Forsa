@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mainData"
+            type="com.bartering.forsa.retrofit.service_model.ProductDetails_ServiceModel.DataBean.PrdrecBean" />
+
+        <variable
+            name="productDescriptionRV"
+            type="com.bartering.forsa.recyclerViewAdapter.ProductDescriptionHead_RecyclerViewAdapter" />
+
+        <variable
+            name="reviewsDataRecyclerView"
+            type="com.bartering.forsa.recyclerViewAdapter.ReviewsProducts_RecyclerViewAdapter" />
+
+        <variable
+            name="layoutManager"
+            type="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/button_color_green"
+        tools:context=".BottomMenuFragment">
+
+        <!--recyclerview section-->
+        <LinearLayout
+            android:id="@+id/parentLinLayoutId"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/startBarteringTextViewId"
+            android:layout_marginTop="@dimen/size_150"
+            android:background="@drawable/border_shadow_home_recycler">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/size_100"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/size_40"
+                    android:paddingTop="5dp"
+                    android:paddingRight="@dimen/size_40"
+                    android:paddingBottom="@dimen/size_100">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/productdescription"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_15"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_20"
+                        android:text="@{mainData.description}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_16"
+                        android:textStyle="bold"></TextView>
+
+                    <!--<androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:adapter="@{productDescriptionRV}"
+                        app:layoutManager="@{layoutManager}"></androidx.recyclerview.widget.RecyclerView>-->
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/size_15"
+                        android:background="@color/gray_small"></TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_20"
+                        android:text="@string/sellerdetail"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_15"
+                        android:textStyle="bold"></TextView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:background="@drawable/border_shadow_home_select"
+                        android:gravity="center"
+                        android:minHeight="@dimen/size_150"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <RelativeLayout
+                                    android:id="@+id/profileViewId"
+                                    android:layout_width="@dimen/size_80"
+                                    android:layout_height="@dimen/size_80"
+                                    android:layout_marginRight="@dimen/size_10"
+                                    android:layout_toLeftOf="@+id/sellerNameInfoId">
+
+                                    <com.bartering.forsa.utils.CircleImageView
+                                        android:layout_width="@dimen/size_60"
+                                        android:layout_height="@dimen/size_60"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_centerVertical="true"
+                                        android:background="@drawable/user"></com.bartering.forsa.utils.CircleImageView>
+
+                                    <TextView
+                                        android:layout_width="@dimen/size_17"
+                                        android:layout_height="@dimen/size_17"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_marginTop="@dimen/size_08"
+                                        android:layout_marginRight="@dimen/size_10"
+                                        android:background="@drawable/seller_round_linlayout"></TextView>
+
+                                </RelativeLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/sellerNameInfoId"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="@dimen/size_10"
+                                    android:gravity="center_vertical"
+                                    android:orientation="vertical"
+
+                                    >
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="arial"
+                                        android:text="@{mainData.sellername}"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/size_14"
+                                        android:textStyle="bold"></TextView>
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="arial"
+                                        android:text="@{@string/membersince+' '+mainData.sellersince}"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/size_14"></TextView>
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="@dimen/right_arrow_width"
+                                android:layout_height="@dimen/right_arrow_height"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/size_10"
+                                android:layout_marginRight="@dimen/size_10"
+                                android:background="@mipmap/naviga_arrow"
+
+                                android:rotation="-90"></ImageView>
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/size_50"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/size_10">
+
+                            <TextView
+                                android:layout_width="140dp"
+                                android:layout_height="@dimen/size_45"
+                                android:background="@drawable/button_background"
+                                android:gravity="center"
+                                android:text="@string/startchatting"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/size_14"
+                                android:textStyle="bold"></TextView>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="46dp"
+                                    android:layout_height="46dp"
+                                    android:layout_marginLeft="@dimen/size_10"
+                                    android:layout_marginRight="@dimen/size_10"
+                                    android:background="@drawable/border_shadow_seller"
+                                    android:gravity="center"
+                                    app:mailManipulate="@{mainData.selleremail}">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/size_28"
+                                        android:layout_height="@dimen/size_20"
+                                        android:background="@mipmap/email_1"></ImageView>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="46dp"
+                                    android:layout_height="46dp"
+                                    android:layout_marginRight="@dimen/size_10"
+                                    android:background="@drawable/border_shadow_seller"
+                                    android:gravity="center"
+                                    app:callToSeller="@{mainData.sellermobile}">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/size_25"
+                                        android:layout_height="@dimen/size_25"
+                                        android:background="@mipmap/callus"></ImageView>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="46dp"
+                                    android:layout_height="46dp"
+                                    android:layout_marginRight="@dimen/size_10"
+                                    android:background="@drawable/border_shadow_seller"
+                                    android:gravity="center"
+                                    app:openWhatsApp="@{mainData}">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/size_30"
+                                        android:layout_height="@dimen/size_30"
+                                        android:background="@mipmap/whatsapp"></ImageView>
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/size_20"
+                        android:background="@color/gray_small"></TextView>
+
+                    <LinearLayout
+                        android:id="@+id/reportAddLinLayoutId"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/size_50"
+                        android:layout_marginTop="@dimen/size_20"
+                        android:background="@drawable/border_shadow_select"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/size_10"
+                        android:paddingRight="@dimen/size_10"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="arial"
+                            android:text="@string/adid"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/size_14"></TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="arial"
+                            android:gravity="right"
+                            android:text="@string/reportad"
+                            android:textColor="@color/text_red"
+                            android:textSize="@dimen/size_14"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/editheight"
+                        android:layout_marginTop="@dimen/size_20"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/tabOneTextViewId"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/similarproducts"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/size_15"
+                            android:textStyle="bold"></TextView>
+
+                        <TextView
+                            android:id="@+id/tabTwoTextViewId"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/wishlistitems"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/size_15"
+                            android:textStyle="bold"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:id="@+id/tabOneIndicatorLineId"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="3dp"
+                                    android:layout_weight="1"
+                                    android:background="@color/black"></TextView>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:id="@+id/tabTwoIndicatorLineId"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="3dp"
+                                    android:layout_weight="1"
+                                    android:background="@color/black"
+                                    android:visibility="gone"></TextView>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="2">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:id="@+id/oneGrayLineId"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/black"
+                                    android:visibility="visible"></TextView>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <TextView
+                                    android:id="@+id/secondGrayLineId"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray"></TextView>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/tabRepalcerId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"></RelativeLayout>
+
+                    <!--COMMENT SECTION-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/size_15"
+                        android:background="@color/gray_small"></TextView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_30"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Reviews (150)"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/size_15"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/reviewsRecyclerViewId"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/size_20"
+                            android:adapter="@{reviewsDataRecyclerView}"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"></androidx.recyclerview.widget.RecyclerView>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/actionbar_height">
+
+                <LinearLayout
+                    android:id="@+id/backLLId"
+                    android:layout_width="@dimen/size_80"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="@dimen/right_arrow_width_normal"
+                        android:layout_height="@dimen/right_arrow_height_normal"
+                        android:layout_centerVertical="true"
+                        android:background="@mipmap/right_arrow"
+                        android:backgroundTint="@color/white"></ImageView>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_25"
+                    android:text="Drone Dji Pro"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/actionbartextsize"
+                    android:textStyle="bold"></TextView>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_150"
+            android:layout_marginLeft="@dimen/size_40"
+            android:layout_marginTop="@dimen/size_70"
+            android:layout_marginRight="@dimen/size_40"
+            android:background="@drawable/border_shadow_home_select"
+            android:orientation="vertical"
+            android:padding="@dimen/size_05">
+
+            <cn.lightsky.infiniteindicator.InfiniteIndicator
+                android:id="@+id/infinite_anim_circle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:indicator_type="indicator_anim_circle" />
+
+            <cn.lightsky.infiniteindicator.InfiniteIndicator
+                android:id="@+id/infinite_anim_line"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:indicator_type="indicator_anim_line" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/startBarteringTextViewId"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="@string/buynow"
+            android:textColor="@color/white"
+            android:textSize="@dimen/buttontextsize"
+            android:textStyle="bold"></TextView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/size_50"
+            android:orientation="vertical"
+            android:minWidth="@dimen/size_100"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="190dp"
+            android:background="@drawable/round_radius"
+            android:gravity="center"
+            android:paddingLeft="@dimen/size_20"
+            android:paddingRight="@dimen/size_20"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price : KWD 250"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                ></TextView>
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

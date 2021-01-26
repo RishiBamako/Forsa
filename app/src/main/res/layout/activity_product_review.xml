@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <variable
+            name="paramOptimizer"
+            type="com.bartering.forsa.mutableViewModel.ParamOptimizer_ViewModel" />
+
+        <variable
+            name="transactionDetail"
+            type="com.bartering.forsa.retrofit.service_model.Transaction_ServiceModel.DataBean" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/button_color_green"
+        tools:context=".BottomMenuFragment">
+
+        <!--recyclerview section-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/size_70"
+            android:background="@drawable/border_shadow_home_recycler"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/size_30"
+            android:paddingTop="@dimen/size_30"
+            android:paddingRight="@dimen/size_30">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/size_20"
+                android:background="@drawable/border_shadow_select"
+                android:orientation="horizontal"
+                android:padding="@dimen/size_10"
+                tools:context=".activities.SignInActivity">
+
+                <com.bartering.forsa.utils.CircleImageView
+                    android:layout_width="@dimen/size_90"
+                    android:layout_height="@dimen/size_90"
+                    app:imageWithCustomRadius="@{transactionDetail.prdimg}"></com.bartering.forsa.utils.CircleImageView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/size_10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{transactionDetail.prd_title}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/bigheadersizeallaround"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:fontFamily="arial"
+                        android:text="@{transactionDetail.transactiondate}"
+                        android:textSize="@dimen/smallsizeallaround"
+                        android:textStyle=""></TextView>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <RatingBar
+                android:id="@+id/starRatingBarId"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isIndicator="false"
+                android:numStars="5"
+                android:scaleX=".6"
+                android:scaleY=".6"
+                android:theme="@style/RatingBar"
+                app:ratingManipulate="@{paramOptimizer}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10"
+                android:fontFamily="arial"
+                android:text="@string/taptoratethisicon"
+                android:textColor="@color/hintcolor"
+                android:textSize="@dimen/smallheadersizeallaround"
+                android:textStyle="bold"></TextView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_15"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="arial"
+                    android:text="@string/comment_"
+                    android:textColor="@color/hintcolor"
+                    android:textSize="@dimen/smallheadersizeallaround"
+                    android:textStyle="bold"></TextView>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/message_edittext_height"
+                    android:layout_marginTop="@dimen/size_05"
+                    android:background="@drawable/border_shadow_"
+                    android:inputType="textMultiLine"
+                    android:paddingLeft="@dimen/size_10"
+                    android:singleLine="true"
+                    android:text="@={paramOptimizer.comment}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/smallheadersizeallaround"
+                    android:textColorHint="@color/black"
+                    android:textStyle="bold"></EditText>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/size_20"
+                android:layout_marginBottom="@dimen/size_10"
+                android:background="@drawable/button_background"
+                android:gravity="center"
+                android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event2)}"
+                android:text="@string/submit"
+                android:textColor="@color/white"
+                android:textSize="@dimen/buttontextsize"
+                android:textStyle="bold"></TextView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/actionbar_height">
+
+                <LinearLayout
+                    android:layout_width="@dimen/size_80"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event1)}">
+
+                    <ImageView
+                        android:layout_width="@dimen/right_arrow_width_normal"
+                        android:layout_height="@dimen/right_arrow_height_normal"
+                        android:layout_centerVertical="true"
+                        android:background="@mipmap/right_arrow"
+                        android:backgroundTint="@color/white"></ImageView>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/size_25"
+                    android:text="@string/productreview"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/actionbartextsize"
+                    android:textStyle="bold"></TextView>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

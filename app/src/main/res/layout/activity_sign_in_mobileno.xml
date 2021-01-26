@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <variable
+            name="signInModel"
+            type="com.bartering.forsa.mutableViewModel.ParamOptimizer_ViewModel" />
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_main"
+        android:orientation="vertical"
+        tools:context=".activities.SignInActivity">
+
+        <ImageView
+            android:layout_width="@dimen/backarrow_width"
+            android:layout_height="@dimen/backarrow_height"
+            android:layout_marginLeft="@dimen/size_10"
+            android:layout_marginTop="@dimen/size_30"
+            android:background="@mipmap/right_arrow"
+            android:onClick="backPressed"></ImageView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/size_20"
+            android:layout_marginRight="@dimen/size_20"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/size_40"
+                android:text="@string/welcomeback"
+                android:textSize="@dimen/smallsizeallaround"
+                android:textColor="@color/black"></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10"
+                android:gravity="center"
+                android:text="@string/signintocontinue"
+                android:textColor="@color/black"
+                android:textSize="@dimen/biggest_header"
+                android:textStyle="bold"></TextView>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height"
+                android:layout_marginTop="@dimen/size_20"
+                android:background="@drawable/border_shadow_select"
+                android:hint="@string/phonenumber"
+                android:inputType="phone"
+                android:paddingLeft="@dimen/size_10"
+                android:maxLength="10"
+                android:singleLine="true"
+                android:text="@={signInModel.mobileNo}"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="@dimen/smallsizeallaround"
+                android:textStyle="bold"></EditText>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/keepMeAlwaysCheckBoxId"
+                    android:layout_width="wrap_content"
+                    android:buttonTint="@color/black"
+                    android:scaleX="1.15"
+                    android:scaleY="1.15"
+                    android:layout_height="wrap_content"></CheckBox>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/keepmealwayssignedin"
+                    android:textSize="@dimen/termandcondition"></TextView>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_10"
+                android:visibility="gone"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/termAndCoCheckBoxId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></CheckBox>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/smallheadersizeallaround"
+                    android:text="@string/iagreeto"></TextView>
+
+                <TextView
+                    android:id="@+id/termsTextViewId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:text="@string/terms"
+
+                    android:textSize="@dimen/smallheadersizeallaround"
+                    android:textColor="@color/black"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:textSize="@dimen/smallheadersizeallaround"
+                    android:text="@string/and"></TextView>
+
+                <TextView
+                    android:id="@+id/conditionAndPolicyTextViewId"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:textSize="@dimen/smallheadersizeallaround"
+                    android:text="@string/conditionandpolicy"
+                    android:textColor="@color/black"></TextView>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/size_20"
+                android:background="@drawable/button_background"
+                android:gravity="center"
+                android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event1)}"
+                android:text="@string/next"
+                android:textColor="@color/white"
+                android:layout_marginBottom="@dimen/size_20"
+                android:textSize="@dimen/buttontextsize"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_10"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/size_100"
+                    android:layout_height="1dp"
+                    android:background="@color/gray"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_10"
+                    android:layout_marginRight="@dimen/size_10"
+                    android:text="OR"
+                    android:textColor="@color/gray"></TextView>
+
+                <TextView
+                    android:layout_width="@dimen/size_100"
+                    android:layout_height="1dp"
+                    android:background="@color/gray"></TextView>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/edittext_height"
+                android:background="@drawable/border_shadow_select"
+                android:textStyle="bold"
+                android:inputType="textEmailAddress"
+                android:gravity="center_vertical"
+                android:text="@string/signinwithemail"
+                android:singleLine="true"
+                android:onClick="signUpwithmail"
+                android:paddingLeft="@dimen/size_30"
+                android:drawableLeft="@mipmap/email_1"
+                android:drawablePadding="@dimen/size_20"
+                android:textSize="@dimen/smallsizeallaround"
+                android:layout_marginTop="@dimen/size_15"
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                ></TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

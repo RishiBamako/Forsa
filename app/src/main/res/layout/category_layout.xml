@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <variable
+            name="data"
+            type="com.bartering.forsa.retrofit.service_model.CategoriesData_ServiceModel.DataBean" />
+
+        <variable
+            name="position"
+            type="Integer" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_10"
+        android:background="@{data.isSelected ? @drawable/border_shadow_select_active : @drawable/border_shadow_select}"
+        android:gravity="center"
+        android:onClick="@{(view) -> clickListener.onClick(position,data,@string/event1)}"
+        android:orientation="vertical"
+        android:padding="@dimen/size_10"
+        tools:context=".activities.SignInActivity">
+
+        <ImageView
+            android:layout_width="@dimen/size_60"
+            android:layout_height="@dimen/size_60"
+            app:loadImage="@{data.cat_image}"></ImageView>
+
+        <TextView
+            android:id="@+id/categoryNameCheckboxId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_15"
+            android:gravity="center_horizontal"
+            android:text="@{data.cat_name}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_12"
+            android:textStyle="bold"></TextView>
+
+    </LinearLayout>
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edittext_height"
+        android:layout_marginBottom="@dimen/size_20"
+        android:orientation="vertical"
+
+        android:background="@drawable/border_shadow_select"
+        tools:context=".activities.SignInActivity">
+
+        <CheckBox
+            android:id="@+id/categoryNameCheckboxId"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Fashion"
+            android:textStyle="bold"
+            android:textSize="@dimen/size_13"
+            ></CheckBox>
+
+    </LinearLayout>-->
+</layout>

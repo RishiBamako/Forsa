@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mainData"
+            type="com.bartering.forsa.retrofit.service_model.ProductDetails_ServiceModel.DataBean.PrdrecBean" />
+
+
+        <variable
+            name="firstImageToShow"
+            type="String" />
+
+
+        <variable
+            name="isForTrade"
+            type="Boolean" />
+
+        <variable
+            name="bthShouldBeHide"
+            type="Boolean" />
+
+        <variable
+            name="isSubCategoryNotFound"
+            type="Boolean" />
+
+        <variable
+            name="clickListener"
+            type="com.bartering.forsa.ClickListener" />
+
+        <variable
+            name="productDescriptionRV"
+            type="com.bartering.forsa.recyclerViewAdapter.SubscriptionPlans_RecyclerViewAdapter" />
+
+        <variable
+            name="loggedInUserImage"
+            type="String" />
+
+        <variable
+            name="categoryText"
+            type="String" />
+
+        <variable
+            name="paramOptimizer"
+            type="com.bartering.forsa.mutableViewModel.ParamOptimizer_ViewModel" />
+
+        <variable
+            name="data"
+            type="com.bartering.forsa.recyclerViewAdapter.ShowBarteringImages_RecyclerViewAdapter" />
+
+        <variable
+            name="layoutManager"
+            type="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+        <!--CAMERA-->
+        <variable
+            name="imagePusher"
+            type="android.graphics.Bitmap" />
+
+
+        <variable
+            name="videoPusher"
+            type="String" />
+
+        <variable
+            name="userData"
+            type="com.bartering.forsa.retrofit.service_model.SignIn_ServiceModel" />
+
+        <variable
+            name="categoryModel"
+            type="com.bartering.forsa.retrofit.service_model.ProductCategory_ServiceModel" />
+
+        <variable
+            name="subCategoryModel"
+            type="com.bartering.forsa.retrofit.service_model.SubCategoriesData_ServiceModel" />
+
+        <variable
+            name="subCategoryList"
+            type="java.util.List" />
+
+        <import type="android.view.View"></import>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/button_color_green"
+        tools:context=".BottomMenuFragment">
+
+        <!--recyclerview section-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_70"
+            android:layout_marginLeft="@dimen/size_55"
+            android:layout_marginTop="@dimen/size_100"
+            android:layout_marginRight="@dimen/size_55"
+            android:background="@drawable/border_shadow_home_select"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/uploadnewitem"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/bigheadersizeallaround"
+                android:textStyle="bold"></TextView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="180dp"
+            android:background="@drawable/border_shadow_home_recycler">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="210dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/size_10"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/size_40"
+                    android:paddingTop="5dp"
+                    android:paddingRight="@dimen/size_40">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:orientation="vertical"
+                        android:padding="@dimen/size_10">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerviewId"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_20"
+                        android:text="@string/productname"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/smallheadersizeallaround"
+                        android:textStyle="bold"></TextView>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/editheight"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:layout_weight="1"
+                        android:background="@drawable/border_shadow_select"
+                        android:gravity="center_vertical"
+                        android:inputType="text"
+                        android:paddingLeft="@dimen/size_10"
+                        android:text="@={mainData.title}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/bigheadersizeallaround"
+                        android:textStyle="bold"></EditText>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_30"
+                        android:text="@string/productdescription"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/smallheadersizeallaround"
+                        android:textStyle="bold"></TextView>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/editheight"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:layout_weight="1"
+                        android:background="@drawable/border_shadow_select"
+                        android:gravity="center_vertical"
+                        android:inputType="text"
+                        android:paddingLeft="@dimen/size_10"
+                        android:paddingTop="@dimen/size_10"
+                        android:paddingBottom="@dimen/size_10"
+                        android:text="@={mainData.description}"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/bigheadersizeallaround"
+                        android:textStyle="bold"></EditText>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_30"
+                        android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event10)}"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/productcategory"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/smallheadersizeallaround"
+                            android:textStyle="bold"></TextView>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/size_10"
+                            android:orientation="vertical">
+
+                            <com.bartering.forsa.searchable_spinner.SearchableSpinner
+                                android:id="@+id/productCategorySpinnerId"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edittext_height"
+                                android:background="@drawable/border_shadow_select"
+                                android:paddingLeft="@dimen/size_10"
+                                app:EditPrd_CategotyAdapter="@{categoryModel}"></com.bartering.forsa.searchable_spinner.SearchableSpinner>
+
+                            <ImageView
+                                android:layout_width="@dimen/size_13"
+                                android:layout_height="@dimen/size_08"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/size_15"
+                                android:background="@mipmap/spinner_arrow"></ImageView>
+
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_25_ori"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/productsubcategory"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/smallheadersizeallaround"
+                            android:textStyle="bold"></TextView>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/edittext_height"
+                            android:layout_marginTop="@dimen/size_10"
+                            android:background="@drawable/border_shadow_select"
+                            android:orientation="vertical">
+
+                            <com.bartering.forsa.searchable_spinner.SearchableSpinner
+                                android:id="@+id/productSubCategorySpinnerId"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingLeft="@dimen/size_10"
+                                android:background="@android:color/transparent"
+                                android:visibility="@{isSubCategoryNotFound ? View.GONE : View.VISIBLE}"
+                                app:EditPrd_SubCategotyAdapter="@{subCategoryModel}"></com.bartering.forsa.searchable_spinner.SearchableSpinner>
+
+                            <ImageView
+                                android:layout_width="@dimen/size_13"
+                                android:layout_height="@dimen/size_08"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/size_15"
+                                android:background="@mipmap/spinner_arrow"></ImageView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/size_18"
+                                android:text="@string/norecordfound"
+                                android:textSize="@dimen/smallsizeallaround"
+                                android:visibility="@{isSubCategoryNotFound ? View.VISIBLE : View.GONE}"></TextView>
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_30"
+                        android:text="@string/dealoption"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/smallheadersizeallaround"
+                        android:textStyle="bold"></TextView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:orientation="vertical">
+
+                        <CheckBox
+                            android:id="@+id/barteringCheckBoxId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{isForTrade ? false : true}"
+                            android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event5)}"
+                            android:text="@string/bartering"
+                            android:textSize="@dimen/bigheadersizeallaround"
+                            android:textStyle="bold"></CheckBox>
+
+                        <CheckBox
+                            android:id="@+id/tradeCheckBoxId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{isForTrade ? true : false}"
+                            android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event6)}"
+                            android:text="@string/trade"
+                            android:textSize="@dimen/bigheadersizeallaround"
+                            android:textStyle="bold"></CheckBox>
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/priceEditTextId"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/editheight"
+                        android:layout_marginTop="@dimen/size_10"
+                        android:layout_weight="1"
+                        android:background="@drawable/border_shadow_select"
+                        android:gravity="center_vertical"
+                        android:hint="@string/price"
+                        android:inputType="numberDecimal"
+                        android:paddingLeft="@dimen/size_10"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/bigheadersizeallaround"
+                        android:textStyle="bold"
+                        android:visibility="gone"></EditText>
+
+                    <TextView
+                        android:id="@+id/startBarteringTextViewId"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/button_height"
+                        android:layout_marginTop="@dimen/size_20"
+                        android:layout_marginBottom="@dimen/size_20"
+                        android:background="@color/colorAccent"
+                        android:gravity="center"
+                        android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event9)}"
+                        android:text="@string/upload"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/buttontextsize"
+                        android:textStyle="bold"></TextView>
+
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/actionbar_height"
+                android:layout_marginTop="@dimen/size_20">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/size_40"
+                    android:layout_marginRight="@dimen/size_40"
+                    android:minHeight="@dimen/size_100"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/backLLId"
+                        android:layout_width="@dimen/size_80"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/right_arrow_width_normal"
+                            android:layout_height="@dimen/right_arrow_height_normal"
+                            android:layout_centerVertical="true"
+                            android:background="@mipmap/right_arrow"
+                            android:backgroundTint="@color/white"></ImageView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/size_20"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/edititem"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/bigheadersizeallaround"></TextView>
+
+                    </LinearLayout>
+
+                    <com.bartering.forsa.utils.CircleImageView
+                        android:layout_width="@dimen/actionbar_height"
+                        android:layout_height="@dimen/actionbar_height"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/size_20"
+                        android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event11)}"
+                        app:loadImageCircle="@{loggedInUserImage}"></com.bartering.forsa.utils.CircleImageView>
+
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mainVideoViewId"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/videoview_height"
+            android:layout_marginLeft="@dimen/size_40"
+            android:layout_marginTop="@dimen/size_150"
+            android:layout_marginRight="@dimen/size_40"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="@dimen/size_08">
+
+                    <com.bartering.forsa.activities.camera_section.widget.PortraitFrameRadiusLayout
+                        android:id="@+id/wrap_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="@{imagePusher!=null || videoPusher!=null ? View.GONE : View.VISIBLE}"></com.bartering.forsa.activities.camera_section.widget.PortraitFrameRadiusLayout>
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:visibility="@{imagePusher!=null &amp;&amp; videoPusher==null ? View.VISIBLE : View.GONE}"
+                        app:imageWithCustomRadius_Bitmap="@{imagePusher}"></ImageView>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <VideoView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:visibility="@{imagePusher==null &amp;&amp; videoPusher!=null ? View.VISIBLE : View.GONE}"
+                            app:videoFromPath="@{videoPusher}"></VideoView>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/borderLayoutId"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/frame_radius"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_margin="@dimen/size_11"
+                        app:imageWithCustomRadius_URL_Overview="@{firstImageToShow}"></ImageView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/size_40"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/border_shadow_home_select"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_record"
+                        android:layout_width="@dimen/size_50"
+                        android:layout_height="@dimen/size_25"
+                        android:layout_marginRight="@dimen/size_10"
+                        android:background="@drawable/button_background_red_camera"
+                        android:text="@string/app_record"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/size_05" />
+
+                    <!--<Button
+                        android:id="@+id/btn_switch_camera"
+                        android:layout_width="@dimen/size_90"
+                        android:layout_height="@dimen/size_40"
+                        android:layout_above="@+id/bottomLayoutId"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/size_20"
+                        android:background="@drawable/button_background_red"
+                        android:text="SWITCH"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/size_10"
+                        app:layout_constraintRight_toRightOf="parent" />-->
+
+
+                    <LinearLayout
+                        android:id="@+id/btn_switch_camera"
+                        android:layout_width="@dimen/size_40"
+                        android:layout_height="@dimen/size_25"
+                        android:layout_marginRight="@dimen/size_15"
+                        android:background="@drawable/button_background_red_camera"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/switchcamera"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/size_05"></TextView>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btn_image_capture"
+                        android:layout_width="@dimen/size_25"
+                        android:layout_height="@dimen/size_25"
+                        android:background="@drawable/oval_theme_background"></Button>
+
+                    <Button
+                        android:id="@+id/btn_filter"
+                        android:layout_width="@dimen/size_40"
+                        android:layout_height="@dimen/size_25"
+                        android:layout_marginLeft="@dimen/size_15"
+                        android:background="@drawable/button_background_red_camera"
+                        android:text="@string/filter"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/size_05"
+                        app:layout_constraintRight_toRightOf="parent" />
+
+                    <Button
+                        android:id="@+id/btn_flash"
+                        android:layout_width="@dimen/size_50"
+                        android:layout_height="@dimen/size_25"
+                        android:layout_marginLeft="@dimen/size_10"
+                        android:background="@drawable/button_background_red_camera"
+                        android:text="FLASH"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/size_05"
+                        app:layout_constraintRight_toRightOf="parent" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
