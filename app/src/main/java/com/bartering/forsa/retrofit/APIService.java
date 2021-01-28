@@ -37,6 +37,7 @@ import com.bartering.forsa.retrofit.service_model.SubCategoriesData_ServiceModel
 import com.bartering.forsa.retrofit.service_model.SubscribedPlan_ServiceModel;
 import com.bartering.forsa.retrofit.service_model.SubscriptionPackage_ServiceModel;
 import com.bartering.forsa.retrofit.service_model.SubscriptionPackages_ServiceModel;
+import com.bartering.forsa.retrofit.service_model.TopFilter_ServiceModel;
 import com.bartering.forsa.retrofit.service_model.Tran_Detail_ServiceModel;
 import com.bartering.forsa.retrofit.service_model.Transaction_ServiceModel;
 import com.bartering.forsa.retrofit.service_model.UploadProduct_ServiceModel;
@@ -130,6 +131,10 @@ public interface APIService {
     @FormUrlEncoded
     @POST("delete-media")
     Single<Comman_ServiceModel> removeImage(@FieldMap Map<String, String> param, @Header("Authorization") String authHeader);
+
+
+    @GET("top-filter")
+    Single<TopFilter_ServiceModel> topFilter(@Header("Authorization") String authHeader);
 
     @Multipart
     @POST("add-product-detail")

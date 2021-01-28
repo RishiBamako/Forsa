@@ -3,6 +3,7 @@ package com.bartering.forsa.recyclerViewAdapter;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -61,10 +62,24 @@ public class HomeProducts_RecyclerViewAdapter extends RecyclerView.Adapter<HomeP
         }
 
         public void notifyViewBinding(HomeProducts_ServiceModel.DataBean dataBean, CustomViewHolder customViewHolder, int position) {
-            this.homeProductsLayoutBinding.setClickListener(this::onClick);
-            this.homeProductsLayoutBinding.setPosition(position);
-            this.homeProductsLayoutBinding.setData(dataBean);
-            this.homeProductsLayoutBinding.setIsGuestUser(AlphaHolder.isGuestUser((Activity) context));
+            if (dataBean == null && categoryDataArrayList.size() > 1) {
+                customViewHolder.homeProductsLayoutBinding.kdaImageViewId.setVisibility(View.VISIBLE);
+                customViewHolder.homeProductsLayoutBinding.cardViewId.setVisibility(View.GONE);
+
+            } else if (dataBean == null && categoryDataArrayList.size() == 1) {
+                customViewHolder.homeProductsLayoutBinding.kdaImageViewId.setVisibility(View.GONE);
+                customViewHolder.homeProductsLayoutBinding.cardViewId.setVisibility(View.GONE);
+
+            } else {
+                customViewHolder.homeProductsLayoutBinding.kdaImageViewId.setVisibility(View.GONE);
+                customViewHolder.homeProductsLayoutBinding.cardViewId.setVisibility(View.VISIBLE);
+
+                this.homeProductsLayoutBinding.setClickListener(this::onClick);
+                this.homeProductsLayoutBinding.setPosition(position);
+                this.homeProductsLayoutBinding.setData(dataBean);
+                this.homeProductsLayoutBinding.setIsGuestUser(AlphaHolder.isGuestUser((Activity) context));
+
+            }
 
         }
 

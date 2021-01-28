@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -45,6 +47,7 @@ import com.bartering.forsa.retrofit.service_model.HomeProducts_ServiceModel;
 import com.bartering.forsa.retrofit.service_model.ProductLike_ServiceModel;
 import com.bartering.forsa.retrofit.service_model.Product_Add_WiLit;
 import com.bartering.forsa.retrofit.service_model.SignIn_ServiceModel;
+import com.bartering.forsa.retrofit.service_model.TopFilter_ServiceModel;
 import com.bartering.forsa.utils.AlphaHolder;
 import com.bartering.forsa.utils.SharedPreferences_Util;
 
@@ -78,9 +81,10 @@ public class Home_BM_Fragment extends BaseFragment implements ClickListener, Obs
 
     HomeFilter_ServiceModel homeFilter_serviceModel;
     HomeFilter_NL_ServiceModel homeFilter_nl_serviceModel;
-    HomeProducts_ServiceModel homeProducts_serviceModel;
+    HomeProducts_ServiceModel homeProducts_serviceModel = null;
     ProductLike_ServiceModel productLike_serviceModel;
     Product_Add_WiLit product_add_wiLit;
+    TopFilter_ServiceModel topFilter_serviceModel;
 
     SortBy_RecyclerViewAdapter sortBy_recyclerViewAdapter;
     CategoryBy_RecyclerViewAdapter categoryBy_recyclerViewAdapter;
@@ -90,6 +94,8 @@ public class Home_BM_Fragment extends BaseFragment implements ClickListener, Obs
     SharedPreferences_Util sharedPreferences_util;
     List<String> selectedCategories;
     WelcomeGiftLayoutBinding welcomeGiftLayoutBinding;
+    ClickListener clickListener;
+    GridLayoutManager gridLayoutManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -98,6 +104,11 @@ public class Home_BM_Fragment extends BaseFragment implements ClickListener, Obs
         fragmentHomeBMBinding.setIsNoRecord(false);
         fragmentHomeBMBinding.setKdaFlag(false);
         fragmentHomeBMBinding.setUserImage(URLUtil.isValidUrl(SharedPreferences_Util.getUser_Image(activity)) ? SharedPreferences_Util.getUser_Image(activity) : "http://dev.rglabs.net/forsa/uploads/user/" + SharedPreferences_Util.getUser_Image(activity));
+        clickListener = this::onClick;
+
+        gridLayoutManager = new GridLayoutManager(activity, 2);
+        fragmentHomeBMBinding.productsRecyclerViewId.setNestedScrollingEnabled(true);
+
 
         homeDataManipulation();
         bottomSlider();
@@ -107,18 +118,67 @@ public class Home_BM_Fragment extends BaseFragment implements ClickListener, Obs
         } else {
             getHomeFilter();
         }
+        filterData();
         return fragmentHomeBMBinding.getRoot();
     }
 
+    private void filterData() {
+        fragmentHomeBMBinding.filterEditTextId.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String valueIs = s.toString();
+                List<HomeProducts_ServiceModel.DataBean> dataBeans = new ArrayList<>();
+                if (!TextUtils.isEmpty(valueIs)) {
+                    if (homeProducts_serviceModel != null) {
+                        for (int fil = 0; fil < homeProducts_serviceModel.getData().size(); fil++) {
+                            HomeProducts_ServiceModel.DataBean dataBean = homeProducts_serviceModel.getData().get(fil);
+                            if (dataBean != null) {
+                                if (dataBean.getTitle().toLowerCase().contains(valueIs.toLowerCase())) {
+                                    dataBeans.add(dataBean);
+                                }
+
+                            }
+                            if (fil == homeProducts_serviceModel.getData().size() - 1) {
+                                if (dataBeans.size() == 0) {
+                                    fragmentHomeBMBinding.setIsNoRecord(true);
+                                } else {
+                                    fragmentHomeBMBinding.setIsNoRecord(false);
+                                }
+                                dataBeans.add(null);
+                                manipulateDataWithRecyclerview(dataBeans);
+                            }
+                        }
+                    }
+                } else {
+                    if (homeProducts_serviceModel != null) {
+                        dataBeans = homeProducts_serviceModel.getData();
+                        manipulateDataWithRecyclerview(dataBeans);
+                    }
+                }
+            }
+
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
+
     private void listener() {
-        fragmentHomeBMBinding.kdaImageViewId.setOnClickListener(new View.OnClickListener() {
+        /*fragmentHomeBMBinding.kdaImageViewId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Uri uri = Uri.parse("http://www.kdakw.com/"); // missing 'http://' will cause crashed
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 
     private void homeDataManipulation() {
@@ -361,12 +421,34 @@ public class Home_BM_Fragment extends BaseFragment implements ClickListener, Obs
             }
         }
         if (callerIdentity.equals("event13")) { //All Filter --remove filter
+            PreferenceManager.getDefaultSharedPreferences(activity).edit().putString("selectedcategory", "").apply();
+            clearFilter_Guest_Logged_User();
+
+            if (AlphaHolder.isGuestUser(activity))
+                getGuestHomeProduct(true);
+            else
+                getHomeProduct(true);
 
         }
         if (callerIdentity.equals("event14")) { /// Fashion Filter
-
+            PreferenceManager.getDefaultSharedPreferences(activity).edit().putString("selectedcategory", String.valueOf(topFilter_serviceModel.getData().get(0).getId())).apply();
+            if (AlphaHolder.isGuestUser(activity))
+                getGuestHomeProduct(true);
+            else
+                getHomeProduct(true);
         }
         if (callerIdentity.equals("event15")) {  // Home decor filter
+            PreferenceManager.getDefaultSharedPreferences(activity).edit().putString("selectedcategory", String.valueOf(topFilter_serviceModel.getData().get(1).getId())).apply();
+            if (AlphaHolder.isGuestUser(activity))
+                getGuestHomeProduct(true);
+            else
+                getHomeProduct(true);
+
+        }
+        if (callerIdentity.equals("event16")) {  // KDA IMAGE
+            Uri uri = Uri.parse("http://www.kdakw.com/"); // missing 'http://' will cause crashed
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
 
         }
     }
@@ -378,6 +460,15 @@ public class Home_BM_Fragment extends BaseFragment implements ClickListener, Obs
 
         viewModel = ViewModelProviders.of(this, vmFactory).get(ApiCaller.class);
         viewModel.loadData("PRODUCT_LIKE", paramMap, false, activity);
+        viewModel.getRootData().observe(this, this::onChanged);
+    }
+
+    public void getHomeTopFilter() {
+        Map<String, String> paramMap = new HashMap<>();
+        paramMap.put("token", SharedPreferences_Util.getToken(activity));
+
+        viewModel = ViewModelProviders.of(this, vmFactory).get(ApiCaller.class);
+        viewModel.loadData("TOP_FILTER", paramMap, false, activity);
         viewModel.getRootData().observe(this, this::onChanged);
     }
 
@@ -412,7 +503,7 @@ public class Home_BM_Fragment extends BaseFragment implements ClickListener, Obs
             } else {
                 getHomeProduct();
             }*/
-            getHomeProduct(false);
+            getHomeProduct(true);
         }
         if (resultData.getTag().equals("HOME_FILTER_NOT_LOGGEDIN")) {
             homeFilter_nl_serviceModel = (HomeFilter_NL_ServiceModel) resultData.getRootData().getValue();
@@ -427,23 +518,22 @@ public class Home_BM_Fragment extends BaseFragment implements ClickListener, Obs
             bottomSlideLayoutBinding.setCategoryRecyclerView(categoryBy_recyclerView_nlAdapter);
 
             //getHomeProduct();
-            getGuestHomeProduct(false);
+            getGuestHomeProduct(true);
         }
         if (resultData.getTag().equals("HOME_PRODUCTS")) {
             homeProducts_serviceModel = (HomeProducts_ServiceModel) resultData.getRootData().getValue();
             if (homeFilter_serviceModel.isStatus().equals("true")) {
                 if (homeProducts_serviceModel.getData().size() > 0) {
                     fragmentHomeBMBinding.setIsNoRecord(false);
-                    homeProducts_recyclerViewAdapter = new HomeProducts_RecyclerViewAdapter(activity, homeProducts_serviceModel.getData(), this::onClick);
-                    fragmentHomeBMBinding.productsRecyclerViewId.setLayoutManager(new GridLayoutManager(activity, 2));
-                    fragmentHomeBMBinding.productsRecyclerViewId.setAdapter(homeProducts_recyclerViewAdapter);
-
-
+                    fragmentHomeBMBinding.setKdaFlag(true);
+                    homeProducts_serviceModel.getData().add(null);
+                    manipulateDataWithRecyclerview(homeProducts_serviceModel.getData());
                 } else {
                     fragmentHomeBMBinding.setIsNoRecord(true);
-                    homeProducts_recyclerViewAdapter = new HomeProducts_RecyclerViewAdapter(activity, homeProducts_serviceModel.getData(), this::onClick);
-                    fragmentHomeBMBinding.productsRecyclerViewId.setLayoutManager(new GridLayoutManager(activity, 2));
-                    fragmentHomeBMBinding.productsRecyclerViewId.setAdapter(homeProducts_recyclerViewAdapter);
+                    fragmentHomeBMBinding.setKdaFlag(false);
+                    homeProducts_serviceModel.getData().add(null);
+                    manipulateDataWithRecyclerview(homeProducts_serviceModel.getData());
+
 
                 }
                 AlphaHolder.saveEventStatus(homeProducts_serviceModel.getFree_ads(), "FREE_ADS", activity);
@@ -451,26 +541,26 @@ public class Home_BM_Fragment extends BaseFragment implements ClickListener, Obs
                     AlphaHolder.isFreeAdsDialog = true;
                     welcomeGift_Dialog(homeProducts_serviceModel.getFree_ads());
                 }
-                fragmentHomeBMBinding.setKdaFlag(true);
 
             } else {
                 AlphaHolder.customToast(activity, homeFilter_nl_serviceModel.getMessage());
             }
+            getHomeTopFilter();
         }
         if (resultData.getTag().equals("GUEST_HOME_PRODUCTS")) {
             homeProducts_serviceModel = (HomeProducts_ServiceModel) resultData.getRootData().getValue();
             if (homeProducts_serviceModel.getData().size() > 0) {
                 fragmentHomeBMBinding.setIsNoRecord(false);
+                homeProducts_serviceModel.getData().add(null);
+                manipulateDataWithRecyclerview(homeProducts_serviceModel.getData());
 
-                homeProducts_recyclerViewAdapter = new HomeProducts_RecyclerViewAdapter(activity, homeProducts_serviceModel.getData(), this::onClick);
-                fragmentHomeBMBinding.productsRecyclerViewId.setLayoutManager(new GridLayoutManager(activity, 2));
-                fragmentHomeBMBinding.productsRecyclerViewId.setAdapter(homeProducts_recyclerViewAdapter);
             } else {
                 fragmentHomeBMBinding.setIsNoRecord(true);
-                homeProducts_recyclerViewAdapter = new HomeProducts_RecyclerViewAdapter(activity, homeProducts_serviceModel.getData(), this::onClick);
-                fragmentHomeBMBinding.productsRecyclerViewId.setLayoutManager(new GridLayoutManager(activity, 2));
-                fragmentHomeBMBinding.productsRecyclerViewId.setAdapter(homeProducts_recyclerViewAdapter);
+                homeProducts_serviceModel.getData().add(null);
+                manipulateDataWithRecyclerview(homeProducts_serviceModel.getData());
+
             }
+            getHomeTopFilter();
         }
         if (resultData.getTag().equals("PRODUCT_LIKE")) {
             productLike_serviceModel = (ProductLike_ServiceModel) resultData.getRootData().getValue();
@@ -481,7 +571,6 @@ public class Home_BM_Fragment extends BaseFragment implements ClickListener, Obs
                 } else {
                     homeProducts_serviceModel.getData().get(clickedLike).setLikeornot("Like");
                     manipulaTotalLike(true);
-
                 }
             } else {
                 AlphaHolder.customToast(activity, productLike_serviceModel.getMessage());
@@ -501,6 +590,13 @@ public class Home_BM_Fragment extends BaseFragment implements ClickListener, Obs
                 AlphaHolder.customToast(activity, product_add_wiLit.getMessage());
             }
             homeProducts_recyclerViewAdapter.notifyItemChanged(clickedWish);
+        }
+        if (resultData.getTag().equals("TOP_FILTER")) {
+            topFilter_serviceModel = (TopFilter_ServiceModel) resultData.getRootData().getValue();
+            if (topFilter_serviceModel.getData().size() == 2) {
+                fragmentHomeBMBinding.setCategotyOne(topFilter_serviceModel.getData().get(0).getSlug());
+                fragmentHomeBMBinding.setCategoryTwo(topFilter_serviceModel.getData().get(1).getSlug());
+            }
         }
     }
 
@@ -565,5 +661,19 @@ public class Home_BM_Fragment extends BaseFragment implements ClickListener, Obs
         viewModel = ViewModelProviders.of(this, vmFactory).get(ApiCaller.class);
         viewModel.loadData("GUEST_HOME_PRODUCTS", paramMap, showLoader, activity);
         viewModel.getRootData().observe(this, this::onChanged);
+    }
+
+    public void manipulateDataWithRecyclerview(List<HomeProducts_ServiceModel.DataBean> dataBeans) {
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                return position == dataBeans.size() - 1 ? gridLayoutManager.getSpanCount() : 1;
+            }
+        });
+
+        fragmentHomeBMBinding.productsRecyclerViewId.setLayoutManager(gridLayoutManager);
+        homeProducts_recyclerViewAdapter = new HomeProducts_RecyclerViewAdapter(activity, dataBeans, this::onClick);
+        fragmentHomeBMBinding.productsRecyclerViewId.setLayoutManager(gridLayoutManager);
+        fragmentHomeBMBinding.productsRecyclerViewId.setAdapter(homeProducts_recyclerViewAdapter);
     }
 }

@@ -12,6 +12,14 @@
             type="Boolean" />
 
         <variable
+            name="categoty_one"
+            type="String" />
+
+        <variable
+            name="category_two"
+            type="String" />
+
+        <variable
             name="userImage"
             type="String" />
 
@@ -59,35 +67,20 @@
                     android:textSize="@dimen/most_trading_size"
                     android:textStyle="bold"></TextView>
 
-                <androidx.core.widget.NestedScrollView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scrollbars="none">
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                    <LinearLayout
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/productsRecyclerViewId"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        android:layout_marginTop="@dimen/size_20"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior"></androidx.recyclerview.widget.RecyclerView>
 
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/productsRecyclerViewId"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/size_20"
-                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"></androidx.recyclerview.widget.RecyclerView>
-
-                        <ImageView
-                            android:id="@+id/kdaImageViewId"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/size_40"
-                            android:layout_below="@+id/categoryBrandLists_recycler"
-                            android:layout_marginTop="@dimen/size_20"
-                            android:layout_marginBottom="@dimen/size_35"
-                            android:background="@mipmap/kda"
-                            android:visibility="@{kdaFlag ? View.VISIBLE : View.GONE}"></ImageView>
-                    </LinearLayout>
-                </androidx.core.widget.NestedScrollView>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
@@ -202,9 +195,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/size_20"
                             android:layout_weight="1.10"
-                            android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event13)}"
                             android:background="@drawable/borderview"
                             android:gravity="center"
+                            android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event13)}"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -246,16 +239,16 @@
                             android:layout_marginLeft="@dimen/size_06"
                             android:layout_marginTop="@dimen/size_20"
                             android:layout_weight="1"
-                            android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event14)}"
                             android:background="@drawable/borderview"
                             android:gravity="center"
+                            android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event14)}"
                             android:orientation="horizontal">
 
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/fashion"
+                                android:text="@{categoty_one}"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/size_11"
                                 android:textStyle="bold"></TextView>
@@ -268,15 +261,15 @@
                             android:layout_marginTop="@dimen/size_20"
                             android:layout_marginRight="@dimen/size_10"
                             android:layout_weight="0.90"
-                            android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event15)}"
                             android:background="@drawable/borderview"
                             android:gravity="center"
+                            android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event15)}"
                             android:orientation="horizontal">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/homedecor"
+                                android:text="@{category_two}"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/size_11"
                                 android:textStyle="bold"></TextView>
@@ -298,6 +291,7 @@
                 </LinearLayout>
 
                 <EditText
+                    android:id="@+id/filterEditTextId"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/size_45"
                     android:layout_marginLeft="@dimen/size_12"
@@ -305,6 +299,7 @@
                     android:layout_marginRight="@dimen/size_12"
                     android:background="@drawable/border_shadow_gray_select"
                     android:paddingLeft="@dimen/size_10"
+                    android:singleLine="true"
                     android:textColor="@color/colorAccent"
                     android:textSize="@dimen/size_18"
                     android:textStyle="bold">

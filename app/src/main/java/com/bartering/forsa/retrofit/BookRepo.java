@@ -229,6 +229,9 @@ public class BookRepo {
         } else if (callerSpecificSignature.equals("REMOVE_IMAGE")) {
             String tokenIs = paramMap.get("token");
             freeBas = api.removeImage(paramMap,tokenIs);
+        }else if (callerSpecificSignature.equals("TOP_FILTER")) {
+            String tokenIs = paramMap.get("token");
+            freeBas = api.topFilter(tokenIs);
         }
         return (Single<Object>) freeBas;
     }
