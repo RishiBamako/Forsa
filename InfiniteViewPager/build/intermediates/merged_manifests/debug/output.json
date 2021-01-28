@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "applicationId": "cn.lightsky.infiniteindicator",
+  "variantType": "LIBRARY",
+  "elements": [
+    {
+      "outputType": {
+        "type": "MERGED_MANIFESTS"
+      },
+      "apkData": {
+        "type": "MAIN",
+        "splits": [],
+        "versionCode": 122,
+        "versionName": "1.2.2",
+        "outputFile": "InfiniteViewPager-debug.aar",
+        "fullName": "debug",
+        "baseName": "debug",
+        "dirName": ""
+      },
+      "path": "../../library_manifest/debug/AndroidManifest.xml",
+      "properties": {
+        "packageId": "cn.lightsky.infiniteindicator",
+        "split": ""
+      }
+    }
+  ]
+}
