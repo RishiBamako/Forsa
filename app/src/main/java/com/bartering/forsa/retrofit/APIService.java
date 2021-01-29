@@ -128,6 +128,11 @@ public interface APIService {
     @POST("update-profile")
     Single<Comman_ServiceModel> editProfile(@PartMap Map<String, RequestBody> param, @Part List<MultipartBody.Part> image, @Header("Authorization") String authHeader);
 
+    @Multipart
+    @POST("update-profile")
+    Single<Comman_ServiceModel> editProfile_NullImage(@PartMap Map<String, RequestBody> param,  @Header("Authorization") String authHeader);
+
+
     @FormUrlEncoded
     @POST("delete-media")
     Single<Comman_ServiceModel> removeImage(@FieldMap Map<String, String> param, @Header("Authorization") String authHeader);

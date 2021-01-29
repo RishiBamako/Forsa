@@ -35,25 +35,11 @@
         android:background="@color/button_color_green"
         tools:context=".BottomMenuFragment">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/size_17"
-            android:layout_marginTop="@dimen/size_19"
-            android:layout_marginRight="@dimen/size_17"
-            android:layout_marginBottom="@dimen/size_17"
-            android:layout_below="@+id/actionBarLinLayoutId"
-            android:gravity="center"
-            android:text="@{@string/youhavenoOffreeads_part1+' '+noOfAds+' '+@string/youhavenoOffreeads_part2}"
-            android:textColor="@color/white"
-            android:textSize="@dimen/size_12"
-            android:textStyle="bold"
-            android:visibility="@{isGuest ? View.GONE : View.VISIBLE}" />
-        <!--recyclerview section-->
+            <!--recyclerview section-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/topmargin"
+            android:layout_marginTop="@dimen/size_90"
             android:background="@drawable/border_shadow_home_recycler">
 
             <LinearLayout
@@ -187,6 +173,21 @@
             android:textSize="@dimen/size_notfound"
             android:textStyle="bold"
             android:visibility="@{isNoRecord ? View.VISIBLE : View.GONE}"></TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/size_17"
+            android:layout_marginTop="@dimen/size_05"
+            android:layout_marginRight="@dimen/size_17"
+            android:layout_marginBottom="@dimen/size_17"
+            android:layout_below="@+id/actionBarLinLayoutId"
+            android:gravity="center"
+            android:text="@{@string/youhavenoOffreeads_part1+' '+noOfAds+' '+@string/youhavenoOffreeads_part2}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_12"
+            android:textStyle="bold"
+            android:visibility="@{isGuest ? View.GONE : View.VISIBLE}" />
 
     </RelativeLayout>
 </layout>

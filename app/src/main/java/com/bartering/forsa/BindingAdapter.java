@@ -15,7 +15,6 @@ import android.view.View;
 import android.webkit.URLUtil;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.MediaController;
@@ -64,6 +63,7 @@ public class BindingAdapter {
                 .apply(requestOptions)
                 .into(imageView);
     }
+
     @androidx.databinding.BindingAdapter("app:imageWithCustomRadius_home")
     public static void imageWithCustomRadius_home(ImageView imageView, String url) {
         RequestOptions requestOptions = new RequestOptions();
@@ -72,7 +72,7 @@ public class BindingAdapter {
                 .load(url)
                 .placeholder(R.drawable.image)
                 .apply(requestOptions)
-                .override(130,130)
+                .override(130, 130)
                 .into(imageView);
     }
 
@@ -310,7 +310,7 @@ public class BindingAdapter {
             if (TextUtils.isEmpty(data.getData().getFull_name())) {
                 textView.setText(textView.getContext().getString(R.string.welcometext));
             } else {
-                textView.setText(data.getData().getUser_name());
+                textView.setText(textView.getContext().getString(R.string.welcometext) + " " + data.getData().getUser_name());
             }
         } else {
             textView.setText(textView.getContext().getString(R.string.welcometext));
@@ -386,11 +386,11 @@ public class BindingAdapter {
     }
 
     @androidx.databinding.BindingAdapter("app:locationFromLatLong")
-    public static void locationFromLatLong(EditText editText, ProfileData_ServiceModel profileData_serviceModel) {
+    public static void locationFromLatLong(TextView editText, ProfileData_ServiceModel profileData_serviceModel) {
         try {
             if (!TextUtils.isEmpty(profileData_serviceModel.getData().getLatitude()) && !TextUtils.isEmpty(profileData_serviceModel.getData().getLatitude())) {
                 String address = getAddress(editText.getContext(), profileData_serviceModel.getData().getLatitude(), profileData_serviceModel.getData().getLongitude());
-                AlphaHolder.customToast(editText.getContext(), editText.getContext().getString(R.string.gotlocationsuccess));
+
                 editText.setText(address);
             } else {
                 editText.setText(editText.getContext().getString(R.string.locationnotfound));

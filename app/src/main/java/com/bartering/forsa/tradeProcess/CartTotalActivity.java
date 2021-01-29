@@ -73,8 +73,9 @@ public class CartTotalActivity extends AppCompactActivity implements ClickListen
             cartData_serviceModel = (CartData_ServiceModel) resultData.getRootData().getValue();
             if (cartData_serviceModel.getData().getPrdpecord().size() > 0) {
                 activityTotalCartBinding.setShouldHideTopInformation(false);
-
                 activityTotalCartBinding.setIsNoRecord(false);
+                activityTotalCartBinding.setCheckoutButtonShouldHide(false);
+
                 activityTotalCartBinding.setTotalPrice(cartData_serviceModel.getData().getProduct_total_price());
                 activityTotalCartBinding.setCartProfileSection(cartData_serviceModel.getData().getUserprofile().get(0)); //send profile data
 
@@ -92,6 +93,7 @@ public class CartTotalActivity extends AppCompactActivity implements ClickListen
             } else {
                 activityTotalCartBinding.setShouldHideTopInformation(true);
                 activityTotalCartBinding.setIsNoRecord(true);
+                activityTotalCartBinding.setCheckoutButtonShouldHide(true);
             }
         }
         if (resultData.getTag().equals("CHECKOUT_DATA")) {
@@ -121,8 +123,11 @@ public class CartTotalActivity extends AppCompactActivity implements ClickListen
                     cart_recyclerViewAdapter.notifyItemRangeChanged(clickCartPosition, cartData_serviceModel.getData().getPrdpecord().size());
 
                     if (cartData_serviceModel.getData().getPrdpecord().size() != 0) {
+                        activityTotalCartBinding.setShouldHideTopInformation(false);
                         activityTotalCartBinding.setIsNoRecord(false);
+
                     } else {
+                        activityTotalCartBinding.setShouldHideTopInformation(true);
                         activityTotalCartBinding.setIsNoRecord(true);
                     }
                 }
@@ -148,7 +153,12 @@ public class CartTotalActivity extends AppCompactActivity implements ClickListen
     @Override
     public void onClick(int position, Object object, String callerIdentity) {
         if (callerIdentity.equals("event1")) {/// checkout//
-            checkout();
+            if (cartData_serviceModel.getData().getPrdpecord().size() > 0) {
+                checkout();
+            }
+            else{
+                AlphaHolder.customToast(CartTotalActivity.this,getResources().getString(R.string.donehaveproductforbuy));
+            }
         }
         if (callerIdentity.equals("event2")) {
             CartTotalActivity.this.finish();
@@ -166,7 +176,6 @@ public class CartTotalActivity extends AppCompactActivity implements ClickListen
 
             } else {
                 activityTotalCartBinding.setCheckoutButtonShouldHide(false);
-
                 isInEditMode = false;
                 activityTotalCartBinding.setButtonName(getString(R.string.edibtn));
 

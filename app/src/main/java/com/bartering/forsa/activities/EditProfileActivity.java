@@ -103,9 +103,11 @@ public class EditProfileActivity extends AppCompactActivity implements ClickList
         languageSpinner();
 
     }
+
     private void itemSelectedListener() {
         activityEditProfileBinding.genderSpinnerId.setOnItemSelectedListener(this);
     }
+
     private void imagePickerListener() {
         new CroperinoConfig("IMG_" + System.currentTimeMillis() + ".jpg", "/", "/sdcard");
         CroperinoFileUtil.setupDirectory(EditProfileActivity.this);
@@ -118,22 +120,26 @@ public class EditProfileActivity extends AppCompactActivity implements ClickList
         }
         requestGPSSettings();
     }
+
     private GoogleApiClient getAPIClientInstance() {
         GoogleApiClient mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addApi(LocationServices.API).build();
         return mGoogleApiClient;
     }
+
     @Override
     protected void onResume() {
         super.onResume();
         locationManager = (LocationManager) this.getSystemService(LOCATION_SERVICE);
     }
+
     private void getProfileData() {
         if (getIntent().getExtras() != null) {
             profileData_serviceModel = (ProfileData_ServiceModel) getIntent().getSerializableExtra("profile_data");
             activityEditProfileBinding.setProfileData(profileData_serviceModel);
         }
     }
+
     private void languageSpinner() {
         List genderList = new ArrayList();
         genderList.add("Male");
@@ -167,19 +173,48 @@ public class EditProfileActivity extends AppCompactActivity implements ClickList
         if (callerIdentity.equals("event5")) {
             MultipartBody.Part partImage = null;
             String gender = "";
+            List<MultipartBody.Part> image = new ArrayList<>();
+            RequestBody nameRb, emailRb, mobileRb, dobRb, locationRb;
+
 
             if (profileFile != null) {
                 partImage = MultipartBody.Part.createFormData("image", profileFile.getName(), RequestBody.create(MediaType.parse("image/*"), profileFile));
+                image.add(partImage);
+            } else {
+                image.add(null);
             }
-            List<MultipartBody.Part> image = new ArrayList<>();
-            image.add(partImage);
             gender = activityEditProfileBinding.genderSpinnerId.getSelectedItem().toString().toLowerCase();
-            RequestBody nameRb = RequestBody.create(MediaType.parse("text/plain"), profileData_serviceModel.getData().getUser_name());
-            RequestBody emailRb = RequestBody.create(MediaType.parse("text/plain"), profileData_serviceModel.getData().getEmail());
-            RequestBody mobileRb = RequestBody.create(MediaType.parse("text/plain"), profileData_serviceModel.getData().getMobile());
+
+            if (profileData_serviceModel.getData().getUser_name() == null) {
+                nameRb = RequestBody.create(MediaType.parse("text/plain"), "");
+            } else {
+                nameRb = RequestBody.create(MediaType.parse("text/plain"), profileData_serviceModel.getData().getUser_name());
+            }
+
+            if (profileData_serviceModel.getData().getEmail() == null) {
+                emailRb = RequestBody.create(MediaType.parse("text/plain"), "");
+            } else {
+                emailRb = RequestBody.create(MediaType.parse("text/plain"), profileData_serviceModel.getData().getEmail());
+            }
+            if (profileData_serviceModel.getData().getMobile() == null) {
+                mobileRb = RequestBody.create(MediaType.parse("text/plain"), "");
+            } else {
+                mobileRb = RequestBody.create(MediaType.parse("text/plain"), profileData_serviceModel.getData().getMobile());
+            }
+
+            if (profileData_serviceModel.getData().getDob() == null) {
+                dobRb = RequestBody.create(MediaType.parse("text/plain"), "");
+            } else {
+                dobRb = RequestBody.create(MediaType.parse("text/plain"), profileData_serviceModel.getData().getDob());
+            }
+
+            if (profileData_serviceModel.getData().getLatitude() == null) {
+                locationRb = RequestBody.create(MediaType.parse("text/plain"), "");
+            } else {
+                locationRb = RequestBody.create(MediaType.parse("text/plain"), profileData_serviceModel.getData().getLatitude() + "," + profileData_serviceModel.getData().getLongitude());
+            }
+
             RequestBody genderRb = RequestBody.create(MediaType.parse("text/plain"), gender);
-            RequestBody dobRb = RequestBody.create(MediaType.parse("text/plain"), profileData_serviceModel.getData().getDob());
-            RequestBody locationRb = RequestBody.create(MediaType.parse("text/plain"), profileData_serviceModel.getData().getLatitude() + "," + profileData_serviceModel.getData().getLongitude());
             RequestBody token = RequestBody.create(MediaType.parse("text/plain"), SharedPreferences_Util.getToken(EditProfileActivity.this));
 
             HashMap<String, RequestBody> paramMap = new HashMap<>();
@@ -319,6 +354,7 @@ public class EditProfileActivity extends AppCompactActivity implements ClickList
             profileData_serviceModel.getData().setLatitude(latitude);
             profileData_serviceModel.getData().setLongitude(longitude);
             activityEditProfileBinding.setProfileData(profileData_serviceModel);
+            AlphaHolder.customToast(EditProfileActivity.this, getResources().getString(R.string.gotlocationsuccess));
         } else {
             AlphaHolder.customToast(EditProfileActivity.this, "LOCATION ERROR");
         }

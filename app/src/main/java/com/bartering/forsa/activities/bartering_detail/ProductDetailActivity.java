@@ -63,13 +63,13 @@ import cn.lightsky.infiniteindicator.Page;
 
 public class ProductDetailActivity extends AppCompactActivity implements View.OnClickListener, OnPageClickListener, Observer<Object>, ClickListener {
 
+    public static String product_Id;
     ActivityProductDetailBinding activityProductDetailBinding;
     ProductDescriptionHead_RecyclerViewAdapter subscriptionPlans_recyclerViewAdapter;
     ReviewsProducts_RecyclerViewAdapter reviewsProducts_recyclerViewAdapter;
     Dialog dialogBottom;
     ReportAdLayoutBinding reportAdLayoutBinding;
     SorryLayoutBinding sorryLayoutBinding;
-    String product_Id;
     HomeProducts_ServiceModel.DataBean productInfo;
 
     @Inject
@@ -100,12 +100,6 @@ public class ProductDetailActivity extends AppCompactActivity implements View.On
         listener();
         prepareTabSection();
         //productDescription();
-
-        if (!TextUtils.isEmpty(product_Id))
-            getProductDetail();
-        else
-            AlphaHolder.customToast(ProductDetailActivity.this, getResources().getString(R.string.somethingwentwrong));
-
     }
 
     private void getProductId() {
@@ -217,6 +211,10 @@ public class ProductDetailActivity extends AppCompactActivity implements View.On
     protected void onResume() {
         super.onResume();
 
+        if (!TextUtils.isEmpty(product_Id))
+            getProductDetail();
+        else
+            AlphaHolder.customToast(ProductDetailActivity.this, getResources().getString(R.string.somethingwentwrong));
     }
 
     private void prepareTabSection() {

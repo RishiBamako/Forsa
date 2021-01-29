@@ -380,7 +380,6 @@ public class ProductOverViewActivity extends AppCompactActivity implements View.
         if (resultData.getTag().equals("UPLAOD_PRODUCT_DATA")) {
             ProductDetails_ServiceModel productDetails_serviceModel = (ProductDetails_ServiceModel) resultData.getRootData().getValue();
             if (productDetails_serviceModel != null) {
-                //AlphaHolder.customToast(ProductOverViewActivity.this, productPreview_serviceModel.getMessage());
                 ProductOverViewActivity.this.finish();
 
                 if (!TextUtils.isEmpty(AlphaHolder.isFromMyAds) && AlphaHolder.isFromMyAds.equals("MY_ADS")) {
@@ -402,10 +401,8 @@ public class ProductOverViewActivity extends AppCompactActivity implements View.
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                     overridePendingTransition(0, 0);
-
-
                 }
-
+                AlphaHolder.customToast(ProductOverViewActivity.this, productDetails_serviceModel.getMessage());
 
             }
         }

@@ -97,11 +97,27 @@ public class ApiCaller extends BaseViewModel {
 
                     @Override
                     public void onError(Throwable throwable) {
-                     //   throwable.printStackTrace();
+                        //   throwable.printStackTrace();
                         if (googleLoader != null) {
                             googleLoader.dismiss();
                         }
-                        HandleError(activity,throwable);
+
+                        try {
+                            HttpException error = (HttpException) throwable;
+                            String errorBody = error.response().errorBody().string();
+                            if (!TextUtils.isEmpty(errorBody)) {
+                                JSONObject jsonObject = new JSONObject(errorBody);
+                                if (jsonObject.has("message")) {
+                                    String message = jsonObject.getString("message");
+                                    AlphaHolder.customToast(activity, message);
+                                }
+                            } else {
+                                AlphaHolder.customToast(activity, activity.getResources().getString(R.string.unknown_error));
+                            }
+                        } catch (IOException | JSONException ex) {
+                            ex.printStackTrace();
+                        }
+                        //HandleError(activity, throwable);
 
                         /*try {
                             HttpException error = (HttpException) throwable;
@@ -156,9 +172,26 @@ public class ApiCaller extends BaseViewModel {
 
                     @Override
                     public void onError(Throwable throwable) {
-                      //  throwable.printStackTrace();
+                        //  throwable.printStackTrace();
                         if (googleLoader != null)
                             googleLoader.dismiss();
+
+                        try {
+                            HttpException error = (HttpException) throwable;
+                            String errorBody = error.response().errorBody().string();
+                            if (!TextUtils.isEmpty(errorBody)) {
+                                JSONObject jsonObject = new JSONObject(errorBody);
+                                if (jsonObject.has("message")) {
+                                    String message = jsonObject.getString("message");
+                                    AlphaHolder.customToast(activity, message);
+                                }
+                            } else {
+                                AlphaHolder.customToast(activity, activity.getResources().getString(R.string.unknown_error));
+                            }
+                        } catch (IOException | JSONException ex) {
+                            ex.printStackTrace();
+                        }
+                        //HandleError(activity,throwable);
 
                        /* try {
                             HttpException error = (HttpException) throwable;
@@ -175,7 +208,6 @@ public class ApiCaller extends BaseViewModel {
                         } catch (IOException | JSONException ex) {
                             ex.printStackTrace();
                         }*/
-                        HandleError(activity,throwable);
                         onError.setValue(throwable);
 
                     }
@@ -213,10 +245,25 @@ public class ApiCaller extends BaseViewModel {
 
                     @Override
                     public void onError(Throwable throwable) {
-                  //      throwable.printStackTrace();
+                        //      throwable.printStackTrace();
                         if (googleLoader != null)
                             googleLoader.dismiss();
 
+                        try {
+                            HttpException error = (HttpException) throwable;
+                            String errorBody = error.response().errorBody().string();
+                            if (!TextUtils.isEmpty(errorBody)) {
+                                JSONObject jsonObject = new JSONObject(errorBody);
+                                if (jsonObject.has("message")) {
+                                    String message = jsonObject.getString("message");
+                                    AlphaHolder.customToast(activity, message);
+                                }
+                            } else {
+                                AlphaHolder.customToast(activity, activity.getResources().getString(R.string.unknown_error));
+                            }
+                        } catch (IOException | JSONException ex) {
+                            ex.printStackTrace();
+                        }
                       /*  try {
                             HttpException error = (HttpException) throwable;
                             String errorBody = error.response().errorBody().string();
@@ -232,7 +279,7 @@ public class ApiCaller extends BaseViewModel {
                         } catch (IOException | JSONException ex) {
                             ex.printStackTrace();
                         }*/
-                        HandleError(activity,throwable);
+                        //HandleError(activity, throwable);
                         onError.setValue(throwable);
                     }
                 }));
@@ -247,7 +294,7 @@ public class ApiCaller extends BaseViewModel {
         }
     }
 
-    void HandleError(Activity activity,Throwable throwable) {
+    void HandleError(Activity activity, Throwable throwable) {
         RxJavaPlugins.setErrorHandler(e -> {
             if (e instanceof UndeliverableException) {
                 e = e.getCause();

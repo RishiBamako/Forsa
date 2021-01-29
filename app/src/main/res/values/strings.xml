@@ -146,6 +146,7 @@
     <string name="password">Password</string>
     <string name="confirmpassword">Confirm Password</string>
     <string name="pleaseentercomment">Please enter comment</string>
+    <string name="donehaveproductforbuy">Don\'t have product for buy</string>
     <string name="enteryouremail">Enter Your Email</string>
     <string name="enterpassword">Enter Password</string>
     <string name="enterconfirmpassword">Enter Confirm Password</string>
@@ -220,6 +221,7 @@
     <string name="switchcamera">Switch</string>
     <string name="viewallproducts"><u>View All Products</u></string>
     <string name="reviews">Reviews</string>
+    <string name="request_cancelled">Request Cancelled</string>
     <string name="startbartering">Start Bartering</string>
     <string name="price_dot_text">Price :</string>
 

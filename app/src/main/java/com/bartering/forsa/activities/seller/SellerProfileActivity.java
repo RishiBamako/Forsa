@@ -72,10 +72,16 @@ public class SellerProfileActivity extends AppCompactActivity implements ClickLi
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH, WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH);
         getSellerId();
 
-        if (!TextUtils.isEmpty(seller_id))
+        if (!TextUtils.isEmpty(seller_id)) {
+            if (seller_id.equals(SharedPreferences_Util.getUser_Id(SellerProfileActivity.this))) {
+                activitySellerProfileBinding.followTextViewId.setVisibility(View.GONE);
+            } else {
+                activitySellerProfileBinding.followTextViewId.setVisibility(View.VISIBLE);
+            }
             getProfileData();
-        else
+        } else {
             AlphaHolder.customToast(SellerProfileActivity.this, getResources().getString(R.string.makeacakktoprogrammer));
+        }
     }
 
     private void getSellerId() {
@@ -178,6 +184,9 @@ public class SellerProfileActivity extends AppCompactActivity implements ClickLi
         if (resultData.getTag().equals("SELLER_PROFILE")) {
             sellerProfile_serviceModel = (SellerProfile_ServiceModel) resultData.getRootData().getValue();
             if (sellerProfile_serviceModel.getData() != null) {
+
+                //// is SelfProfile
+
 
                 ///FollerOrNot
                 activitySellerProfileBinding.setFollowerStatus(sellerProfile_serviceModel.getData().getFollowerstatus());
@@ -313,6 +322,7 @@ public class SellerProfileActivity extends AppCompactActivity implements ClickLi
         viewModel.loadData("UN_FOLLOW", paramMap, true, SellerProfileActivity.this);
         viewModel.getRootData().observe(this, this::onChanged);
     }
+
     private void getProfileData() {
         HashMap<String, String> paramMap = new HashMap<>();
         paramMap.put("user_id", seller_id);

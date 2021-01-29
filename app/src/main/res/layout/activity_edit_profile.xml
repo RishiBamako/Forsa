@@ -313,21 +313,19 @@
 
                         >
 
-                        <EditText
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="-2dp"
                             android:layout_toLeftOf="@+id/locationButtonId"
                             android:gravity="center_vertical"
                             android:maxLines="10"
-                            android:background="@android:color/transparent"
                             android:minHeight="@dimen/editheight"
                             android:paddingLeft="@dimen/size_10"
                             android:textSize="@dimen/size_13"
                             android:textColor="@color/black"
-                            android:textColorHint="@color/black"
                             android:textStyle="bold"
-                            app:locationFromLatLong="@{profileData}"></EditText>
+                            app:locationFromLatLong="@{profileData}"></TextView>
 
                         <LinearLayout
                             android:id="@+id/locationButtonId"

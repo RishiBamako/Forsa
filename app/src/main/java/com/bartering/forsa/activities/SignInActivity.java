@@ -30,6 +30,7 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -47,6 +48,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
+
+import io.reactivex.annotations.NonNull;
 
 public class SignInActivity extends AppCompactActivity implements ClickListener, Observer<Object> {
 
@@ -133,21 +136,9 @@ public class SignInActivity extends AppCompactActivity implements ClickListener,
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        signInIntent.addFlags(signInIntent.FLAG_ACTIVITY_NO_HISTORY);
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
-
-    private void signOut() {
-        mGoogleSignInClient.signOut()
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@androidx.annotation.NonNull com.google.android.gms.tasks.Task<Void> task) {
-                        //updateUI(null);
-
-                    }
-
-                });
-    }
-
 
     private void facebookInitiation() {
         callbackManager = CallbackManager.Factory.create();
@@ -234,15 +225,25 @@ public class SignInActivity extends AppCompactActivity implements ClickListener,
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RC_SIGN_IN) {
-            // The Task returned from this call is always completed, no need to attach
-            // a listener.
+        if (requestCode == RC_SIGN_IN && resultCode == -1) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             social_userName = task.getResult().getDisplayName();
             loginWithSocialMedia(task.getResult().getId());
-        } else {
+        } else if (socialLoginType.equals("facebook")) {
             callbackManager.onActivityResult(requestCode, resultCode, data);
+        } else {
+            AlphaHolder.customToast(SignInActivity.this, getResources().getString(R.string.request_cancelled));
         }
+    }
+
+    public void signOut() {
+        mGoogleSignInClient.signOut()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                    }
+                });
     }
 
     public void loginWithSocialMedia(String unique_social_identity) {
@@ -267,7 +268,11 @@ public class SignInActivity extends AppCompactActivity implements ClickListener,
                     startActivity(intent);
                     overridePendingTransition(0, 0);
                 }
-
+                if (socialLoginType.equals("facebook")) {
+                    LoginManager.getInstance().logOut();
+                } else {
+                    signOut();
+                }
             }
         }
     }

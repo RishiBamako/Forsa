@@ -74,7 +74,7 @@ public class FollowerUserActivity extends AppCompactActivity implements ClickLis
         if (resultData.getTag().equals("FOLLOW")) {
             comman_serviceModel = (Comman_ServiceModel) resultData.getRootData().getValue();
             if (comman_serviceModel.isStatus().equals("true")) {
-                followerData_serviceModel.getData().get(follow_ClickedPosition).setOption("Not Follower");
+                followerData_serviceModel.getData().get(follow_ClickedPosition).setIamfollowing("yes");
                 followerUser_recyclerViewAdapter.notifyItemChanged(follow_ClickedPosition);
                 followerUser_recyclerViewAdapter.notifyItemRangeChanged(follow_ClickedPosition, followerData_serviceModel.getData().size() - follow_ClickedPosition);
                 AlphaHolder.customToast(FollowerUserActivity.this, comman_serviceModel.getMessage());

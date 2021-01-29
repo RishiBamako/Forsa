@@ -228,8 +228,8 @@ public class BookRepo {
             freeBas = api.getTermAndCondition(tokenIs);
         } else if (callerSpecificSignature.equals("REMOVE_IMAGE")) {
             String tokenIs = paramMap.get("token");
-            freeBas = api.removeImage(paramMap,tokenIs);
-        }else if (callerSpecificSignature.equals("TOP_FILTER")) {
+            freeBas = api.removeImage(paramMap, tokenIs);
+        } else if (callerSpecificSignature.equals("TOP_FILTER")) {
             String tokenIs = paramMap.get("token");
             freeBas = api.topFilter(tokenIs);
         }
@@ -240,7 +240,11 @@ public class BookRepo {
         if (callerSpecificSignature.equals("EDIT_PROFILE")) {
             RequestBody requestBody = paramMap.get("token");
             String token = bodyToString(requestBody);
-            freeBas = api.editProfile(paramMap, image, token);
+            if (image.get(0) == null)
+                freeBas = api.editProfile_NullImage(paramMap, token);
+            else
+                freeBas = api.editProfile(paramMap, image, token);
+
         }
         if (callerSpecificSignature.equals("UPLOAD_BARTERING_MEDIA")) {
             RequestBody requestBody = paramMap.get("token");
@@ -261,11 +265,12 @@ public class BookRepo {
 
         return (Single<Object>) freeBas;
     }
-    public Single<Object> editProduct(String callerSpecificSignature, Map<String, RequestBody> paramMap,Map<String, RequestBody> imagesIdParam,Map<String, RequestBody> videoIdsParam, List<MultipartBody.Part> image, List<MultipartBody.Part> video) {
-         if (callerSpecificSignature.equals("EDIT_PRODUCT_DATA")) {
+
+    public Single<Object> editProduct(String callerSpecificSignature, Map<String, RequestBody> paramMap, Map<String, RequestBody> imagesIdParam, Map<String, RequestBody> videoIdsParam, List<MultipartBody.Part> image, List<MultipartBody.Part> video) {
+        if (callerSpecificSignature.equals("EDIT_PRODUCT_DATA")) {
             RequestBody requestBody = paramMap.get("token");
             String token = bodyToString(requestBody);
-            freeBas = api.edit_product_update(paramMap,imagesIdParam,videoIdsParam, image, video, token);
+            freeBas = api.edit_product_update(paramMap, imagesIdParam, videoIdsParam, image, video, token);
         }
         return (Single<Object>) freeBas;
     }

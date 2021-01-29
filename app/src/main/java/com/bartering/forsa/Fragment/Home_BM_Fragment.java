@@ -106,6 +106,13 @@ public class Home_BM_Fragment extends BaseFragment implements ClickListener, Obs
         fragmentHomeBMBinding.setUserImage(URLUtil.isValidUrl(SharedPreferences_Util.getUser_Image(activity)) ? SharedPreferences_Util.getUser_Image(activity) : "http://dev.rglabs.net/forsa/uploads/user/" + SharedPreferences_Util.getUser_Image(activity));
         clickListener = this::onClick;
 
+        return fragmentHomeBMBinding.getRoot();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
         gridLayoutManager = new GridLayoutManager(activity, 2);
         fragmentHomeBMBinding.productsRecyclerViewId.setNestedScrollingEnabled(true);
 
@@ -119,7 +126,6 @@ public class Home_BM_Fragment extends BaseFragment implements ClickListener, Obs
             getHomeFilter();
         }
         filterData();
-        return fragmentHomeBMBinding.getRoot();
     }
 
     private void filterData() {

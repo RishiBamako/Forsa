@@ -210,10 +210,9 @@ public class ChooseBarteringItemSuggestionActivity extends AppCompactActivity im
 
         }
         if (callerIdentity.equals("event2")) { ////camera
-            AlphaHolder.isFromMyAds = "BARTERING_PROCESS";
             Intent intent = new Intent(ChooseBarteringItemSuggestionActivity.this, ChooseBarteringItemCameraActivity.class);
             startActivity(intent);
-            overridePendingTransition(0, 0);
+            AlphaHolder.isFromMyAds = "BARTERING_PROCESS";
         }
         if (callerIdentity.equals("event3")) { ///product clicked
             selectedProduct = (BarteringProducts_ServiceModel.DataBean) object;

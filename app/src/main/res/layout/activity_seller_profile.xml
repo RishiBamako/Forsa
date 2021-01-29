@@ -129,6 +129,7 @@
                         android:onClick="@{(view) -> clickListener.onClick(0,null,@string/event5)}"
                         app:followerStatus="@{followerStatus}"
                         android:textColor="@color/white"
+                        android:visibility="gone"
                         android:textSize="@dimen/smallheadersizeallaround"
                         android:textStyle="bold"></TextView>
                 </LinearLayout>

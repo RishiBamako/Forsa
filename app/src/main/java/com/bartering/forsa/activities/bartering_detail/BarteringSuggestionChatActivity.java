@@ -167,7 +167,7 @@ public class BarteringSuggestionChatActivity extends AppCompactActivity implemen
     protected void onResume() {
         super.onResume();
         //  getConversationData();
-        setUpIntevalExecutionSystem();
+        //setUpIntevalExecutionSystem();
     }
 
     private void setUpIntevalExecutionSystem() {
